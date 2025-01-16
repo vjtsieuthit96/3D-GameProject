@@ -48,8 +48,7 @@ public class SoulEaterManager : MonoBehaviour
         
         // tính khoảng cách có thể attack của quái vật
         var distanceAtk = Vector3.Distance(transform.position, target.position);
-
-        Debug.Log(distanceAtk);
+        
 
         if (distance <= attackRange)
         {           
