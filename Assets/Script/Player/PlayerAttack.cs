@@ -4,14 +4,14 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private BoxCollider weaponCollider;
+    
     // index cua animation
     private int _attackHash;
     
     void Start()
     {
         _attackHash = Animator.StringToHash("Attack");
-        weaponCollider.enabled=false;
+        
     }
 
     // Update is called once per frame
@@ -21,16 +21,10 @@ public class PlayerAttack : MonoBehaviour
         // Chỉ cho phép khi nhân vật không có attack animation khác
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            playerAnimator.SetTrigger(_attackHash);
-            StartCoroutine(Attack());
+            playerAnimator.SetTrigger(_attackHash);            
         }
     }
 
-    private IEnumerator Attack()
-    {
-        weaponCollider.enabled = true;
-        yield return new WaitForSeconds(0.75f);
-        weaponCollider.enabled = false;
-    }
+    
 
 }
