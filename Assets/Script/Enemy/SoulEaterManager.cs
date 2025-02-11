@@ -24,7 +24,8 @@ public class SoulEaterManager : MonoBehaviour
     private int _isAliveHash;   
 
     private Coroutine _wanderCoroutine;
-    
+
+    [SerializeField] private Health dragonHealth;
     // Phạm vi tấn công
     // quay về vị trí khi ko có target
     // tự động di chuyển xung quanh khu vực
@@ -118,9 +119,17 @@ public class SoulEaterManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Weapon"))
+        if (other.CompareTag(Constans.WEAPON_TAG))
         {
             Debug.Log("Get Hit");
+
+            //lấy chỉ số dame từ vkhí
+            //var damage = other.GetComponent<Weapon>().damage
+            //trừ máu 
+            dragonHealth.TakeDamage(10);
+
+            // hết máu chết
+            // nav mesh agent stop
         }
     }
 
