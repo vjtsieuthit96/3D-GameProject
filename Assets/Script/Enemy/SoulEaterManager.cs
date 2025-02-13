@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Threading;
+using Unity.Cinemachine;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
@@ -26,6 +28,9 @@ public class SoulEaterManager : MonoBehaviour
     private Coroutine _wanderCoroutine;
 
     [SerializeField] private Health dragonHealth;
+    [SerializeField] GameObject damageTextPrefab;
+    [SerializeField] private CinemachineFollow _cinemachineFollow;
+    [SerializeField] private GameObject hpCanvas;
     // Phạm vi tấn công
     // quay về vị trí khi ko có target
     // tự động di chuyển xung quanh khu vực
@@ -126,7 +131,12 @@ public class SoulEaterManager : MonoBehaviour
             //lấy chỉ số dame từ vkhí
             //var damage = other.GetComponent<Weapon>().damage
             //trừ máu 
-            dragonHealth.TakeDamage(10);
+
+            var damage = Random.Range(15, 55);            
+            var damageText = Instantiate(damageTextPrefab, transform.position, Quaternion.identity,hpCanvas.transform);
+            damageText.GetComponent<FloatingDamage>().SetText(damage);
+            damageText.GetComponent<FloatingDamage>().SetCamera(_cinemachineFollow);    
+            dragonHealth.TakeDamage(damage);
 
             // hết máu chết
             // nav mesh agent stop
