@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Health playerHealth;
     [SerializeField] private TMP_Text hpText;
-       // Start is called once before the first execution of Update after the MonoBehaviour is created
+     
     void Start()
     {
         healthSlider.maxValue = playerHealth.GetMaxtHealth();
