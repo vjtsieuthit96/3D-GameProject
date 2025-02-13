@@ -1,26 +1,25 @@
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+{    
+    [SerializeField] private CharacterController characterController;   
+    private bool _isTouching;     
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    // Player có CharacterController
-    // Quái có CharacterContronller
+    public bool GetIsTouching() => _isTouching;
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider other)
     {
-        if (hit.gameObject.CompareTag(Constans.DRAGON_TAG))
+        if (other.CompareTag(Constans.DRAGON_TAG))
         {
-            Debug.Log("Player Hit Dragon");
+            _isTouching = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(Constans.DRAGON_TAG))
+        {
+            _isTouching = false;
         }
     }
 }
