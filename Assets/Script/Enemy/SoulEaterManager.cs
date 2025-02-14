@@ -10,7 +10,7 @@ public class SoulEaterManager : MonoBehaviour
 
 {
     [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform target;    
 
     private Vector3 _initPosition;
     private bool _isReturningToInitPosition;    
@@ -23,7 +23,9 @@ public class SoulEaterManager : MonoBehaviour
     private int _isFlyingHash;
     private int _isRunningHash;
     private int _getHitHash;
-    private int _isAliveHash;   
+    private int _isAliveHash;
+    private int _immuneToGetHitHash;
+    private int _getHitCount;
 
     private Coroutine _wanderCoroutine;
 
@@ -31,6 +33,8 @@ public class SoulEaterManager : MonoBehaviour
     [SerializeField] GameObject damageTextPrefab;
     [SerializeField] private CinemachineFollow _cinemachineFollow;
     [SerializeField] private GameObject hpCanvas;
+      
+    
     // Phạm vi tấn công
     // quay về vị trí khi ko có target
     // tự động di chuyển xung quanh khu vực
@@ -44,18 +48,23 @@ public class SoulEaterManager : MonoBehaviour
         _isFlyingHash = Animator.StringToHash("isFlying");
         _isRunningHash = Animator.StringToHash("isRunning");
         _isAliveHash = Animator.StringToHash("isAlive");
+        _getHitHash = Animator.StringToHash("GetHit");
+        _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
+        soulEaterAnimator.SetBool(_isAliveHash, true);
     }
 
     void Update()
-    {            
+    {   //Nếu player Die quay về vị trí ban đầu và bỏ target
+       
         //tính khoảng cách của player đến vị trí ban đầu của quái 
 
         var distance = Vector3.Distance(_initPosition, target.position);
         
         // tính khoảng cách có thể attack của quái vật
         var distanceAtk = Vector3.Distance(transform.position, target.position);
-        
 
+        // Các logic về khoảng cách target & attack Player
+        #region Logic NavmeshAgent
         if (distance <= attackRange)
         {           
 
@@ -68,10 +77,10 @@ public class SoulEaterManager : MonoBehaviour
             _isReturningToInitPosition = false;
             navMeshAgent.SetDestination(target.position);
             Fly();
-            if (distanceAtk <= 3.5f)
+            if (distanceAtk <= Constans.distanceNearPlayer)
             {  
                 WalkorRun();
-                if (distanceAtk <=2f)
+                if (distanceAtk <= Constans.distanceCanAtk)
                     soulEaterAnimator.SetTrigger(_attackHash);
             }
             
@@ -104,16 +113,54 @@ public class SoulEaterManager : MonoBehaviour
                 }
             }
         }
-        soulEaterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude);
+        #endregion
+        
+        //
+        soulEaterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude);         
 
     }
 
+    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(Constans.WEAPON_TAG))
+        {
+            Debug.Log("Get Hit");
+            // Nếu Dragon chạy anim GetHit quá 3 lần sẽ ko chạy anim GetHit trong thời gian 5s;
+            GetHit();
+
+            if (soulEaterAnimator.GetBool(_isAliveHash))
+            {
+                ShowFloatingDame();
+                
+                if (dragonHealth.GetCurrentHealth() <= 0)
+                {
+                    Die();
+                }
+            }
+            
+        }
+    }
+    
+    // Phương thức enemy di chuyển và logic Wander
+    #region enemyWalkStyle & Wander
+    private void Fly ()
+    {
+        soulEaterAnimator.SetBool(_isRunningHash, false);
+        soulEaterAnimator.SetBool(_isFlyingHash, true);
+    }
+    private void WalkorRun()
+    {
+        soulEaterAnimator.SetBool(_isRunningHash, true);
+        soulEaterAnimator.SetBool(_isFlyingHash, false);
+    }
     private IEnumerator Wander()
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
-            var randomPosition = Random.insideUnitSphere * 7;           
+            var randomPosition = Random.insideUnitSphere * 7;
             randomPosition += _initPosition;
             NavMeshHit hit;
             NavMesh.SamplePosition(randomPosition, out hit, 7, NavMesh.AllAreas);
@@ -121,39 +168,52 @@ public class SoulEaterManager : MonoBehaviour
             WalkorRun();
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+    #endregion 
+    // Logic Get Hit & Die
+    #region enemyGetHit&Dead
+    private void GetHit()
     {
-        if (other.CompareTag(Constans.WEAPON_TAG))
+        if (!soulEaterAnimator.GetBool(_immuneToGetHitHash))
         {
-            Debug.Log("Get Hit");
-
-            //lấy chỉ số dame từ vkhí
-            //var damage = other.GetComponent<Weapon>().damage
-            //trừ máu 
-
-            var damage = Random.Range(15, 55);            
-            var damageText = Instantiate(damageTextPrefab, transform.position, Quaternion.identity,hpCanvas.transform);
-            damageText.GetComponent<FloatingDamage>().SetText(damage);
-            damageText.GetComponent<FloatingDamage>().SetCamera(_cinemachineFollow);    
-            dragonHealth.TakeDamage(damage);
-
-            // hết máu chết
-            // nav mesh agent stop
+            soulEaterAnimator.SetTrigger(_getHitHash);
+            _getHitCount++;
+            if (_getHitCount >= Constans.hitCountToImmune)
+            {
+                soulEaterAnimator.SetBool(_immuneToGetHitHash, true);
+                StartCoroutine(RemoveImmunityAfterCD());
+            }
+        }
+    }     
+    private void ShowFloatingDame()
+    {
+        //lấy chỉ số dame từ vkhí
+        //var damage = other.GetComponent<Weapon>().damage
+        //trừ máu
+        var damage = Random.Range(15, 55);
+        var damageText = Instantiate(damageTextPrefab, transform.position, Quaternion.identity, hpCanvas.transform);
+        damageText.GetComponent<FloatingDamage>().SetText(damage);
+        damageText.GetComponent<FloatingDamage>().SetCamera(_cinemachineFollow);
+        dragonHealth.TakeDamage(damage);
+    }
+    private IEnumerator RemoveImmunityAfterCD()
+    {
+        yield return new WaitForSeconds(Constans.immuneDuration);
+        soulEaterAnimator.SetBool(_immuneToGetHitHash, false);
+        _getHitCount = 0;
+    }
+    private void Die()
+    {
+        // Hết máu chết
+        // Stop Navmesh Agent
+        if (soulEaterAnimator.GetBool(_isAliveHash))
+        {
+            soulEaterAnimator.SetBool(_immuneToGetHitHash, true);
+            soulEaterAnimator.SetBool(_isAliveHash, false);
+            navMeshAgent.isStopped = true;
+            Destroy(gameObject, Constans.dispawnTime);
         }
     }
+    #endregion
+    
 
-    private void Fly ()
-    {
-        soulEaterAnimator.SetBool(_isRunningHash, false);
-        soulEaterAnimator.SetBool(_isFlyingHash, true);
-    }
-
-    private void WalkorRun()
-    {
-        soulEaterAnimator.SetBool(_isRunningHash, true);
-        soulEaterAnimator.SetBool(_isFlyingHash, false);
-    }
- 
-   
 }
