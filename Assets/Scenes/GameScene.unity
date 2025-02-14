@@ -576,6 +576,7 @@ GameObject:
   - component: {fileID: 309148430}
   - component: {fileID: 309148431}
   - component: {fileID: 309148432}
+  - component: {fileID: 309148433}
   m_Layer: 0
   m_Name: SoulEater
   m_TagString: Dragon
@@ -638,7 +639,7 @@ NavMeshAgent:
   m_Speed: 6
   m_Acceleration: 1.5
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 1.75
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -661,6 +662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 309148428}
   target: {fileID: 583821137}
+  soulEaterSkillManager: {fileID: 309148433}
   attackRange: 30
   soulEaterAnimator: {fileID: 199572751}
   dragonHealth: {fileID: 309148430}
@@ -718,6 +720,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &309148433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309148424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f92bc1795254e45b17c86c69db48bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulEaterAnimator: {fileID: 199572751}
+  fireBallCoolDown: 6
 --- !u!1 &326469313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,6 +2169,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780938824}
   m_CullTransparentMesh: 1
+--- !u!4 &800966743 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 485108, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
+  m_PrefabInstance: {fileID: 950993310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &832478074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2758808173843430218, guid: 46f8d17b9eeef754ebc1008196f84bdd, type: 3}
@@ -2573,13 +2594,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 583821137}
+    - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
+      propertyPath: FireBall
+      value: 
+      objectReference: {fileID: 8429575460300667406, guid: d2c0936d0eef40d469f1b2174a70b3db, type: 3}
+    - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 583821142}
     - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
+      propertyPath: fireBallSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 583821144}
+    - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
+      propertyPath: fireBallSpawnPoint
+      value: 
+      objectReference: {fileID: 800966743}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
