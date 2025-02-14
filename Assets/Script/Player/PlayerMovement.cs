@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Animator playerAnimator;
 
+    [SerializeField] private PlayerManager playerManager;
+
     void Start()
     {
 
@@ -20,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (playerManager.ISDEAD())
+        {
+            return;
+        }
         // Nhân vật di chuyển
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
@@ -44,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
         {
             playerPrefab.transform.rotation = Quaternion.LookRotation(move * Time.deltaTime);
         }
+
+        
 
     }
 }
