@@ -4,6 +4,10 @@ public class FireBallManager : MonoBehaviour
 {
     [SerializeField] private int damage;
 
+    private void Start()
+    {
+        Invoke("Destroy", 3f);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constans.PLAYER_TAG))
@@ -15,8 +19,17 @@ public class FireBallManager : MonoBehaviour
             {
                 playerManager.SetIsHit();
                 playerHealth.TakeDamage(damage);
-            }
-            Destroy(gameObject, 3f);
+                Destroy(gameObject);
+            }           
         }
+        if (other.CompareTag(Constans.TERRAIN_Tag))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

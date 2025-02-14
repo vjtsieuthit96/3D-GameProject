@@ -2,6 +2,8 @@
 
 public class Constans 
 {
+    //Terrain
+    public const string TERRAIN_Tag = "Terrain";
     // anim dragon
     public const string SPEED = "Speed";
     public const string ATTACK = "Attack";
