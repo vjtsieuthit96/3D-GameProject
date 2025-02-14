@@ -10,7 +10,8 @@ public class SoulEaterManager : MonoBehaviour
 
 {
     [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private Transform target;    
+    [SerializeField] private Transform target;
+    [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
 
     private Vector3 _initPosition;
     private bool _isReturningToInitPosition;    
@@ -18,8 +19,7 @@ public class SoulEaterManager : MonoBehaviour
 
     [SerializeField] private Animator soulEaterAnimator;
     private int _speedHash;
-    private int _attackHash;
-    private int _skillHash;
+    private int _attackHash;   
     private int _isFlyingHash;
     private int _isRunningHash;
     private int _getHitHash;
@@ -43,8 +43,7 @@ public class SoulEaterManager : MonoBehaviour
 
         _initPosition = transform.position;
         _speedHash = Animator.StringToHash("Speed");
-        _attackHash = Animator.StringToHash("Attack");
-        _skillHash = Animator.StringToHash("Skill");
+        _attackHash = Animator.StringToHash("Attack");      
         _isFlyingHash = Animator.StringToHash("isFlying");
         _isRunningHash = Animator.StringToHash("isRunning");
         _isAliveHash = Animator.StringToHash("isAlive");
@@ -77,6 +76,10 @@ public class SoulEaterManager : MonoBehaviour
             _isReturningToInitPosition = false;
             navMeshAgent.SetDestination(target.position);
             Fly();
+            if (distance < attackRange * 0.8f)
+            {
+                soulEaterSkillManager.TryCastFireBall();
+            }
             if (distanceAtk <= Constans.distanceNearPlayer)
             {  
                 WalkorRun();
