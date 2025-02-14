@@ -639,7 +639,7 @@ NavMeshAgent:
   m_Speed: 6
   m_Acceleration: 1.5
   avoidancePriority: 50
-  m_AngularSpeed: 180
+  m_AngularSpeed: 120
   m_StoppingDistance: 1.75
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -2596,7 +2596,7 @@ PrefabInstance:
     - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 583821137}
+      objectReference: {fileID: 1299999542}
     - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
       propertyPath: FireBall
       value: 
@@ -3059,7 +3059,7 @@ GameObject:
   - component: {fileID: 1135160851}
   m_Layer: 0
   m_Name: Map Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3629,6 +3629,11 @@ CharacterController:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5333067022018309013, guid: 82a4a3ca54c4d394db3fe251c0320a65, type: 3}
   m_PrefabInstance: {fileID: 1715957777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1299999542 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6806387934588658144, guid: 1ff5eb64257fe804f86f6516327f2d87, type: 3}
+  m_PrefabInstance: {fileID: 5947015757980759513}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1315543221
 GameObject:
