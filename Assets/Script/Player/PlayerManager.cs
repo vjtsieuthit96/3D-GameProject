@@ -6,13 +6,11 @@ public class PlayerManager : MonoBehaviour
 {    
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Health playerHealth;
-    [SerializeField] private Animator playerAnimator;
-    [SerializeField] private SoulEaterAnimManager soulEaterAnimManager;
+    [SerializeField] private Animator playerAnimator;    
     private int _isAliveHash;
     private int _isHit;
     private int _isIummnity;
     private bool _isTouching;
-
     private bool _isDead;
     public bool ISDEAD() => _isDead;
    

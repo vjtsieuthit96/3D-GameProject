@@ -5,8 +5,8 @@ public class FireBallManager : MonoBehaviour
     [SerializeField] private int damage;
 
     private void Start()
-    {
-        Invoke("Destroy", 3f);
+    {        
+        Invoke("DestroyFireBall", 3f);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +28,7 @@ public class FireBallManager : MonoBehaviour
         }
     }
 
-    private void Destroy()
+    private void DestroyFireBall()
     {
         Destroy(gameObject);
     }

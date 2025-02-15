@@ -9,14 +9,12 @@ public class PlayerAnimManager : MonoBehaviour
         weaponCollider.enabled = false;
     }
     public void OnAttackStart()
-    {
-        Debug.Log("AttackBegin");
+    {        
         weaponCollider.enabled = true;
     }
 
     public void OnAttackEnd() 
-    {
-        Debug.Log("AttackEnd");
+    {       
         weaponCollider.enabled = false;
     }
 
