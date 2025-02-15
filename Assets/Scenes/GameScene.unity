@@ -571,12 +571,13 @@ GameObject:
   m_Component:
   - component: {fileID: 309148425}
   - component: {fileID: 309148428}
-  - component: {fileID: 309148429}
   - component: {fileID: 309148426}
-  - component: {fileID: 309148430}
-  - component: {fileID: 309148431}
   - component: {fileID: 309148432}
+  - component: {fileID: 309148429}
+  - component: {fileID: 309148430}
   - component: {fileID: 309148433}
+  - component: {fileID: 309148434}
+  - component: {fileID: 309148431}
   m_Layer: 0
   m_Name: SoulEater
   m_TagString: Dragon
@@ -665,6 +666,7 @@ MonoBehaviour:
   soulEaterSkillManager: {fileID: 309148433}
   attackRange: 30
   soulEaterAnimator: {fileID: 199572751}
+  _flyCD: 15
   dragonHealth: {fileID: 309148430}
   damageTextPrefab: {fileID: 3662710587411060014, guid: 181dc0e7397677a4ba3adf0456b8641e, type: 3}
   _cinemachineFollow: {fileID: 251112092}
@@ -697,7 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1962254432}
-  dragonHealth: {fileID: 309148430}
+  monsterHealth: {fileID: 309148430}
   _cinemachineFollow: {fileID: 251112092}
 --- !u!135 &309148432
 SphereCollider:
@@ -733,7 +735,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soulEaterAnimator: {fileID: 199572751}
-  fireBallCoolDown: 6
+  target: {fileID: 480963782}
+  fireBallCD: 10
+  fireBallPrefab: {fileID: 8429575460300667406, guid: d2c0936d0eef40d469f1b2174a70b3db, type: 3}
+  fireBallSpawnPoint: {fileID: 800966743}
+  fireBallSpeed: 6
+--- !u!114 &309148434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309148424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed898e98b815f834cae5345aac7c2438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalDamage: 30
 --- !u!1 &326469313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,6 +1490,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2758808173843430218, guid: 46f8d17b9eeef754ebc1008196f84bdd, type: 3}
   m_PrefabInstance: {fileID: 1423648826}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &480963782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7607504854454407819, guid: 1ff5eb64257fe804f86f6516327f2d87, type: 3}
+  m_PrefabInstance: {fileID: 5947015757980759513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &500103322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,9 +1684,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 583821137}
+  - component: {fileID: 583821138}
   - component: {fileID: 583821139}
   - component: {fileID: 583821141}
-  - component: {fileID: 583821138}
   - component: {fileID: 583821142}
   - component: {fileID: 583821143}
   - component: {fileID: 583821144}
@@ -1799,7 +1823,6 @@ MonoBehaviour:
   characterController: {fileID: 583821138}
   playerHealth: {fileID: 583821142}
   playerAnimator: {fileID: 9036980634893189195}
-  soulEaterAnimManager: {fileID: 1831588142}
 --- !u!114 &583821145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2598,25 +2621,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1299999542}
     - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
-      propertyPath: FireBall
-      value: 
-      objectReference: {fileID: 8429575460300667406, guid: d2c0936d0eef40d469f1b2174a70b3db, type: 3}
-    - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 583821142}
-    - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
-      propertyPath: fireBallSpeed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 583821144}
     - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
-      propertyPath: fireBallSpawnPoint
+      propertyPath: soulEaterSkillManager
       value: 
-      objectReference: {fileID: 800966743}
+      objectReference: {fileID: 309148433}
+    - target: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
+      propertyPath: soulEaterDamageManager
+      value: 
+      objectReference: {fileID: 309148434}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4723,17 +4742,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825075226}
   m_CullTransparentMesh: 1
---- !u!114 &1831588142 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1774223278501123092, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
-  m_PrefabInstance: {fileID: 950993310}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e93ccf1af9f32b4696f961c521524bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1861221558
 GameObject:
   m_ObjectHideFlags: 0

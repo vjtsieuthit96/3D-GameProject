@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Player Dead sẽ ko di chuyển
         if (playerManager.ISDEAD())
         {
             return;

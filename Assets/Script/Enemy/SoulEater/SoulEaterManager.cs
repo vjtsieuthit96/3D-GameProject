@@ -9,6 +9,8 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 public class SoulEaterManager : MonoBehaviour
 
 {
+    //Fields
+    #region Fields
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform target;
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
@@ -27,20 +29,22 @@ public class SoulEaterManager : MonoBehaviour
     private int _immuneToGetHitHash;
     private int _getHitCount;
 
+    private bool _canFly = true;
+    [SerializeField] private float _flyCD = 15f;
+
     private Coroutine _wanderCoroutine;
 
     [SerializeField] private Health dragonHealth;
     [SerializeField] GameObject damageTextPrefab;
     [SerializeField] private CinemachineFollow _cinemachineFollow;
     [SerializeField] private GameObject hpCanvas;
-      
-    
+    #endregion
+
     // Phạm vi tấn công
     // quay về vị trí khi ko có target
     // tự động di chuyển xung quanh khu vực
     void Start()
     {
-
         _initPosition = transform.position;
         _speedHash = Animator.StringToHash("Speed");
         _attackHash = Animator.StringToHash("Attack");      
@@ -130,7 +134,7 @@ public class SoulEaterManager : MonoBehaviour
         if (other.CompareTag(Constans.WEAPON_TAG))
         {
             Debug.Log("Get Hit");
-            // Nếu Dragon chạy anim GetHit quá 3 lần sẽ ko chạy anim GetHit trong thời gian 5s;
+            // Nếu Dragon chạy anim GetHit quá số lần cho phép sẽ ko chạy anim GetHit trong thời gian 5s;
             GetHit();
 
             if (soulEaterAnimator.GetBool(_isAliveHash))
@@ -141,8 +145,7 @@ public class SoulEaterManager : MonoBehaviour
                 {
                     Die();
                 }
-            }
-            
+            }            
         }
     }
     
@@ -150,8 +153,16 @@ public class SoulEaterManager : MonoBehaviour
     #region enemyWalkStyle & Wander
     private void Fly ()
     {
+        if(_canFly)
+        StartCoroutine(TrytoFly());
+    }
+    private IEnumerator TrytoFly()
+    {
+        _canFly = false;
         soulEaterAnimator.SetBool(_isRunningHash, false);
         soulEaterAnimator.SetBool(_isFlyingHash, true);
+        yield return new WaitForSeconds(_flyCD);
+        _canFly = true;
     }
     private void WalkorRun()
     {

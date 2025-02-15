@@ -16,7 +16,7 @@ public class Constans
     public const float dispawnTime = 7f;
     public const float distanceNearPlayer = 3.5f;
     public const float distanceCanAtk = 2f;
-    public const int hitCountToImmune = 3;
+    public const int hitCountToImmune = 4;
     public const float immuneDuration = 5f;
 
 }

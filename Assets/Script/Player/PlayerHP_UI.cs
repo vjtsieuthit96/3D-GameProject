@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerUI : MonoBehaviour
-{
-    //HP
-    #region HP
+public class PlayerHP_UI : MonoBehaviour
+{   
+   
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Health playerHealth;
     [SerializeField] private TMP_Text hpText;
@@ -20,9 +19,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Color lowHealthColor = Color.red;
     [SerializeField] private float blinkDuration = 0.5f;
     [SerializeField] private Color backgroundNormalColor = Color.white;
-    private bool isBlinking = false;
-    #endregion
-    //MP
+    private bool isBlinking = false;  
+    
 
     void Start()
     {
@@ -35,9 +33,8 @@ public class PlayerUI : MonoBehaviour
         healthSlider.value = playerHealth.GetCurrentHealth();
         hpText.text = healthSlider.value.ToString() + "/" + playerHealth.GetMaxtHealth();
         UpdateHealthBar();
-    }
-    //HP
-    #region HP
+    }  
+    
     void UpdateHealthBar()
     {
         float currentHealth = playerHealth.GetCurrentHealth();
@@ -66,7 +63,6 @@ public class PlayerUI : MonoBehaviour
             }
         }
     }
-
     void StopBlinking()
     {
         if (isBlinking)
@@ -108,7 +104,6 @@ public class PlayerUI : MonoBehaviour
         hpText.fontMaterial.DisableKeyword("GLOW_ON");
         fillImage.material.DisableKeyword("GLOW_ON");
         background.material.DisableKeyword("GLOW_ON");
-    }
-    #endregion
-    //MP
+    } 
+    
 }

@@ -5,7 +5,7 @@ public class SoulEaterAnimManager : MonoBehaviour
     
     [SerializeField] private Health playerHealth;
     [SerializeField] private PlayerManager playerManager; 
-    [SerializeField] private DamageManager soulEaterDamageManager;
+    [SerializeField] private EnemyDamageManager soulEaterDamageManager;
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
 
 
@@ -16,8 +16,7 @@ public class SoulEaterAnimManager : MonoBehaviour
             playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage());
             playerManager.SetIsHit();           
         }
-    }
-    
+    }   
 
     public void DragonTailAtk()
     {
