@@ -659,6 +659,7 @@ MonoBehaviour:
   _flyCD: 15
   dragonHealth: {fileID: 309148430}
   damageTextPrefab: {fileID: 3662710587411060014, guid: 181dc0e7397677a4ba3adf0456b8641e, type: 3}
+  floatingDamageSpawnPoint: {fileID: 950650248}
   _cinemachineFollow: {fileID: 251112092}
   hpCanvas: {fileID: 919980244}
 --- !u!114 &309148430
@@ -2559,6 +2560,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6354702017172886721, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
   m_PrefabInstance: {fileID: 497905925008404973}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &950650248 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9220720622309721567, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
+  m_PrefabInstance: {fileID: 497905925008404973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &952539818
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,6 +2989,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995607796}
   m_CullTransparentMesh: 1
+--- !u!1 &1032138993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032138994}
+  m_Layer: 0
+  m_Name: SwordTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1032138994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032138993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.003, y: 1.162, z: 0.011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4327003140507968955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1135160849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,7 +3168,7 @@ PrefabInstance:
     - target: {fileID: 2211126460430936001, guid: 257c304c754d3b247a51ef5bea7a90d0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 72ff3baa4ffaa7841bec919539eb34c9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5295,9 +5332,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8053079461210144419, guid: 50a055dfba0896d4bab74abbd8b1507f, type: 3}
+      propertyPath: normalHitEffect
+      value: 
+      objectReference: {fileID: 790968201924865968, guid: 9f32b10c2f6efb843ad324bb0871bcd4, type: 3}
+    - target: {fileID: 8053079461210144419, guid: 50a055dfba0896d4bab74abbd8b1507f, type: 3}
+      propertyPath: normalHitEffectSpawnPoint
+      value: 
+      objectReference: {fileID: 1032138994}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5175844595368182551, guid: 50a055dfba0896d4bab74abbd8b1507f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1032138994}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50a055dfba0896d4bab74abbd8b1507f, type: 3}
 --- !u!95 &4229086933559979462 stripped
@@ -5308,6 +5356,11 @@ Animator:
 --- !u!4 &4259070479513904978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7835817562248138099, guid: 50a055dfba0896d4bab74abbd8b1507f, type: 3}
+  m_PrefabInstance: {fileID: 1277175776071018840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4327003140507968955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5175844595368182551, guid: 50a055dfba0896d4bab74abbd8b1507f, type: 3}
   m_PrefabInstance: {fileID: 1277175776071018840}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7345400552499013218 stripped
