@@ -13,7 +13,7 @@ public class SoulEaterManager : MonoBehaviour
     #region Fields
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform target;
-    [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
+    [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;   
 
     private Vector3 _initPosition;
     private bool _isReturningToInitPosition;    
@@ -36,8 +36,9 @@ public class SoulEaterManager : MonoBehaviour
 
     [SerializeField] private Health dragonHealth;
     [SerializeField] GameObject damageTextPrefab;
+    [SerializeField] private Transform floatingDamageSpawnPoint;
     [SerializeField] private CinemachineFollow _cinemachineFollow;
-    [SerializeField] private GameObject hpCanvas;
+    [SerializeField] private GameObject hpCanvas;    
     #endregion
 
     // Phạm vi tấn công
@@ -204,7 +205,7 @@ public class SoulEaterManager : MonoBehaviour
         //var damage = other.GetComponent<Weapon>().damage
         //trừ máu
         var damage = Random.Range(15, 55);
-        var damageText = Instantiate(damageTextPrefab, transform.position, Quaternion.identity, hpCanvas.transform);
+        var damageText = Instantiate(damageTextPrefab, floatingDamageSpawnPoint.position + new Vector3(0, 0.5f, 0), Quaternion.identity, hpCanvas.transform);
         damageText.GetComponent<FloatingDamage>().SetText(damage);
         damageText.GetComponent<FloatingDamage>().SetCamera(_cinemachineFollow);
         dragonHealth.TakeDamage(damage);
