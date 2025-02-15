@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class SoulEaterSkillManager : MonoBehaviour
 {
-    [SerializeField] private Animator soulEaterAnimator;
-    
+    [SerializeField] private Animator soulEaterAnimator;    
+    [SerializeField] private Transform target;
+    private int _skillHash;
+
+
     private void Start()
     {
         _skillHash = Animator.StringToHash("Skill");
@@ -12,10 +15,12 @@ public class SoulEaterSkillManager : MonoBehaviour
     #region FireBallSkill
         
     
-    [SerializeField] private float fireBallCoolDown = 10f;
-
+    [SerializeField] private float fireBallCD = 10f;
+    [SerializeField] private GameObject fireBallPrefab;
+    [SerializeField] private Transform fireBallSpawnPoint;
+    [SerializeField] private float fireBallSpeed = 5f;
     private bool _canCastFireBall = true;
-    private int _skillHash;
+    
     public void TryCastFireBall()
     {
         if (_canCastFireBall)
@@ -28,9 +33,16 @@ public class SoulEaterSkillManager : MonoBehaviour
     {
         _canCastFireBall = false;
         soulEaterAnimator.SetTrigger(_skillHash);  
-        yield return new WaitForSeconds(fireBallCoolDown);
+        yield return new WaitForSeconds(fireBallCD);
         _canCastFireBall = true;        
     }
+
+    private void _FireBall()
+    {
+        GameObject fireball = Instantiate(fireBallPrefab, fireBallSpawnPoint.position, Quaternion.identity);
+        fireball.GetComponent<Rigidbody>().linearVelocity = (target.position - fireBallSpawnPoint.position).normalized * fireBallSpeed;
+    }
+    public void FireBall() => _FireBall();
     #endregion
     
 }

@@ -1561,6 +1561,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
   playerManager: {fileID: 0}
+  FireBall: {fileID: 8429575460300667406, guid: d2c0936d0eef40d469f1b2174a70b3db, type: 3}
+  fireBallSpawnPoint: {fileID: 485108}
+  target: {fileID: 0}
+  fireBallSpeed: 7
 --- !u!1 &172518
 GameObject:
   m_ObjectHideFlags: 0
