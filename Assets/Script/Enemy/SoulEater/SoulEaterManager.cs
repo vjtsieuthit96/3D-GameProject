@@ -133,7 +133,7 @@ public class SoulEaterManager : MonoBehaviour
     {
         if (other.CompareTag(Constans.WEAPON_TAG))
         {
-            Debug.Log("Get Hit");
+            Debug.Log("Enemy Is Hit");
             // Nếu Dragon chạy anim GetHit quá số lần cho phép sẽ ko chạy anim GetHit trong thời gian 5s;
             GetHit();
 
