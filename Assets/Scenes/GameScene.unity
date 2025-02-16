@@ -258,6 +258,8 @@ GameObject:
   - component: {fileID: 251112090}
   - component: {fileID: 251112092}
   - component: {fileID: 251112088}
+  - component: {fileID: 251112093}
+  - component: {fileID: 251112094}
   m_Layer: 0
   m_Name: CinemachineCamera Follow 1
   m_TagString: Untagged
@@ -371,6 +373,36 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   FollowOffset: {x: 0, y: 2, z: -5}
+--- !u!114 &251112093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251112087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &251112094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251112087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f107835e75725bd4ab4dc2c35438235f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraPerlin: {fileID: 251112093}
 --- !u!1 &273099112
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +616,7 @@ Transform:
   m_GameObject: {fileID: 309148424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.3, y: 3.2, z: 47.8}
+  m_LocalPosition: {x: 17.3, y: 0.94, z: 47.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -611,12 +643,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 2
+  m_Radius: 2.75
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &309148428
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -631,7 +663,7 @@ NavMeshAgent:
   m_Acceleration: 1.5
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 3.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -711,7 +743,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 2.75
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &309148433
 MonoBehaviour:
@@ -4398,15 +4430,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4461,6 +4493,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 583821144}
     - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
+      propertyPath: cameraShakeManager
+      value: 
+      objectReference: {fileID: 251112094}
+    - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: soulEaterSkillManager
       value: 
       objectReference: {fileID: 309148433}
@@ -4468,6 +4504,10 @@ PrefabInstance:
       propertyPath: soulEaterDamageManager
       value: 
       objectReference: {fileID: 309148434}
+    - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
+      propertyPath: _cinemachineBasicMultiChannelPerlin
+      value: 
+      objectReference: {fileID: 251112093}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
