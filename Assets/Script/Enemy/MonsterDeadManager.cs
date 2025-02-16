@@ -37,11 +37,11 @@ public class MonsterDeadManager : MonoBehaviour
         var random = Random.Range(0, 100);
         if (random < 90)
         {
-            var sword = Instantiate(itemDrop[0], dropPosition.position + new Vector3 (0,2f,0), Quaternion.identity);
+            var sword = Instantiate(itemDrop[0], dropPosition.position + new Vector3 (0,4f,0), Quaternion.identity);
         }
         else
         {
-            var bazoka = Instantiate(itemDrop[1], dropPosition.position + new Vector3(0, 2f, 0), Quaternion.identity);
+            var bazoka = Instantiate(itemDrop[1], dropPosition.position + new Vector3(0, 4f, 0), Quaternion.identity);
         }
         
     }
