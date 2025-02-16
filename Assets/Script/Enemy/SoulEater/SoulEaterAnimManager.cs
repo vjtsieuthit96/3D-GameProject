@@ -21,7 +21,7 @@ public class SoulEaterAnimManager : MonoBehaviour
 
     public void RoarStart()
     {
-        cameraShakeManager.StartShake(1.5f, 1, 1);
+        cameraShakeManager.StartShake(2f, 15, 15);
         audioSource.PlayOneShot(roarClip); 
     }
 
