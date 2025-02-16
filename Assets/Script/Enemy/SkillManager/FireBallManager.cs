@@ -6,7 +6,9 @@ using UnityEngine;
 public class FireBallManager : MonoBehaviour
 {
     [SerializeField] private int damage;
+    [SerializeField] private GameObject explosionEffect;
     private CameraShakeManager _shakeManager;
+    
 
     private void Start()
     {        
@@ -25,18 +27,23 @@ public class FireBallManager : MonoBehaviour
             {
                 _shakeManager.StartShake(0.5f, 3, 3);
                 playerManager.SetIsHit();
-                playerHealth.TakeDamage(damage);  
+                playerHealth.TakeDamage(damage);
+                SpawnExplosionEffect();
                 DestroyFireBall();
             }           
         }
         if (other.CompareTag(Constans.TERRAIN_Tag))
         {
             _shakeManager.StartShake(0.5f, 3, 3);
+            SpawnExplosionEffect();
             DestroyFireBall();
         }
     }
 
-    
+    private void SpawnExplosionEffect()
+    {
+        Instantiate (explosionEffect,transform.position,transform.rotation);
+    }
 
     private void DestroyFireBall()
     {
