@@ -2,6 +2,8 @@
 
 public class Constans 
 {
+    //Item
+    public const string ITEM_TAG = "Item";
     //Camera
     public const string CameraFollow_1 = "CinemachineCamera Follow 1";
     //Terrain
