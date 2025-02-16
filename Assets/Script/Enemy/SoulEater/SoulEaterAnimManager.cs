@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class SoulEaterAnimManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class SoulEaterAnimManager : MonoBehaviour
     [SerializeField] private PlayerManager playerManager; 
     [SerializeField] private EnemyDamageManager soulEaterDamageManager;
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
+    [SerializeField] private CameraShakeManager cameraShakeManager;
 
 
     public void DragonNormalAtk()
@@ -16,6 +18,8 @@ public class SoulEaterAnimManager : MonoBehaviour
             playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage());
             playerManager.SetIsHit();           
         }
+        // rung camera
+        cameraShakeManager.StartShake(0.5f, 2, 2);
     }   
 
     public void DragonTailAtk()
@@ -25,7 +29,9 @@ public class SoulEaterAnimManager : MonoBehaviour
             playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage());
             playerManager.SetIsHit();            
         }
+        cameraShakeManager.StartShake(0.5f, 2, 2);
     }
+    
 
     public void FireBallStart()
     {

@@ -2,6 +2,8 @@
 
 public class Constans 
 {
+    //Camera
+    public const string CameraFollow_1 = "CinemachineCamera Follow 1";
     //Terrain
     public const string TERRAIN_Tag = "Terrain";
     // anim dragon
@@ -13,10 +15,13 @@ public class Constans
     public const string PLAYER_TAG = "Player";
     public const string DRAGON_TAG = "Dragon";
     // giá trị float của enemy
+    #region enenyfloat value
     public const float dispawnTime = 7f;
-    public const float distanceNearPlayer = 3.5f;
-    public const float distanceCanAtk = 2f;
+    public const float distanceNearPlayer = 4.5f;
+    public const float distanceCanAtk = 3.25f;
     public const int hitCountToImmune = 4;
     public const float immuneDuration = 5f;
+
+    #endregion
 
 }

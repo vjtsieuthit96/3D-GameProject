@@ -9680,7 +9680,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 31.576626, y: 8, z: 43.413776}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6660130696045295922}
@@ -14436,6 +14436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+  explosionEffect: {fileID: 4589158591147837210, guid: a9985e59959b3014a9286317590c09d9, type: 3}
 --- !u!1 &9171327012113981138
 GameObject:
   m_ObjectHideFlags: 0
