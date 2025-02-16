@@ -616,7 +616,7 @@ Transform:
   m_GameObject: {fileID: 309148424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.32, y: 4, z: 103.6}
+  m_LocalPosition: {x: 11.32, y: 1.83, z: 103.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b65f1d021fe94f4a82d231d7af1ea78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 500
   healingRate: 50
   _currentHealth: 0
 --- !u!114 &309148431
@@ -793,6 +793,8 @@ MonoBehaviour:
   - {fileID: 4940756917394196948, guid: a3c18c766914cf74d9b6ab02f3a41bd1, type: 3}
   - {fileID: 4685790036102911697, guid: 9994a75873b2cce44a2e36f1a1598ece, type: 3}
   dropPosition: {fileID: 309148425}
+  monsterController: {fileID: 309148426}
+  monsterCollider: {fileID: 309148432}
 --- !u!1 &326469313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,7 +2155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.84}
+  m_AnchoredPosition: {x: 0, y: 3.7}
   m_SizeDelta: {x: 1.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919980246
@@ -4522,18 +4524,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 309148425}
     m_Modifications:
     - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1261143032242179683, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4578,9 +4568,25 @@ PrefabInstance:
       value: Green
       objectReference: {fileID: 0}
     - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
+      propertyPath: dieClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5acdcc44353442346a9a420ad49dd131, type: 3}
+    - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
+      propertyPath: biteClip
+      value: 
+      objectReference: {fileID: 8300000, guid: decf5e0f9ff6e6d41a7bece5a5e71ec8, type: 3}
+    - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
+      propertyPath: getHitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d18c130df2452b488b25abc6c178332, type: 3}
+    - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 583821142}
+    - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
+      propertyPath: tailWhipClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b6f416536a9d90478edd913a3db93d6, type: 3}
     - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
       propertyPath: playerManager
       value: 
@@ -4597,10 +4603,6 @@ PrefabInstance:
       propertyPath: soulEaterDamageManager
       value: 
       objectReference: {fileID: 309148434}
-    - target: {fileID: 7741143679640516657, guid: 34155bd089f66a3418088e3df33ddb5e, type: 3}
-      propertyPath: _cinemachineBasicMultiChannelPerlin
-      value: 
-      objectReference: {fileID: 251112093}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

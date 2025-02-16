@@ -28,8 +28,10 @@ public class SoulEaterManager : MonoBehaviour
     private int _isAliveHash;
     private int _immuneToGetHitHash;
     private int _getHitCount;
+    private int _roarHash;
 
     private bool _canFly = true;
+    private bool _playerInRange = false;
     [SerializeField] private float _flyCD = 15f;
 
     private Coroutine _wanderCoroutine;
@@ -54,6 +56,7 @@ public class SoulEaterManager : MonoBehaviour
         _isAliveHash = Animator.StringToHash("isAlive");
         _getHitHash = Animator.StringToHash("GetHit");
         _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
+        _roarHash = Animator.StringToHash("Roar");
         soulEaterAnimator.SetBool(_isAliveHash, true);
     }
 
@@ -70,7 +73,12 @@ public class SoulEaterManager : MonoBehaviour
         // Các logic về khoảng cách target & attack Player
         #region Logic NavmeshAgent
         if (distance <= attackRange)
-        {           
+        {
+            if (!_playerInRange)
+            { 
+                soulEaterAnimator.SetTrigger(_roarHash);
+                _playerInRange = true;
+            }                    
 
             if(_wanderCoroutine != null)
             {
@@ -95,7 +103,8 @@ public class SoulEaterManager : MonoBehaviour
         }
 
         else
-        {            
+        {
+            _playerInRange = false;
             //quay về vị trí
             if (!_isReturningToInitPosition)
             {

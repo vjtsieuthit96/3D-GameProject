@@ -8,12 +8,15 @@ public class FireBallManager : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private GameObject explosionEffect;
     private CameraShakeManager _shakeManager;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _fireBallSound;    
     
 
     private void Start()
     {        
         Invoke("DestroyFireBall", 3f);
         _shakeManager = GameObject.Find(Constans.CameraFollow_1).GetComponent<CameraShakeManager>();
+        _audioSource.PlayOneShot(_fireBallSound);
 
     }
     private void OnTriggerEnter(Collider other)
@@ -30,6 +33,7 @@ public class FireBallManager : MonoBehaviour
                 playerHealth.TakeDamage(damage);
                 SpawnExplosionEffect();
                 DestroyFireBall();
+                StopSound();   
             }           
         }
         if (other.CompareTag(Constans.TERRAIN_Tag))
@@ -37,6 +41,7 @@ public class FireBallManager : MonoBehaviour
             _shakeManager.StartShake(0.5f, 3, 3);
             SpawnExplosionEffect();
             DestroyFireBall();
+            StopSound();
         }
     }
 
@@ -48,5 +53,13 @@ public class FireBallManager : MonoBehaviour
     private void DestroyFireBall()
     {
         Destroy(gameObject);
+    }
+
+    private void StopSound()
+    {
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+        }        
     }
 }

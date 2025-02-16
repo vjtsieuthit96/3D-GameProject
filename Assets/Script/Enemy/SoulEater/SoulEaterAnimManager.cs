@@ -10,6 +10,20 @@ public class SoulEaterAnimManager : MonoBehaviour
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
     [SerializeField] private CameraShakeManager cameraShakeManager;
 
+    //Sound
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip roarClip;
+    [SerializeField] private AudioClip tailWhipClip;
+    [SerializeField] private AudioClip biteClip;
+    [SerializeField] private AudioClip getHitClip;
+    [SerializeField] private AudioClip dieClip;
+
+
+    public void RoarStart()
+    {
+        cameraShakeManager.StartShake(1.5f, 1, 1);
+        audioSource.PlayOneShot(roarClip); 
+    }
 
     public void DragonNormalAtk()
     {
@@ -18,6 +32,7 @@ public class SoulEaterAnimManager : MonoBehaviour
             playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage());
             playerManager.SetIsHit();           
         }
+        audioSource.PlayOneShot(biteClip);
         // rung camera
         cameraShakeManager.StartShake(0.5f, 2, 2);
     }   
@@ -29,9 +44,9 @@ public class SoulEaterAnimManager : MonoBehaviour
             playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage());
             playerManager.SetIsHit();            
         }
+        audioSource.PlayOneShot(tailWhipClip);
         cameraShakeManager.StartShake(0.5f, 2, 2);
-    }
-    
+    }   
 
     public void FireBallStart()
     {
@@ -41,5 +56,15 @@ public class SoulEaterAnimManager : MonoBehaviour
     public void FlyFireBallStart()
     {
         soulEaterSkillManager.FireBall();
+    }
+
+    public void GetHitStart()
+    {
+        audioSource.PlayOneShot(getHitClip);
+    }
+
+    public void Die()
+    {
+        audioSource.PlayOneShot(dieClip);
     }
 }

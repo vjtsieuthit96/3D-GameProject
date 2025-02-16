@@ -6,6 +6,8 @@ public class MonsterDeadManager : MonoBehaviour
     [SerializeField] private Health monsterHealth;
     [SerializeField] private GameObject[] itemDrop;
     [SerializeField] private Transform dropPosition;
+    [SerializeField] private CharacterController monsterController;
+    [SerializeField] private SphereCollider monsterCollider;
     
     private bool _hasDroppedItem = false;
     void Start()
@@ -19,6 +21,8 @@ public class MonsterDeadManager : MonoBehaviour
        if (MonsterIsDead() && !_hasDroppedItem)
         {
             DropItem();
+            monsterController.enabled = false;
+            monsterCollider.enabled = false;
             _hasDroppedItem=true;
         }
     }
