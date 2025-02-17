@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class Constans 
+﻿public class Constans 
 {
     //Item
     public const string ITEM_TAG = "Item";
@@ -17,7 +15,8 @@ public class Constans
     public const string PLAYER_TAG = "Player";
     public const string DRAGON_TAG = "Dragon";
     // giá trị float của enemy
-    #region enenyfloat value
+    #region enemy's value
+
     public const float dispawnTime = 7f;
     public const float distanceNearPlayer = 4.5f;
     public const float distanceCanAtk = 3.25f;

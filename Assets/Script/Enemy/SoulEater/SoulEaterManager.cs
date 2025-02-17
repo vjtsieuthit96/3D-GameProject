@@ -1,10 +1,7 @@
 ﻿using System.Collections;
-using System.Threading;
 using Unity.Cinemachine;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class SoulEaterManager : MonoBehaviour
 
@@ -16,9 +13,9 @@ public class SoulEaterManager : MonoBehaviour
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;   
 
     private Vector3 _initPosition;
+    public Vector3 initPosition => _initPosition;
     private bool _isReturningToInitPosition;    
-    [SerializeField] private float attackRange;
-
+    [SerializeField] private float attackRange;    
     [SerializeField] private Animator soulEaterAnimator;
     private int _speedHash;
     private int _attackHash;   
@@ -183,15 +180,16 @@ public class SoulEaterManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3, 7));
-            var randomPosition = Random.insideUnitSphere * 7;
+            yield return new WaitForSeconds(Random.Range(5, 10));
+            var randomPosition = Random.insideUnitSphere * 15;
             randomPosition += _initPosition;
             NavMeshHit hit;
-            NavMesh.SamplePosition(randomPosition, out hit, 7, NavMesh.AllAreas);
+            NavMesh.SamplePosition(randomPosition, out hit, 15, NavMesh.AllAreas);
             navMeshAgent.SetDestination(hit.position);
             WalkorRun();
         }
     }
+    
     #endregion 
     // Logic Get Hit & Die
     #region enemyGetHit&Dead
