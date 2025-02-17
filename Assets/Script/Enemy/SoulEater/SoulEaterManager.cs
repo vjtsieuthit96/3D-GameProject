@@ -12,8 +12,7 @@ public class SoulEaterManager : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;   
 
-    private Vector3 _initPosition;
-    public Vector3 initPosition => _initPosition;
+    private Vector3 _initPosition;    
     private bool _isReturningToInitPosition;    
     [SerializeField] private float attackRange;    
     [SerializeField] private Animator soulEaterAnimator;
@@ -86,7 +85,7 @@ public class SoulEaterManager : MonoBehaviour
             _isReturningToInitPosition = false;
             navMeshAgent.SetDestination(target.position);
             Fly();
-            if (distance < attackRange * 0.8f)
+            if (distanceAtk < attackRange * 0.8f)
             {
                 soulEaterSkillManager.TryCastFireBall();
             }

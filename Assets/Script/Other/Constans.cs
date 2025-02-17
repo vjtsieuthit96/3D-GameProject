@@ -21,7 +21,7 @@
     public const float distanceNearPlayer = 4.5f;
     public const float distanceCanAtk = 3.25f;
     public const int hitCountToImmune = 4;
-    public const float immuneDuration = 5f;
+    public const float immuneDuration = 5f;   
 
     #endregion
 
