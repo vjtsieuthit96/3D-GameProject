@@ -2391,6 +2391,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4327003140507968955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1090126057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8970321574179108765, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+  m_PrefabInstance: {fileID: 522816497189729003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1157250096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,6 +3368,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607316097}
   m_CullTransparentMesh: 1
+--- !u!4 &1652011719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 498988644621414998, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+  m_PrefabInstance: {fileID: 522816497189729003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1716358544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3897,11 +3907,27 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!4 &2094862942 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7506359494324220973, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+  m_PrefabInstance: {fileID: 522816497189729003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2097122203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
   m_PrefabInstance: {fileID: 522816497189729003}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2097122204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+  m_PrefabInstance: {fileID: 522816497189729003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b862d9392c4bb14dae45006424d4703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &522816497189729003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3910,10 +3936,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1824517429}
     m_Modifications:
+    - target: {fileID: 201176641655349869, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 583821137}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: _clawSkillCD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: _jumpSkillCD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: clawSkillPrefab
+      value: 
+      objectReference: {fileID: 4634596969738655278, guid: 11419a830f4257d4d816de392e175ea5, type: 3}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: clawSkillSpawnPoint
+      value: 
+      objectReference: {fileID: 2094862942}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: clawSkillSpawnPoint.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: 'clawSkillSpawnPoint.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2094862942}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: 'clawSkillSpawnPoint.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1090126057}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: 'clawSkillSpawnPoint.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1652011719}
     - target: {fileID: 3349198544407145598, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_Name
       value: Nightmare
@@ -3936,15 +3998,15 @@ PrefabInstance:
       objectReference: {fileID: 251112092}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.4
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.71
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 148.6
+      value: 31.8
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3974,6 +4036,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8340572283759518159, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: ligtningClawSkill
+      value: 
+      objectReference: {fileID: 319117098812530045, guid: 11419a830f4257d4d816de392e175ea5, type: 3}
+    - target: {fileID: 8340572283759518159, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: nightMareSkillManager
+      value: 
+      objectReference: {fileID: 2097122204}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

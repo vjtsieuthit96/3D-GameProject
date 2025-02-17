@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class NightMareAnimationManager : MonoBehaviour
 {
-    [SerializeField] private NightMareSkillManager nightMareSkillManaer;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private NightMareSkillManager nightMareSkillManager;   
+    
     
     void Update()
     {
@@ -14,6 +11,15 @@ public class NightMareAnimationManager : MonoBehaviour
     }
     public void Jump()
     {
-        nightMareSkillManaer.JumpSkill();
+        nightMareSkillManager.JumpSkill();
     }
+ 
+    public void ClawAttack()
+    {
+        nightMareSkillManager.ClawSkill();
+    } 
+
+    
+  
+
 }

@@ -19,35 +19,36 @@ public class NightMareSkillManager : MonoBehaviour
         _clawSkillHash = Animator.StringToHash("clawSkill");
         _hornSkillHash = Animator.StringToHash("hornSkill");
     }
-    //#region ClawSkill
-    //[SerializeField] private float _clawSkillCD = 10f;
-    //[SerializeField] private GameObject clawSkillPrefab;
-    //[SerializeField] private Transform clawSkillSpawnPoint;
-    //private bool _canCastClawSkill = true;
+    #region ClawSkill
+    [SerializeField] private float _clawSkillCD = 10f;
+    [SerializeField] private GameObject clawSkillPrefab;
+    [SerializeField] private Transform[] clawSkillSpawnPoint;
+    private bool _canCastClawSkill = true;
 
-    //public void TryCastClawSkill()
-    //{
-    //    if (_canCastClawSkill)
-    //    {
-    //        StartCoroutine(CastClawSkill());
-    //    }
-    //}
+    public void TryCastClawSkill()
+    {
+        if (_canCastClawSkill)
+        {
+            StartCoroutine(CastClawSkill());
+        }
+    }
 
-    //private IEnumerator CastClawSkill()
-    //{
-    //    _canCastClawSkill = false;
-    //    nightMareAnimator.SetTrigger(_clawSkillHash);
-    //    yield return new WaitForSeconds(_clawSkillCD);
-    //    _canCastClawSkill = true;
-    //}
+    private IEnumerator CastClawSkill()
+    {
+        _canCastClawSkill = false;
+        nightMareAnimator.SetTrigger(_clawSkillHash);
+        yield return new WaitForSeconds(_clawSkillCD);
+        _canCastClawSkill = true;
+    }
 
-    //private void _ClawSkill()
-    //{
+    private void _ClawSkill()
+    {
+        foreach (Transform spawnpoint in clawSkillSpawnPoint)
+        Instantiate(clawSkillPrefab, spawnpoint.position, Quaternion.identity,spawnpoint);
+    }
 
-    //}
-
-    //public void ClawSkill() => _ClawSkill();
-    //#endregion
+    public void ClawSkill() => _ClawSkill();
+    #endregion
 
     //#region HornSkill
 
