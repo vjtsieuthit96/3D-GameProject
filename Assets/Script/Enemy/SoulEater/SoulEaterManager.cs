@@ -1,10 +1,7 @@
 ﻿using System.Collections;
-using System.Threading;
 using Unity.Cinemachine;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class SoulEaterManager : MonoBehaviour
 
@@ -15,10 +12,9 @@ public class SoulEaterManager : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;   
 
-    private Vector3 _initPosition;
+    private Vector3 _initPosition;    
     private bool _isReturningToInitPosition;    
-    [SerializeField] private float attackRange;
-
+    [SerializeField] private float attackRange;    
     [SerializeField] private Animator soulEaterAnimator;
     private int _speedHash;
     private int _attackHash;   
@@ -28,8 +24,10 @@ public class SoulEaterManager : MonoBehaviour
     private int _isAliveHash;
     private int _immuneToGetHitHash;
     private int _getHitCount;
+    private int _roarHash;
 
     private bool _canFly = true;
+    private bool _playerInRange = false;
     [SerializeField] private float _flyCD = 15f;
 
     private Coroutine _wanderCoroutine;
@@ -54,6 +52,7 @@ public class SoulEaterManager : MonoBehaviour
         _isAliveHash = Animator.StringToHash("isAlive");
         _getHitHash = Animator.StringToHash("GetHit");
         _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
+        _roarHash = Animator.StringToHash("Roar");
         soulEaterAnimator.SetBool(_isAliveHash, true);
     }
 
@@ -70,7 +69,12 @@ public class SoulEaterManager : MonoBehaviour
         // Các logic về khoảng cách target & attack Player
         #region Logic NavmeshAgent
         if (distance <= attackRange)
-        {           
+        {
+            if (!_playerInRange)
+            { 
+                soulEaterAnimator.SetTrigger(_roarHash);
+                _playerInRange = true;
+            }                    
 
             if(_wanderCoroutine != null)
             {
@@ -81,7 +85,7 @@ public class SoulEaterManager : MonoBehaviour
             _isReturningToInitPosition = false;
             navMeshAgent.SetDestination(target.position);
             Fly();
-            if (distance < attackRange * 0.8f)
+            if (distanceAtk < attackRange * 0.8f)
             {
                 soulEaterSkillManager.TryCastFireBall();
             }
@@ -95,7 +99,8 @@ public class SoulEaterManager : MonoBehaviour
         }
 
         else
-        {            
+        {
+            _playerInRange = false;
             //quay về vị trí
             if (!_isReturningToInitPosition)
             {
@@ -174,15 +179,16 @@ public class SoulEaterManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3, 7));
-            var randomPosition = Random.insideUnitSphere * 7;
+            yield return new WaitForSeconds(Random.Range(5, 10));
+            var randomPosition = Random.insideUnitSphere * 15;
             randomPosition += _initPosition;
             NavMeshHit hit;
-            NavMesh.SamplePosition(randomPosition, out hit, 7, NavMesh.AllAreas);
+            NavMesh.SamplePosition(randomPosition, out hit, 15, NavMesh.AllAreas);
             navMeshAgent.SetDestination(hit.position);
             WalkorRun();
         }
     }
+    
     #endregion 
     // Logic Get Hit & Die
     #region enemyGetHit&Dead
