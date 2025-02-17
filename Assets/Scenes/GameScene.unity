@@ -319,7 +319,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 45
+    FieldOfView: 75
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -5411,6 +5411,10 @@ PrefabInstance:
     - target: {fileID: 140378154488145783, guid: 70b6db3d59c6e7c43adfbafa69db7a82, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091408562061835020, guid: 70b6db3d59c6e7c43adfbafa69db7a82, type: 3}
+      propertyPath: field of view
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8761552426633374922, guid: 70b6db3d59c6e7c43adfbafa69db7a82, type: 3}
       propertyPath: m_Name

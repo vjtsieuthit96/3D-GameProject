@@ -87,7 +87,7 @@ public class NightMareManager : MonoBehaviour
                 if (distanceAtk <= Constans.distanceCanAtk)
                     nightMareAnimator.SetTrigger(_attackHash);
             }
-            else 
+            else if (distanceAtk > Constans.distanceNearPlayer && distanceAtk <= (Constans.distanceNearPlayer + 10.0f))
             {
                 _jumpToTarget = true;
             }

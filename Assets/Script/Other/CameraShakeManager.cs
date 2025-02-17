@@ -8,12 +8,12 @@ public class CameraShakeManager : MonoBehaviour
     [SerializeField] private CinemachineBasicMultiChannelPerlin _cameraPerlin;
     [SerializeField] private Transform _shakeSource;
     [SerializeField] private Transform _camera;
-    [SerializeField] private float _maxDistance = 50f;   
+    [SerializeField] private float _maxDistance = 60f;   
 
     public void StartShake(float duration, float maxamplitude, float frequency)
     {
         float distance = Vector3.Distance(_shakeSource.position, _camera.position);
-        float shakeamplitude = Mathf.Lerp(0,maxamplitude, 1 - (distance/_maxDistance));
+        float shakeamplitude = Mathf.Lerp(0.5f,maxamplitude, 1 - (distance/_maxDistance));
         StartCoroutine(ShakeCamera(duration, shakeamplitude, frequency));
     }
 
