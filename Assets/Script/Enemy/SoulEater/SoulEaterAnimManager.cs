@@ -8,7 +8,10 @@ public class SoulEaterAnimManager : MonoBehaviour
     [SerializeField] private PlayerManager playerManager; 
     [SerializeField] private EnemyDamageManager soulEaterDamageManager;
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
-    [SerializeField] private CameraShakeManager cameraShakeManager;    
+    [SerializeField] private CameraShakeManager cameraShakeManager;
+    [SerializeField] private SphereCollider tailSphere;
+    private bool _isFlying;
+    public bool isFlying() => _isFlying;
 
     //Sound
     [SerializeField] private AudioSource audioSource;
@@ -25,6 +28,7 @@ public class SoulEaterAnimManager : MonoBehaviour
     {
         SetUpAudioSource(audioSource);
         SetUpAudioSource(flyAudioSource);
+        tailSphere.enabled = false;
     }
     private void SetUpAudioSource (AudioSource audioSource)
     {
@@ -51,16 +55,26 @@ public class SoulEaterAnimManager : MonoBehaviour
         cameraShakeManager.StartShake(0.5f, 2, 2);
     }   
 
+    public void TailAtkStart()
+    {
+        soulEaterSkillManager.TailCharge();
+    }
+
     public void DragonTailAtk()
     {
+        tailSphere.enabled = true;
         if (playerManager.GetIsTouching() == true)
         {
-            playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage());
+            playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage()*1.5f);            
             playerManager.SetIsHit();            
         }
         audioSource.PlayOneShot(tailWhipClip);
         cameraShakeManager.StartShake(0.5f, 2, 2);
     }   
+    public void TailAtkEnd()
+    {
+        tailSphere.enabled = false;
+    }
 
     public void FireBallStart()
     {
@@ -86,12 +100,18 @@ public class SoulEaterAnimManager : MonoBehaviour
     {
         flyAudioSource.clip = flyClip;        
         flyAudioSource.Play();
+        _isFlying = true;
     }
 
     public void Land()
     {
         flyAudioSource.Stop();       
-        audioSource.PlayOneShot(landClip);
+        audioSource.PlayOneShot(landClip);        
+    }
+
+    public void CompleteLand()
+    {
+        _isFlying = false;
     }
     #endregion
 

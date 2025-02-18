@@ -9,6 +9,7 @@ public class HornSkillManager : MonoBehaviour
     [SerializeField] private PlayerNegativeEffectManager negativeEffectManager;
     [SerializeField] private Transform player;
     [SerializeField] private Transform knockbackSource;
+    [SerializeField] private float knockbackForce;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constans.PLAYER_TAG))
@@ -23,7 +24,7 @@ public class HornSkillManager : MonoBehaviour
                 //KnockBack
                 Vector3 knockbackDirection = (player.transform.position - knockbackSource.position).normalized;
                 
-                negativeEffectManager.ApplyKnockBack(knockbackDirection);                
+                negativeEffectManager.ApplyKnockBack(knockbackDirection,knockbackForce);                
             }
             SpawnHitEffect();
         }

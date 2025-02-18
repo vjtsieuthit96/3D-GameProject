@@ -43360,6 +43360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4459494309964715726}
   - component: {fileID: 5730272934653406818}
+  - component: {fileID: 8610874100127328321}
   - component: {fileID: 1709809642324190736}
   - component: {fileID: 8734388486719397027}
   - component: {fileID: -4180548950219604657}
@@ -48097,6 +48098,27 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!135 &8610874100127328321
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589158591147837210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!199 &1709809642324190736
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -48188,6 +48210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: -4180548950219604657}
   _explosionClip: {fileID: 8300000, guid: 21d48dbe37114e5449435bca9a5fe6b0, type: 3}
+  _damage: 40
 --- !u!82 &-4180548950219604657
 AudioSource:
   m_ObjectHideFlags: 0

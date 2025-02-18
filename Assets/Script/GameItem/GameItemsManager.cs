@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameItemsManager : MonoBehaviour
 {
     [SerializeField] private int _id;
+    public int ID => _id;
     [SerializeField] private string _itemName;
     [SerializeField] private Sprite _icon;
     [SerializeField] private float _value;
@@ -11,12 +12,12 @@ public class GameItemsManager : MonoBehaviour
 
     void Start()
     {      
-        rgbody.AddForce(Vector3.up * 5f + Vector3.right * Random.Range(-1f, 1f), ForceMode.Impulse);       
+        rgbody.AddForce(Vector3.up * 10f + Vector3.right * Random.Range(-1f, 1f), ForceMode.Impulse);       
         
     } 
 
     void Update()
     {
         
-    }
+    }   
 }

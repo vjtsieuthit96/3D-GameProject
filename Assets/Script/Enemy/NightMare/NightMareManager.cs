@@ -64,6 +64,7 @@ public class NightMareManager : MonoBehaviour
         {
             if (!_playerInRange)
             {
+                LookAtTarget();
                 nightMareAnimator.SetTrigger(_roarHash);
                 _playerInRange = true;
             }
@@ -90,6 +91,7 @@ public class NightMareManager : MonoBehaviour
                 _jumpToTarget = false;
                 if (distanceAtk <= 5.0f)
                 {
+                    LookAtTarget();
                     nightMareSkillManager.TryCastClawSkill();
                     nightMareAnimator.SetTrigger(_attackHash);
                     nightMareSkillManager.TryCastHornSkill();
@@ -168,6 +170,13 @@ public class NightMareManager : MonoBehaviour
             NavMesh.SamplePosition(randomPosition, out hit, 15, NavMesh.AllAreas);
             navMeshAgent.SetDestination(hit.position);            
         }
+    }
+
+    private void LookAtTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,direction.y,direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 4.0f);
     }
 
     #endregion

@@ -44,5 +44,15 @@ public class SoulEaterSkillManager : MonoBehaviour
     }
     public void FireBall() => _FireBall();
     #endregion
-    
+
+    #region TailAtk
+    [SerializeField] private GameObject TailAtkCharge;
+    [SerializeField] private Transform SpawnLocation;
+    private void _TailCharge()
+    {
+        Instantiate(TailAtkCharge,SpawnLocation.position, Quaternion.identity,SpawnLocation);
+    }
+    public void TailCharge()=>_TailCharge();
+    #endregion
+
 }
