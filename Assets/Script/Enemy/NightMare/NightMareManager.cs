@@ -76,22 +76,23 @@ public class NightMareManager : MonoBehaviour
             // đuổi theo nhân vật            
             _isReturningToInitPosition = false;
             navMeshAgent.SetDestination(target.position);
-            if (distanceAtk >= 25.0f)
+            if (distanceAtk <= 45.0f && distanceAtk >= 40)
             {
                 _jumpToTarget = true;
             }
-            if (distanceAtk <= 20.0f && _jumpToTarget)
+            if (distanceAtk <= 35.0f && _jumpToTarget)
             {                
                 nightMareSkillManager.TryCastJumpSkill();                
             }
             
-            if (distanceAtk <= Constans.distanceNearPlayer)
+            if (distanceAtk <= 6.0f)
             {
                 _jumpToTarget = false;
-                if (distanceAtk <= Constans.distanceCanAtk)
+                if (distanceAtk <= 5.0f)
                 {
                     nightMareSkillManager.TryCastClawSkill();
                     nightMareAnimator.SetTrigger(_attackHash);
+                    nightMareSkillManager.TryCastHornSkill();
                 }
             }          
             

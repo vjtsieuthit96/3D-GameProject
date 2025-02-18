@@ -1,15 +1,9 @@
 using UnityEngine;
 
-public class LigtningClawSkill : MonoBehaviour
+public class LightningClawSkill : MonoBehaviour
 {
-    [SerializeField] private int _damage;
-    [SerializeField] private SphereCollider _sphereCollider;    
-
-    private void Start()
-    {
-        _sphereCollider.enabled = true;
-    }
-
+    [SerializeField] private NightMareSkillManager nightMareSkillManager;
+    [SerializeField] private GameObject electroHitPrefab;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constans.PLAYER_TAG))
@@ -20,9 +14,13 @@ public class LigtningClawSkill : MonoBehaviour
             if (playerManager != null && playerHealth != null)
             {                
                 playerManager.SetIsHit();
-                playerHealth.TakeDamage(_damage);              
+                playerHealth.TakeDamage(nightMareSkillManager.ClawDamage);                
             }
         }
-    }  
+    }
 
+    private void SpawnHitEffect()
+    {
+        Instantiate(electroHitPrefab, transform.position, transform.rotation);
+    }
 }
