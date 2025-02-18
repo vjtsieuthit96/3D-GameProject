@@ -1228,7 +1228,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 95.2, y: 107.2, z: -557.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7345400552499013218}
@@ -1303,9 +1303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b65f1d021fe94f4a82d231d7af1ea78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50000
+  maxHealth: 1000
   healingRate: 200
-  _currentHealth: 50000
+  _currentHealth: 1000
 --- !u!114 &583821143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3988,11 +3988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 169.8
+      value: 159
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4240,7 +4240,7 @@ PrefabInstance:
       objectReference: {fileID: 251112092}
     - target: {fileID: 4786768532178661234, guid: d574deb2623ce504980c1ab3ad7e70ab, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143671377002338245, guid: d574deb2623ce504980c1ab3ad7e70ab, type: 3}
       propertyPath: target
@@ -4260,7 +4260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6234430131046262205, guid: d574deb2623ce504980c1ab3ad7e70ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6490407258926136130, guid: d574deb2623ce504980c1ab3ad7e70ab, type: 3}
       propertyPath: _camera
