@@ -1391,7 +1391,7 @@ MonoBehaviour:
   characterController: {fileID: 583821138}
   playerManager: {fileID: 583821144}
   playerAnimManager: {fileID: 7345400552499013219}
-  _knockbackForce: 15
+  _knockbackForce: 25
   _knockbackDuration: 0.5
 --- !u!1 &622567911
 GameObject:
@@ -3930,6 +3930,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1824517429}
     m_Modifications:
+    - target: {fileID: 201176641655349869, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: m_AutoBraking
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 201176641655349869, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: target
       value: 
@@ -3937,6 +3945,10 @@ PrefabInstance:
     - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: _hornSkillCD
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657687715642644700, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: _jumpDistance
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 3349198544407145598, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_Name
@@ -3954,6 +3966,10 @@ PrefabInstance:
       propertyPath: negativeEffectManager
       value: 
       objectReference: {fileID: 583821147}
+    - target: {fileID: 3877804457365903153, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
+      propertyPath: electroHitPrefab
+      value: 
+      objectReference: {fileID: 1330739593619827449, guid: 6a4fe8a1b7360ed4eb7fa5657d4fda7f, type: 3}
     - target: {fileID: 4178917151211842879, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: _cinemachineFollow
       value: 
@@ -3968,15 +3984,15 @@ PrefabInstance:
       objectReference: {fileID: 251112092}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4
+      value: 20.65
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.7
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.8
+      value: 169.8
       objectReference: {fileID: 0}
     - target: {fileID: 6755227221351805035, guid: dd323ded5eb48aa45afdc6c19598352e, type: 3}
       propertyPath: m_LocalRotation.w
