@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.Processors;
 
@@ -12,6 +13,8 @@ public class PlayerManager : MonoBehaviour
     private int _isIummnity;
     private bool _isTouching;
     private bool _isDead;
+    private int _KnockDownHash;
+    private int _GetUpHash;
     public bool ISDEAD() => _isDead;
    
 
@@ -22,6 +25,8 @@ public class PlayerManager : MonoBehaviour
         _isAliveHash = Animator.StringToHash("isAlive");
         _isHit = Animator.StringToHash("isHit");
         _isIummnity = Animator.StringToHash("Immunity");
+        _KnockDownHash = Animator.StringToHash("KnockDown");
+        _GetUpHash = Animator.StringToHash("GetUp");
         playerAnimator.SetBool(_isAliveHash, true);
     }
     private void Update()
@@ -51,8 +56,19 @@ public class PlayerManager : MonoBehaviour
     private void setIsHit()
     {
         playerAnimator.SetTrigger(_isHit);
-    }
+    }    
     public void SetIsHit() => setIsHit();
+    private void _setKnockback()
+    {
+        playerAnimator.SetTrigger(_KnockDownHash);
+    }
+    public void SetKnockback() => _setKnockback();
+
+    private void _setGetUp()
+    {
+        playerAnimator.SetTrigger(_GetUpHash);        
+    }
+    public void SetGetUp() =>_setGetUp();
 
     private void Die()
     {

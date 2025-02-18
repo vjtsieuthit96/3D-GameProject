@@ -19,71 +19,77 @@ public class NightMareSkillManager : MonoBehaviour
         _clawSkillHash = Animator.StringToHash("clawSkill");
         _hornSkillHash = Animator.StringToHash("hornSkill");
     }
-    //#region ClawSkill
-    //[SerializeField] private float _clawSkillCD = 10f;
-    //[SerializeField] private GameObject clawSkillPrefab;
-    //[SerializeField] private Transform clawSkillSpawnPoint;
-    //private bool _canCastClawSkill = true;
+    #region ClawSkill
+    [SerializeField] private float _clawSkillCD = 10f;
+    [SerializeField] private float _clawDamage = 30.0f;
+    public float ClawDamage => _clawDamage;
+    [SerializeField] private GameObject clawSkillPrefab;
+    [SerializeField] private Transform[] clawSkillSpawnPoint;
+    
+    private bool _canCastClawSkill = true;
 
-    //public void TryCastClawSkill()
-    //{
-    //    if (_canCastClawSkill)
-    //    {
-    //        StartCoroutine(CastClawSkill());
-    //    }
-    //}
+    public void TryCastClawSkill()
+    {
+        if (_canCastClawSkill)
+        {
+            StartCoroutine(CastClawSkill());
+        }
+    }
 
-    //private IEnumerator CastClawSkill()
-    //{
-    //    _canCastClawSkill = false;
-    //    nightMareAnimator.SetTrigger(_clawSkillHash);
-    //    yield return new WaitForSeconds(_clawSkillCD);
-    //    _canCastClawSkill = true;
-    //}
+    private IEnumerator CastClawSkill()
+    {
+        _canCastClawSkill = false;
+        nightMareAnimator.SetTrigger(_clawSkillHash);
+        yield return new WaitForSeconds(_clawSkillCD);
+        _canCastClawSkill = true;
+    }
 
-    //private void _ClawSkill()
-    //{
+    private void _ClawSkill()
+    {
+        foreach (Transform spawnpoint in clawSkillSpawnPoint)
+        Instantiate(clawSkillPrefab, spawnpoint.position, Quaternion.identity,spawnpoint);
+    }
 
-    //}
+    public void ClawSkill() => _ClawSkill();
+    #endregion
 
-    //public void ClawSkill() => _ClawSkill();
-    //#endregion
-
-    //#region HornSkill
+    #region HornSkill
 
 
-    //[SerializeField] private float _hornSkillCD = 10f;
-    //[SerializeField] private GameObject hornSkillPrefab;
-    //[SerializeField] private Transform hornSkillSpawnPoint;
-    //private bool _canCastHornSkill = true;
+    [SerializeField] private float _hornSkillCD = 1f;
+    [SerializeField] private float _hornDamage = 30.0f;
+    public float HornDamage => _hornDamage;
+    [SerializeField] private GameObject hornSkillPrefab;
+    [SerializeField] private Transform hornSkillSpawnPoint;
+    private bool _canCastHornSkill = true;
 
-    //public void TryCastHornSkill()
-    //{
-    //    if (_canCastHornSkill)
-    //    {
-    //        StartCoroutine(CastHornSkill());
-    //    }
-    //}
+    public void TryCastHornSkill()
+    {
+        if (_canCastHornSkill)
+        {
+            StartCoroutine(CastHornSkill());
+        }
+    }
 
-    //private IEnumerator CastHornSkill()
-    //{
-    //    _canCastHornSkill = false;
-    //    nightMareAnimator.SetTrigger(_hornSkillHash);
-    //    yield return new WaitForSeconds(_hornSkillCD);
-    //    _canCastHornSkill = true;
-    //}
+    private IEnumerator CastHornSkill()
+    {
+        _canCastHornSkill = false;
+        nightMareAnimator.SetTrigger(_hornSkillHash);
+        yield return new WaitForSeconds(_hornSkillCD);
+        _canCastHornSkill = true;
+    }
 
-    //private void _HornSkill()
-    //{
-
-    //}
-    //public void HornSkill() => _HornSkill();
-    //#endregion
+    private void _HornSkill()
+    {
+        Instantiate(hornSkillPrefab, hornSkillSpawnPoint.position, Quaternion.identity, hornSkillSpawnPoint);
+    }
+    public void HornSkill() => _HornSkill();
+    #endregion
 
     #region JumpSkill
     [SerializeField] private float _jumpSkillCD = 15.0f;    
     [SerializeField] private CharacterController nightmareController;
-    private float _jumpDistance = 20.0f;
+    [SerializeField] private float _jumpDistance = 20.0f;
     private bool _canCastJumpSkill = true;
 
     public void TryCastJumpSkill()
@@ -97,8 +103,7 @@ public class NightMareSkillManager : MonoBehaviour
     private IEnumerator CastJumpSkill()
     {
         _canCastJumpSkill = false;
-        nightMareAnimator.SetTrigger(_jumpSkillHash);
-        Debug.Log("Try Castt Jump Skill");
+        nightMareAnimator.SetTrigger(_jumpSkillHash);       
         yield return new WaitForSeconds(_jumpSkillCD);
         _canCastJumpSkill = true;
     }   

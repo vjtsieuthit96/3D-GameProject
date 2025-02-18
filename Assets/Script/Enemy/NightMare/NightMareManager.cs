@@ -27,7 +27,7 @@ public class NightMareManager : MonoBehaviour
     
     
     private bool _playerInRange = false;
-    private bool _jumpToTarget = true;
+    private bool _jumpToTarget;
     private Coroutine _wanderCoroutine;
 
     [SerializeField] private Health dragonHealth;
@@ -76,21 +76,26 @@ public class NightMareManager : MonoBehaviour
             // đuổi theo nhân vật            
             _isReturningToInitPosition = false;
             navMeshAgent.SetDestination(target.position);
-            
-            if (distanceAtk <= 20.0f && _jumpToTarget)
-            {                
-                nightMareSkillManager.TryCastJumpSkill();                
-            }
-            if (distanceAtk <= Constans.distanceNearPlayer)
-            {
-                _jumpToTarget = false;
-                if (distanceAtk <= Constans.distanceCanAtk)
-                    nightMareAnimator.SetTrigger(_attackHash);
-            }
-            else 
+            if (distanceAtk <= 45.0f && distanceAtk >= 40)
             {
                 _jumpToTarget = true;
             }
+            if (distanceAtk <= 35.0f && _jumpToTarget)
+            {                
+                nightMareSkillManager.TryCastJumpSkill();                
+            }
+            
+            if (distanceAtk <= 6.0f)
+            {
+                _jumpToTarget = false;
+                if (distanceAtk <= 5.0f)
+                {
+                    nightMareSkillManager.TryCastClawSkill();
+                    nightMareAnimator.SetTrigger(_attackHash);
+                    nightMareSkillManager.TryCastHornSkill();
+                }
+            }          
+            
 
         }
 
