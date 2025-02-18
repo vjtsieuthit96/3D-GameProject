@@ -70,6 +70,7 @@ public class PlayerNegativeEffectManager : MonoBehaviour
     private void _StunText()
     {        
         var status = Instantiate(stunStatus, statusSpawnLocation.position, Quaternion.identity, statusSpawnLocation);
+        Debug.Log("Test");
         status.GetComponent<FloatingStatus>().SetDestroyTime(_stunDuration);
     }
     
