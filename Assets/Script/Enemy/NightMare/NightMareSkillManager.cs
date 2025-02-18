@@ -22,6 +22,8 @@ public class NightMareSkillManager : MonoBehaviour
     #region ClawSkill
     [SerializeField] private float _clawSkillCD = 10f;
     [SerializeField] private float _clawDamage = 30.0f;
+    [SerializeField] private float _stunDuration = 3.0f;
+    public float StunDuration() => _stunDuration;
     public float ClawDamage => _clawDamage;
     [SerializeField] private GameObject clawSkillPrefab;
     [SerializeField] private Transform[] clawSkillSpawnPoint;

@@ -5,7 +5,7 @@ public class LightningClawSkill : MonoBehaviour
     [SerializeField] private NightMareSkillManager nightMareSkillManager;
     [SerializeField] private GameObject electroHitPrefab;
     [SerializeField] private PlayerNegativeEffectManager negativeEffectManager;
-    [SerializeField] private float _stunDuration;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constans.PLAYER_TAG))
@@ -17,10 +17,10 @@ public class LightningClawSkill : MonoBehaviour
             {                
                 playerManager.SetIsHit();
                 playerHealth.TakeDamage(nightMareSkillManager.ClawDamage);
-                var rate = Random.Range(1, 100);
-                if (rate <= 100)
+                var rate = Random.Range(0, 100);
+                if (rate <= 35)
                 {
-                    negativeEffectManager.ApplyStunEffect(_stunDuration);
+                    negativeEffectManager.ApplyStunEffect(nightMareSkillManager.StunDuration());
                     SpawnHitEffect();
                 }
             }

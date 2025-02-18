@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Player Dead sẽ ko di chuyển
-        if (playerManager.ISDEAD() || playerAnimManager.IsStaying || playerNegativeEffectManager.IsStunActive())
+        if (playerManager.ISDEAD() || playerAnimManager.IsStaying || playerManager.GetBoolStuning())
         {
             if (playerNegativeEffectManager.IsKnockBackActive())
             {                

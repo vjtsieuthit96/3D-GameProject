@@ -69,9 +69,9 @@ public class PlayerNegativeEffectManager : MonoBehaviour
 
     private void _StunText()
     {        
-        var status = Instantiate(stunStatus, statusSpawnLocation.position, Quaternion.identity, statusSpawnLocation);
-        Debug.Log("Test");
+        var status = Instantiate(stunStatus, statusSpawnLocation.position, Quaternion.identity, statusSpawnLocation);        
         status.GetComponent<FloatingStatus>().SetDestroyTime(_stunDuration);
+        status.GetComponent<FloatingStatus>().SetCamera(cameraFollow);
     }
     
     private IEnumerator Stunning()

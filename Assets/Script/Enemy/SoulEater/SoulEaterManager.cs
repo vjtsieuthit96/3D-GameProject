@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,7 +11,8 @@ public class SoulEaterManager : MonoBehaviour
     #region Fields
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform target;
-    [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;   
+    [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
+    [SerializeField] private SoulEaterAnimManager soulEaterAnimManager;
 
     private Vector3 _initPosition;    
     private bool _isReturningToInitPosition;    
@@ -71,7 +73,8 @@ public class SoulEaterManager : MonoBehaviour
         if (distance <= attackRange)
         {
             if (!_playerInRange)
-            { 
+            {
+                LookAtTarget();
                 soulEaterAnimator.SetTrigger(_roarHash);
                 _playerInRange = true;
             }                    
@@ -87,13 +90,17 @@ public class SoulEaterManager : MonoBehaviour
             Fly();
             if (distanceAtk < attackRange * 0.8f)
             {
+                LookAtTarget();
                 soulEaterSkillManager.TryCastFireBall();
             }
             if (distanceAtk <= Constans.distanceNearPlayer)
             {  
                 WalkorRun();
                 if (distanceAtk <= Constans.distanceCanAtk)
+                {
+                    LookAtTarget();
                     soulEaterAnimator.SetTrigger(_attackHash);
+                }
             }
             
         }
@@ -188,8 +195,17 @@ public class SoulEaterManager : MonoBehaviour
             WalkorRun();
         }
     }
-    
-    #endregion 
+    private void LookAtTarget()
+    {
+        if (!soulEaterAnimManager.isFlying())
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, direction.y, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 4.0f);
+        }
+    }
+
+    #endregion
     // Logic Get Hit & Die
     #region enemyGetHit&Dead
     private void GetHit()

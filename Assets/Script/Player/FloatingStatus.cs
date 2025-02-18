@@ -7,8 +7,7 @@ public class FloatingStatus : MonoBehaviour
     private float _destroyTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        _cinemachineFollow = GameObject.Find(Constans.CameraFollow_1).GetComponent<CinemachineFollow>();
+    {        
         Destroy(this.gameObject,_destroyTime);
     }
 
@@ -21,7 +20,12 @@ public class FloatingStatus : MonoBehaviour
    
      public void SetDestroyTime(float destroyTime)
     {
-        destroyTime = _destroyTime;
+        _destroyTime = destroyTime + 0.75f;
+    }
+
+    public void SetCamera (CinemachineFollow cinemachineFollow)
+    {
+        _cinemachineFollow = cinemachineFollow;
     }
 
 }

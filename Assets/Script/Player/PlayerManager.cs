@@ -76,10 +76,17 @@ public class PlayerManager : MonoBehaviour
     {
         playerAnimator.SetBool(_isStunning,true);
     }
+
+   
     public void setIsStunning() => _setIsStunning();
     private void _setStunToNormal()
     {
         playerAnimator.SetBool(_isStunning, false);
+    }
+
+    public bool GetBoolStuning()
+    {
+        return playerAnimator.GetBool(_isStunning);
     }
     public void setStunToNormal() => _setStunToNormal();
     private void Die()
