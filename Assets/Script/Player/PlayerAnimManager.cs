@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAnimManager : MonoBehaviour
@@ -5,9 +6,12 @@ public class PlayerAnimManager : MonoBehaviour
     [SerializeField] private BoxCollider weaponCollider;
     [SerializeField] private GameObject normalHitEffect;
     [SerializeField] private Transform normalHitEffectSpawnPoint;
-    [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private PlayerManager playerManager;    
+    
     private bool _isStaying;
     public bool IsStaying => _isStaying;
+
+    
 
     void Start()
     {
@@ -30,11 +34,12 @@ public class PlayerAnimManager : MonoBehaviour
     }
     public void NeedGetUp()
     {
-        playerManager.SetGetUp();        
+        playerManager.SetGetUp();
     }
     public void GetUp()
     {
         _isStaying = false;
-    }
+    }  
+   
 
 }

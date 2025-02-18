@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     private bool _isDead;
     private int _KnockDownHash;
     private int _GetUpHash;
+    private int _isStunning;
     public bool ISDEAD() => _isDead;
    
 
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
         _isIummnity = Animator.StringToHash("Immunity");
         _KnockDownHash = Animator.StringToHash("KnockDown");
         _GetUpHash = Animator.StringToHash("GetUp");
+        _isStunning = Animator.StringToHash("isStuning");
         playerAnimator.SetBool(_isAliveHash, true);
     }
     private void Update()
@@ -70,6 +72,16 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetGetUp() =>_setGetUp();
 
+    private void _setIsStunning()
+    {
+        playerAnimator.SetBool(_isStunning,true);
+    }
+    public void setIsStunning() => _setIsStunning();
+    private void _setStunToNormal()
+    {
+        playerAnimator.SetBool(_isStunning, false);
+    }
+    public void setStunToNormal() => _setStunToNormal();
     private void Die()
     {
         if (playerAnimator.GetBool(_isAliveHash))

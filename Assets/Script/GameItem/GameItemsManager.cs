@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameItemsManager : MonoBehaviour
 {
     [SerializeField] private int _id;
+    public int ID => _id;
     [SerializeField] private string _itemName;
     [SerializeField] private Sprite _icon;
     [SerializeField] private float _value;
