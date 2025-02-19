@@ -32,7 +32,7 @@ public class PlayerInventory : MonoBehaviour
             _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
             if (_inventoryPanel.activeSelf)
             {
-                InitialSlot();
+                DisplayInventory();
             }
         }
     }
@@ -51,14 +51,14 @@ public class PlayerInventory : MonoBehaviour
 
     void DisplayInventory()
     {
-        for (int i = 0; i < _items.Length; i++)
-        {
-            if (_items[i] == null) continue;
-            {
+        //for (int i = 0; i < _items.Length; i++)
+        //{
+        //    if (_items[i] == null) continue;
+        //    {
                 
-            }
+        //    }
              
-        }
+        //}
     }
 
     private void OnTriggerEnter(Collider other)

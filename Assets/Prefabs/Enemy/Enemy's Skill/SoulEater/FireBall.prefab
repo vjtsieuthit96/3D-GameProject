@@ -14436,10 +14436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb77ec94edfc004da7cbc766ea6a0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 70
+  damage: 30
   explosionEffect: {fileID: 4589158591147837210, guid: a9985e59959b3014a9286317590c09d9, type: 3}
   _audioSource: {fileID: 5672185683103551390}
   _fireBallSound: {fileID: 8300000, guid: 59f42bed4e7448f429ef96f82785834d, type: 3}
+  _burnAOE: {fileID: 3385955635871470925, guid: 1bac6dd6d5643144e96dbbb9af851a1b, type: 3}
 --- !u!82 &5672185683103551390
 AudioSource:
   m_ObjectHideFlags: 0

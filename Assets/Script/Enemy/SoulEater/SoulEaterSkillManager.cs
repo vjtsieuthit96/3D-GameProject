@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using NUnit.Framework.Internal.Commands;
+using System.Collections;
 using UnityEngine;
 
 public class SoulEaterSkillManager : MonoBehaviour
 {
     [SerializeField] private Animator soulEaterAnimator;    
     [SerializeField] private Transform target;
+    [SerializeField] private PlayerNegativeEffectManager negativeEffectManager;
     private int _skillHash;
 
 
@@ -19,8 +21,7 @@ public class SoulEaterSkillManager : MonoBehaviour
     [SerializeField] private GameObject fireBallPrefab;
     [SerializeField] private Transform fireBallSpawnPoint;
     [SerializeField] private float fireBallSpeed = 5f;
-    private bool _canCastFireBall = true;
-    
+    private bool _canCastFireBall = true; 
     public void TryCastFireBall()
     {
         if (_canCastFireBall)
@@ -48,11 +49,17 @@ public class SoulEaterSkillManager : MonoBehaviour
     #region TailAtk
     [SerializeField] private GameObject TailAtkCharge;
     [SerializeField] private Transform SpawnLocation;
+    [SerializeField] private float _tailBurnEffectduration = 3f;
     private void _TailCharge()
     {
         Instantiate(TailAtkCharge,SpawnLocation.position, Quaternion.identity,SpawnLocation);
     }
     public void TailCharge()=>_TailCharge();
+
+    public void ApplyTailBurnEffect()
+    {
+       negativeEffectManager.ApplyBurnEffect(_tailBurnEffectduration);       
+    }
     #endregion
 
 }
