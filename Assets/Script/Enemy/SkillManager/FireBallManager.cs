@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro.Examples;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,12 +10,14 @@ public class FireBallManager : MonoBehaviour
     [SerializeField] private GameObject explosionEffect;
     private CameraShakeManager _shakeManager;
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _fireBallSound;    
+    [SerializeField] private AudioClip _fireBallSound;
+    [SerializeField] private GameObject _burnAOE;
     
 
     private void Start()
-    {        
-        Invoke("DestroyFireBall", 3f);
+    {
+        AudioSourceManager.SetUpAudioSource(_audioSource);
+        Invoke("DestroyFireBall", 7f);
         _shakeManager = GameObject.Find("SoulEater").GetComponent<CameraShakeManager>();
         _audioSource.PlayOneShot(_fireBallSound);
 
@@ -40,6 +43,7 @@ public class FireBallManager : MonoBehaviour
         {
             _shakeManager.StartShake(1f, 25, 10);
             SpawnExplosionEffect();
+            SpawnFlameAOE();
             DestroyFireBall();
             StopSound();
         }
@@ -48,6 +52,11 @@ public class FireBallManager : MonoBehaviour
     private void SpawnExplosionEffect()
     {
         Instantiate (explosionEffect,transform.position,transform.rotation);
+    }
+    
+    private void SpawnFlameAOE()
+    {
+        Instantiate(_burnAOE, transform.position, _burnAOE.transform.rotation);
     }
 
     private void DestroyFireBall()

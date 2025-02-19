@@ -26,16 +26,11 @@ public class SoulEaterAnimManager : MonoBehaviour
 
     private void Start()
     {
-        SetUpAudioSource(audioSource);
-        SetUpAudioSource(flyAudioSource);
+        AudioSourceManager.SetUpAudioSource(audioSource);      
+        AudioSourceManager.SetUpAudioSource(flyAudioSource);
         tailSphere.enabled = false;
     }
-    private void SetUpAudioSource (AudioSource audioSource)
-    {
-        audioSource.spatialBlend = 1.0f;
-        audioSource.minDistance = 3.0f;
-        audioSource.maxDistance = 70.0f;
-    }
+    
     #region AnimationEvent
     public void RoarStart()
     {
@@ -66,7 +61,12 @@ public class SoulEaterAnimManager : MonoBehaviour
         if (playerManager.GetIsTouching() == true)
         {
             playerHealth.TakeDamage(soulEaterDamageManager.NormalDamage()*1.5f);            
-            playerManager.SetIsHit();            
+            playerManager.SetIsHit();
+            var rate = Random.Range(0f, 100f);
+            if (rate < 15.0f)
+            {
+                soulEaterSkillManager.ApplyTailBurnEffect();               
+            }             
         }
         audioSource.PlayOneShot(tailWhipClip);
         cameraShakeManager.StartShake(0.5f, 2, 2);

@@ -1,15 +1,13 @@
 using UnityEngine;
 
-public class TailChageManager : MonoBehaviour
+public class TailExplosionManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _tailChargeClip;
+    [SerializeField] private AudioClip _tailExplosionClip;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _audioSource.clip = _tailChargeClip;
-        _audioSource.Play();
-        Destroy(gameObject,1.25f);
+        _audioSource.PlayOneShot(_tailExplosionClip);
     }
 
     // Update is called once per frame
