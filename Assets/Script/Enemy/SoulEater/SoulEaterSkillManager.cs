@@ -7,6 +7,7 @@ public class SoulEaterSkillManager : MonoBehaviour
     [SerializeField] private Animator soulEaterAnimator;    
     [SerializeField] private Transform target;
     [SerializeField] private PlayerNegativeEffectManager negativeEffectManager;
+    [SerializeField] private SoulEaterManager soulEaterManager;
     private int _skillHash;
 
 
@@ -26,13 +27,14 @@ public class SoulEaterSkillManager : MonoBehaviour
     {
         if (_canCastFireBall)
         {
+            soulEaterManager.lookAtTarget();
             StartCoroutine(CastFireBall());
         }
     }
 
     private IEnumerator CastFireBall()
     {
-        _canCastFireBall = false;
+        _canCastFireBall = false;        ;
         soulEaterAnimator.SetTrigger(_skillHash);  
         yield return new WaitForSeconds(fireBallCD);
         _canCastFireBall = true;        
