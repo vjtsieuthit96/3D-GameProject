@@ -99,7 +99,7 @@ public class SoulEaterAnimManager : MonoBehaviour
 
     public void TakeOff()
     {
-        //soulEaterManager.AdjustHeight();
+        soulEaterManager.AdjustHeight();
         flyAudioSource.clip = flyClip;        
         flyAudioSource.Play();
         _isFlying = true;
@@ -107,7 +107,7 @@ public class SoulEaterAnimManager : MonoBehaviour
 
     public void Land()
     {
-        //soulEaterManager.Land();
+        soulEaterManager.Land();
         flyAudioSource.Stop();       
         audioSource.PlayOneShot(landClip);        
     }

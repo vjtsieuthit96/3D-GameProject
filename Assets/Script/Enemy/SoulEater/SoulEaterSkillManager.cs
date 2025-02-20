@@ -19,6 +19,7 @@ public class SoulEaterSkillManager : MonoBehaviour
         
     
     [SerializeField] private float fireBallCD = 10f;
+    
     [SerializeField] private GameObject fireBallPrefab;
     [SerializeField] private Transform fireBallSpawnPoint;
     [SerializeField] private float fireBallSpeed = 5f;
@@ -32,6 +33,11 @@ public class SoulEaterSkillManager : MonoBehaviour
         }
     }
 
+    private void _SetFireBallCD(float percent)
+    {
+        fireBallCD += percent/100 * fireBallCD;
+    }
+    public void SetFireBallCD(float percent) => _SetFireBallCD(percent);
     private IEnumerator CastFireBall()
     {
         _canCastFireBall = false;        ;
