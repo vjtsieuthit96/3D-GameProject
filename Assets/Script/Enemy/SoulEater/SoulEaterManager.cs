@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pathfinding;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -9,7 +10,11 @@ public class SoulEaterManager : MonoBehaviour
 {
     //Fields
     #region Fields
-    [SerializeField] private NavMeshAgent navMeshAgent;
+    //[SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] private CharacterController soulEaterController;
+    [SerializeField] private Seeker seeker;
+    [SerializeField] private AIPath aiPath;
+    [SerializeField] private AIDestinationSetter aIDestinationSetter;
     [SerializeField] private Transform target;
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
     [SerializeField] private SoulEaterAnimManager soulEaterAnimManager;
@@ -55,7 +60,7 @@ public class SoulEaterManager : MonoBehaviour
         _getHitHash = Animator.StringToHash("GetHit");
         _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
         _roarHash = Animator.StringToHash("Roar");
-        soulEaterAnimator.SetBool(_isAliveHash, true);
+        soulEaterAnimator.SetBool(_isAliveHash, true);        
     }
 
     void Update()
@@ -86,7 +91,8 @@ public class SoulEaterManager : MonoBehaviour
             }
             // đuổi theo nhân vật            
             _isReturningToInitPosition = false;
-            navMeshAgent.SetDestination(target.position);
+            //navMeshAgent.SetDestination(target.position);
+            aIDestinationSetter.target = target;
             Fly();
             if (distanceAtk < attackRange * 0.8f)
             {
@@ -112,7 +118,9 @@ public class SoulEaterManager : MonoBehaviour
             if (!_isReturningToInitPosition)
             {
                 Fly();
-                navMeshAgent.SetDestination(_initPosition);
+                aIDestinationSetter.target = null;
+                aiPath.destination = _initPosition;
+                //navMeshAgent.SetDestination(_initPosition);
                 _isReturningToInitPosition=true;
             }
             // nếu quái cách vị trí ban đầu là 15 thì bắt đầu di chuyển
@@ -134,10 +142,10 @@ public class SoulEaterManager : MonoBehaviour
             }
         }
         #endregion
-        
-        //
-        soulEaterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude);         
 
+        //
+        //soulEaterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude);         
+        soulEaterAnimator.SetFloat(_speedHash, aiPath.velocity.magnitude);
     }
 
     
@@ -191,7 +199,8 @@ public class SoulEaterManager : MonoBehaviour
             randomPosition += _initPosition;
             NavMeshHit hit;
             NavMesh.SamplePosition(randomPosition, out hit, 15, NavMesh.AllAreas);
-            navMeshAgent.SetDestination(hit.position);
+            //navMeshAgent.SetDestination(hit.position);
+            aiPath.destination = hit.position;
             WalkorRun();
         }
     }
@@ -246,10 +255,11 @@ public class SoulEaterManager : MonoBehaviour
         {
             soulEaterAnimator.SetBool(_immuneToGetHitHash, true);
             soulEaterAnimator.SetBool(_isAliveHash, false);
-            navMeshAgent.isStopped = true;
+            aiPath.canMove = false;
             Destroy(gameObject, Constans.dispawnTime);
         }
     }
+    
     #endregion
     
 
