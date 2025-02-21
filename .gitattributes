@@ -2,3 +2,23 @@
 * text=auto
 *.psd filter=lfs diff=lfs merge=lfs -text
 *.asset filter=lfs diff=lfs merge=lfs -text
+.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL...Medieval_Chimneys_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ASTROFISH_GAMES/MEDIEVAL_SERIES/...Medieval_GroundCoverStone_NRM_4k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ASTROFISH_GAMES/MEDI...Medieval_PlatformsFoundationsPorch_Albedo_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ASTROFISH_GAMES/MEDIEVA...Medieval_PlatformsFoundationsPorch_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL...Medieval_Chimneys_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/...Medieval_GroundCoverStone_NRM_4k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTRO...Medieval_PlatformsFoundationsPorch_Albedo_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFIS...Medieval_PlatformsFoundationsPorch_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD_Assets/Chimneys/Mats/Medieval_Chimneys_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/Assets/Ground/Mats/Medieval_GroundCoverStone_NRM_4k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/Assets/PltfrmSprts/Mats/Medieval_PlatformsFoundationsPorch_Albedo_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/_Assets/PltfmSprts/Mats/Medieval_PlatformsFoundationsPorch_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/Assets/Chimneys/Mats/Medieval_Chimneys_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/_Assets/Chimneys/Mats/Medieval_Chimneys_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/_Assets/Ground/Mats/Medieval_GroundCoverStone_NRM_4k.tif filter=lfs diff=lfs merge=lfs -text
+[200~Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/_Assets/PltfrmSprts/Mats/Medieval_PlatformsFoundationsPorch_Albedo_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/_Assets/PltfrmSprts/Mats/Medieval_PlatformsFoundationsPorch_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/_Assets/PltfrmSprts/Mats/Medieval_PlatformsFoundationsPorch_NRM_8k.tif filter=lfs diff=lfs merge=lfs -text
+Assets/ImportedAssets/ASTROFISH_GAMES/MEDIEVAL_SERIES/MEDIEVAL_VILLAGE_HD/_Assets/PltfrmSprts/Mats/Medieval_PlatformsFoundationsPorch_Albedo_8k.tif filter=lfs diff=lfs merge=lfs -text

@@ -10,6 +10,7 @@ public class SoulEaterAnimManager : MonoBehaviour
     [SerializeField] private SoulEaterSkillManager soulEaterSkillManager;
     [SerializeField] private CameraShakeManager cameraShakeManager;
     [SerializeField] private SphereCollider tailSphere;
+    [SerializeField] private SoulEaterManager soulEaterManager;
     private bool _isFlying;
     public bool isFlying() => _isFlying;
 
@@ -98,6 +99,7 @@ public class SoulEaterAnimManager : MonoBehaviour
 
     public void TakeOff()
     {
+        soulEaterManager.AdjustHeight();
         flyAudioSource.clip = flyClip;        
         flyAudioSource.Play();
         _isFlying = true;
@@ -105,6 +107,7 @@ public class SoulEaterAnimManager : MonoBehaviour
 
     public void Land()
     {
+        soulEaterManager.Land();
         flyAudioSource.Stop();       
         audioSource.PlayOneShot(landClip);        
     }
