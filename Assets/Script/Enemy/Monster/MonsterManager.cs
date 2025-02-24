@@ -95,8 +95,7 @@ public class MonsterManager : MonoBehaviour
             else
             {
                 navMeshAgent.SetDestination(target.position);
-            }
-           
+            }           
         }
         else
         {
@@ -167,8 +166,7 @@ public class MonsterManager : MonoBehaviour
             else
             {
                 
-                yield return new WaitForSeconds(Random.Range(3f, 5f));
-                Debug.Log("1");
+                yield return new WaitForSeconds(Random.Range(3f, 5f));                
                 var randomPosition = Random.insideUnitSphere * 20;
                 randomPosition += _initPosition;
                 NavMeshHit hit;
