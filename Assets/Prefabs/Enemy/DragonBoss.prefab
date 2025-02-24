@@ -210,6 +210,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3463061296923111932}
   - component: {fileID: 104256139517825019}
+  - component: {fileID: 2358491539898220657}
+  - component: {fileID: 2899660526504653193}
   m_Layer: 0
   m_Name: DragonBoss
   m_TagString: Untagged
@@ -246,17 +248,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098fb064c9f147743ad38172832e7df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
+  navMeshAgent: {fileID: 2358491539898220657}
   target: {fileID: 0}
-  monsterAnimator: {fileID: 0}
-  attackRange: 0
-  monsterHealth: {fileID: 0}
-  damageTextPrefab: {fileID: 0}
-  floatingDamageSpawnPoint: {fileID: 0}
+  monsterAnimator: {fileID: 2331644706176755430}
+  attackRange: 50
+  _attackTime: 0
+  monsterHealth: {fileID: 2899660526504653193}
+  damageTextPrefab: {fileID: 3662710587411060014, guid: 181dc0e7397677a4ba3adf0456b8641e, type: 3}
+  floatingDamageSpawnPoint: {fileID: 2331644706183907586}
   _cinemachineFollow: {fileID: 0}
-  hpCanvas: {fileID: 0}
-  monsterType: 1
-  _flyHeight: 0
+  hpCanvas: {fileID: 6960529120596933062}
+  monsterType: 0
+  _flyHeight: 10
+--- !u!195 &2358491539898220657
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449007892803640929}
+  m_Enabled: 1
+  m_AgentTypeID: 1479372276
+  m_Radius: 0.5
+  m_Speed: 8
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2899660526504653193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449007892803640929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b65f1d021fe94f4a82d231d7af1ea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  healingRate: 0
+  _currentHealth: 0
 --- !u!1 &6950504670935543928
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,9 +482,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3463061296923111932}
     m_Modifications:
+    - target: {fileID: 3778034857682356054, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 33f221ec2ea95e04eabda003539fc326, type: 2}
     - target: {fileID: 3778034857689625960, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
       propertyPath: m_Name
       value: MountainDragon_PBR
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778034857689852086, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778034857689852086, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778034857689852086, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778034857689852086, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3778034857689852168, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -491,8 +551,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+--- !u!95 &2331644706176755430 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3778034857682356054, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+  m_PrefabInstance: {fileID: 1456329737359499696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2331644706183907512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3778034857689852168, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+  m_PrefabInstance: {fileID: 1456329737359499696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2331644706183907586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3778034857689852082, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
   m_PrefabInstance: {fileID: 1456329737359499696}
   m_PrefabAsset: {fileID: 0}
