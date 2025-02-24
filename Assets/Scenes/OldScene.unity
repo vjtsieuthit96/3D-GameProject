@@ -3688,6 +3688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5407976400237556824}
   - {fileID: 309148425}
   - {fileID: 2097122203}
   m_Father: {fileID: 0}
@@ -4562,19 +4563,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1824517429}
     m_Modifications:
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80.6541
+      value: 38.5
       objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 66.206345
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -570.6
+      value: 79.9
       objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4582,15 +4583,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4608,11 +4609,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: DragonBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 7738918366833232456, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
+--- !u!4 &5407976400237556824 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
+  m_PrefabInstance: {fileID: 5407976400237556823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4625,5 +4635,4 @@ SceneRoots:
   - {fileID: 701951403}
   - {fileID: 679256653202335644}
   - {fileID: 1824517429}
-  - {fileID: 5407976400237556823}
   - {fileID: 804532052}

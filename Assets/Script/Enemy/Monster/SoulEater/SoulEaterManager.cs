@@ -95,7 +95,7 @@ public class SoulEaterManager : MonoBehaviour
                     StopCoroutine(_wanderCoroutine);
                     _wanderCoroutine = null;
                 }
-                if (_attackTime > 5f && !_isFlyingCoroutineRunning) 
+                if (_attackTime > 60f && !_isFlyingCoroutineRunning) 
                 {
                     StartCoroutine(Flying());
                 }
@@ -257,9 +257,7 @@ public class SoulEaterManager : MonoBehaviour
                 NavMesh.SamplePosition(randomPosition, out hit, 15, NavMesh.AllAreas);
                 navMeshAgent.SetDestination(hit.position);
                 WalkorRun();
-            }
-           
-            
+            }           
         }         
     }
    
