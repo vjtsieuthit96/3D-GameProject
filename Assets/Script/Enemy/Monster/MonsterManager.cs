@@ -9,17 +9,17 @@ public class MonsterManager : MonoBehaviour
     //Fields
     #region Fields
     [SerializeField] protected NavMeshAgent navMeshAgent;
-    [SerializeField] protected Transform target;
+    [SerializeField] protected Transform target;    
     [SerializeField] protected Animator monsterAnimator;
     [SerializeField] protected float attackRange;
+    [SerializeField] protected float _attackTime = 0f;
     [SerializeField] protected Health monsterHealth;
     [SerializeField] protected GameObject damageTextPrefab;
     [SerializeField] protected Transform floatingDamageSpawnPoint;
     [SerializeField] protected CinemachineFollow _cinemachineFollow;
-    [SerializeField] protected GameObject hpCanvas;
-    private Vector3 _initPosition;
-    private bool _isReturningToInitPosition;    
-    private float _attackTime;
+    [SerializeField] protected GameObject hpCanvas;    
+    private Vector3 _initPosition; 
+    private bool _isReturningToInitPosition;      
     private Coroutine _wanderCoroutine;
     private bool _isFlyingCoroutineRunning;
     private bool _isFlying;
@@ -59,8 +59,6 @@ public class MonsterManager : MonoBehaviour
     {
         var distance = Vector3.Distance(_initPosition, target.position);
         var distanceAtk = Vector3.Distance(transform.position, target.position);
-
-
         if (distance <= attackRange)
         {
             _attackTime += Time.deltaTime;
@@ -97,6 +95,7 @@ public class MonsterManager : MonoBehaviour
             {
                 navMeshAgent.SetDestination(target.position);
             }
+           
         }
         else
         {
@@ -123,12 +122,8 @@ public class MonsterManager : MonoBehaviour
                     _wanderCoroutine = null;
                 }
             }
-        }
-        float speed = navMeshAgent.velocity.magnitude;
-        Vector3 moveDirection = navMeshAgent.velocity.normalized;
-        float turn = Mathf.Atan2(moveDirection.x, moveDirection.z)*Mathf.Rad2Deg;
-        monsterAnimator.SetFloat(_speedHash, speed);
-        monsterAnimator.SetFloat(_turnHash, turn);
+        }             
+        monsterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude);
     }
     protected virtual void OnTriggerEnter(Collider other)
     {

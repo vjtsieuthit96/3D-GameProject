@@ -10,7 +10,7 @@ public class MountainDragonManager : MonsterManager
    
     protected override void Update()
     {
-        base.Update();
+        base.Update();        
     }
 
     protected override void OnTriggerEnter(Collider other)
