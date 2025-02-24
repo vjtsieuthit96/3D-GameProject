@@ -819,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 104256139517825019, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: attackRange
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 104256139517825019, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: monsterType

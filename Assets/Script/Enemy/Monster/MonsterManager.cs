@@ -31,7 +31,7 @@ public class MonsterManager : MonoBehaviour
     private int _isFlyingHash;
     private int _getHitHash;
     private int _immuneToGetHitHash;
-    private int _turnHash;
+    private int _noDangerHash;
     //giá trị hiển thị khi chọn type;
     public enum MonsterType
     {
@@ -53,7 +53,7 @@ public class MonsterManager : MonoBehaviour
         _isFlyingHash = Animator.StringToHash("isFlying");
         _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
         _getHitHash = Animator.StringToHash("getHit");
-        _turnHash = Animator.StringToHash("turn");
+        _noDangerHash = Animator.StringToHash("noDanger");
     }
     protected virtual void Update()
     {
@@ -61,6 +61,7 @@ public class MonsterManager : MonoBehaviour
         var distanceAtk = Vector3.Distance(transform.position, target.position);
         if (distance <= attackRange)
         {
+            monsterAnimator.SetBool(_noDangerHash, false);
             _attackTime += Time.deltaTime;
             if (!_playerInRange)
             {
@@ -99,15 +100,16 @@ public class MonsterManager : MonoBehaviour
         }
         else
         {
+            monsterAnimator.SetBool(_noDangerHash, true);
             _attackTime -= Time.deltaTime;
             _playerInRange = false;
-            if (_isReturningToInitPosition)
+            if (!_isReturningToInitPosition)
             {
                 navMeshAgent.SetDestination(_initPosition);
                 _isReturningToInitPosition = true;
             }
 
-            if (Vector3.Distance(_initPosition, transform.position) <= attackRange / 3)
+            if (Vector3.Distance(_initPosition, transform.position) <= 40)
             {
                 if (_wanderCoroutine == null)
                 {
@@ -164,11 +166,13 @@ public class MonsterManager : MonoBehaviour
             }
             else
             {
-                yield return new WaitForSeconds(Random.Range(3, 5));
-                var randomPosition = Random.insideUnitSphere * 15;
+                
+                yield return new WaitForSeconds(Random.Range(3f, 5f));
+                Debug.Log("1");
+                var randomPosition = Random.insideUnitSphere * 20;
                 randomPosition += _initPosition;
                 NavMeshHit hit;
-                NavMesh.SamplePosition(randomPosition, out hit, 15, NavMesh.AllAreas);
+                NavMesh.SamplePosition(randomPosition, out hit, 20, NavMesh.AllAreas);
                 navMeshAgent.SetDestination(hit.position);
             }
         }
