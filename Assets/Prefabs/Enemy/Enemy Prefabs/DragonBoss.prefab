@@ -161,7 +161,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 6.5, z: 1.5}
+  m_Size: {x: 5, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1535304335870110871
 GameObject:
@@ -449,7 +449,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 6.5, z: 1.5}
+  m_Size: {x: 5, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6324863826076175482
 GameObject:
@@ -658,7 +658,7 @@ MonoBehaviour:
   target: {fileID: 0}
   _negativeEffectManager: {fileID: 0}
   _mdManager: {fileID: 104256139517825019}
-  fireBallCD: 10
+  fireBallCD: 45
   fireBallPrefab: {fileID: 0}
   fireBallSpawnPoint: {fileID: 2331644706183907654}
   fireBallBurnDuration: 10
@@ -675,11 +675,11 @@ MonoBehaviour:
   - {fileID: 2331644706183907602}
   - {fileID: 2331644706183907614}
   _clawComboBurnDuration: 3
-  _clawComboCD: 10
+  _clawComboCD: 30
   _spreadFire: {fileID: 3509331702256189530, guid: 4bfb2acb18063944892809ae7df491fa, type: 3}
-  _spreadFireSpawnLocation: {fileID: 0}
+  _spreadFireSpawnLocation: {fileID: 2331644706183907654}
   _spreadFireBurnDuration: 10
-  _spreadFireCD: 15
+  _spreadFireCD: 60
 --- !u!114 &2899660526504653193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,7 +1271,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3778034857689852220, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
       insertIndex: 0
       addedObject: {fileID: 3030807049132591774}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3778034857689625960, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3943846285994598730}
   m_SourcePrefab: {fileID: 100100000, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
 --- !u!95 &2331644706176755430 stripped
 Animator:
@@ -1383,3 +1386,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3778034857689852110, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
   m_PrefabInstance: {fileID: 1456329737359499696}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2331644706184008920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3778034857689625960, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+  m_PrefabInstance: {fileID: 1456329737359499696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3943846285994598730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331644706184008920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d956f48bcfda0d944a5025de1ef826dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillManager: {fileID: 4548408401415332742}
+  _mountainDragonManager: {fileID: 104256139517825019}

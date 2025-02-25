@@ -16,17 +16,21 @@ public class MountainDragonManager : MonsterManager
     protected override void Update()
     {
         base.Update();
-        if(distanceAtk<=attackRange*0.8f)
+        if(distanceAtk<=attackRange*0.8f )
         {
-            LookAtTarget();
-            _SkillManager.TryCastFireBall();
+            if (!monsterAnimator.GetBool("isFlying"))
+            {
+                LookAtTarget();
+                _SkillManager.TryCastFireBall();
+            }
         }
         if (distanceAtk < navMeshAgent.stoppingDistance)
         {
             LookAtTarget();
-            monsterAnimator.SetTrigger(_attackHash);
             _SkillManager.TryCastClawCombo();
             _SkillManager.TryCastSpreadFire();
+            monsterAnimator.SetTrigger(_attackHash);
+
         }
         if(isMovingBack)
         {
@@ -42,21 +46,15 @@ public class MountainDragonManager : MonsterManager
     {
         base.LateUpdate();
     }    
-
-    private void _MoveBackWard()
-    {
-        backPosition = transform.position - transform.forward * 5f;
-        isMovingBack = true;
-    }
-    public void MoveBackWard()=>_MoveBackWard();
+       
     private void _AdjustHeightFly()
     {
-        AdjustHeightOverTime(_flyHeight, 1f);
+        StartCoroutine(AdjustHeightOverTime(_flyHeight, 1f));
     }
     public void AdjustHeightFly()=>_AdjustHeightFly();
     private void _AdjustHeightLand()
     {
-        AdjustHeightOverTime(0f, 1f);
+       StartCoroutine(AdjustHeightOverTime(0f, 1f));
     }
     public void AdjustHeightLand()=>_AdjustHeightLand();
 }
