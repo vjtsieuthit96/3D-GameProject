@@ -792,10 +792,6 @@ PrefabInstance:
       propertyPath: _cinemachineFollow
       value: 
       objectReference: {fileID: 910422812}
-    - target: {fileID: 1335955340657054158, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
-      propertyPath: m_Size.y
-      value: 4.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3463061296923111932, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.09
@@ -851,10 +847,6 @@ PrefabInstance:
     - target: {fileID: 7738918366833232456, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8149813819245538417, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
-      propertyPath: m_Size.y
-      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
