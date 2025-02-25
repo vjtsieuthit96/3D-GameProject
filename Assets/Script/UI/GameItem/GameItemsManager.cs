@@ -4,11 +4,11 @@ public class GameItemsManager : MonoBehaviour
 {
     [SerializeField] private int _id;
     public int ID => _id;
-    [SerializeField] private string _itemName;
-    [SerializeField] private Sprite _icon;
-    [SerializeField] private float _value;
-    [SerializeField] private Rigidbody rgbody;
-    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] public string _itemName;
+    [SerializeField] public Sprite _icon;
+    [SerializeField] public float _value;
+    [SerializeField] public Rigidbody rgbody;
+    [SerializeField] public BoxCollider boxCollider;
 
     void Start()
     {      
