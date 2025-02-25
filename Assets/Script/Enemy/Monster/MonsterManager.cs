@@ -32,6 +32,9 @@ public class MonsterManager : MonoBehaviour
     private int _getHitHash;
     private int _immuneToGetHitHash;
     private int _noDangerHash;
+    private int _posXHash;
+    private int _posYHash;
+    protected float distanceAtk;
     //giá trị hiển thị khi chọn type;
     public enum MonsterType
     {
@@ -47,24 +50,27 @@ public class MonsterManager : MonoBehaviour
     protected virtual void Start()
     {
         _initPosition = transform.position;
-        _roarHash = Animator.StringToHash("Roar");
+        _roarHash = Animator.StringToHash("roar");
         _isDeadHash = Animator.StringToHash("isDead");
         _speedHash = Animator.StringToHash("speed");
         _isFlyingHash = Animator.StringToHash("isFlying");
         _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
         _getHitHash = Animator.StringToHash("getHit");
         _noDangerHash = Animator.StringToHash("noDanger");
+        _posXHash = Animator.StringToHash("pos_X");
+        _posYHash = Animator.StringToHash("pos_Y");
     }
     protected virtual void Update()
     {
         var distance = Vector3.Distance(_initPosition, target.position);
-        var distanceAtk = Vector3.Distance(transform.position, target.position);
+        distanceAtk = Vector3.Distance(transform.position, target.position);
         if (distance <= attackRange)
         {
             monsterAnimator.SetBool(_noDangerHash, false);
             _attackTime += Time.deltaTime;
             if (!_playerInRange)
             {
+                LookAtTarget();
                 monsterAnimator.SetTrigger(_roarHash);
                 _playerInRange = true;
             }
@@ -100,7 +106,14 @@ public class MonsterManager : MonoBehaviour
         else
         {
             monsterAnimator.SetBool(_noDangerHash, true);
-            _attackTime -= Time.deltaTime;
+            if (_attackTime > 0)
+            {
+                _attackTime -= Time.deltaTime;
+            }
+            else
+            {
+                _attackTime = 0;
+            }
             _playerInRange = false;
             if (!_isReturningToInitPosition)
             {
@@ -125,6 +138,14 @@ public class MonsterManager : MonoBehaviour
             }
         }             
         monsterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude);
+        
+    }
+
+    protected virtual void LateUpdate()
+    {
+        var deltaPosition = (target.position - transform.position).normalized;
+        monsterAnimator.SetFloat(_posXHash, deltaPosition.x);
+        monsterAnimator.SetFloat(_posYHash, deltaPosition.z);
     }
     protected virtual void OnTriggerEnter(Collider other)
     {
