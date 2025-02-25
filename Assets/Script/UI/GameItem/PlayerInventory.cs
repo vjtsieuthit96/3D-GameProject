@@ -10,16 +10,15 @@ class PlayerGameItem
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private GameObject _inventoryPanel;
-    [SerializeField] private GameObject _inventoryCanvas;
+    //[SerializeField] private GameObject _inventoryCanvas;
     [SerializeField] private Button _itemSlotPrefabs;
-    private Button[] _itemSlot = new Button[50];
+    [SerializeField] private Button[] _itemSlot = new Button[50];
 
     [SerializeField] PlayerGameItem[] _items = new PlayerGameItem[50];
 
 
     void Start()
     {        
-        _inventoryCanvas.SetActive(false);
         _inventoryPanel.SetActive(false);
         InitialSlot();   
     }
@@ -28,7 +27,6 @@ public class PlayerInventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            _inventoryCanvas.SetActive(!_inventoryCanvas.activeSelf);
             _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
             if (_inventoryPanel.activeSelf)
             {
@@ -51,14 +49,12 @@ public class PlayerInventory : MonoBehaviour
 
     void DisplayInventory()
     {
-        //for (int i = 0; i < _items.Length; i++)
-        //{
-        //    if (_items[i] == null) continue;
-        //    {
-                
-        //    }
-             
-        //}
+        for (int i = 0; i < _items.Length; i++)
+        {
+            if (_items[i] == null) continue;
+            _inventoryPanel.transform.GetChild(i + 1).GetComponent<Image>().sprite = _items[i].Item._icon;
+            _inventoryPanel.transform.GetChild(i + 1).GetChild(0).GetComponent<TextMeshProUGUI>().text = _items[i].Amount.ToString();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,7 +69,7 @@ public class PlayerInventory : MonoBehaviour
             var check = false;
             for (int i = 0; i < _items.Length; i++) 
             { 
-                if (_items[i].Item.ID == item.ID)
+                if (_items[i] != null && _items[i].Item.ID == item.ID)
                 {
                     check = true;
                     _items[i].Amount++;
@@ -84,9 +80,16 @@ public class PlayerInventory : MonoBehaviour
             {
                 for (int i = 0; i<_items.Length; i++)
                 {
-
+                    if(_items == null)
+                    {
+                        _items[i] = new PlayerGameItem();
+                        _items[i].Item = item;
+                        _items[i].Amount = 1;
+                        break;
+                    }
                 }
             }
+            Destroy(other.gameObject);
         }
     }
 }
