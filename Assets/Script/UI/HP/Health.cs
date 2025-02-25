@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
         _currentHealth = maxHealth;
         StartCoroutine(Healing());
     }
-    private void Update()
+    void Update()
     {
         _isHit = false;
     }
