@@ -41,12 +41,7 @@ public class MountainDragonManager : MonsterManager
     protected override void LateUpdate()
     {
         base.LateUpdate();
-    }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-    }
+    }    
 
     private void _MoveBackWard()
     {

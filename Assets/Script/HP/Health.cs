@@ -6,11 +6,16 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private float healingRate; 
     public float _currentHealth;
+    private bool _isHit;
     
     void Start()
     {
         _currentHealth = maxHealth;
         StartCoroutine(Healing());
+    }
+    private void Update()
+    {
+        _isHit = false;
     }
 
     public float GetCurrentHealth() => _currentHealth;
@@ -18,7 +23,11 @@ public class Health : MonoBehaviour
     public void SetHealingRate(float rate) => healingRate = rate;
     public void TakeDamage (float damage)
     {
-        _currentHealth -= damage;
+        if (!_isHit)
+        {
+            _currentHealth -= damage;
+            _isHit = true;
+        }
     }
 
    // hàm hồi máu dùng IEnumerator 
