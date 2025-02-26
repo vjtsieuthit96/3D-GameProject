@@ -14759,6 +14759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: -3509211130608560251}
   _tailChargeClip: {fileID: 8300000, guid: 6a6104fc7b005f047a35f0a7e90f0c28, type: 3}
+  _clawAtkEffect: {fileID: 6854243160868685629, guid: 67c7d3b2a11514b4dbf2b805dbc5b8dd, type: 3}
 --- !u!82 &-3509211130608560251
 AudioSource:
   m_ObjectHideFlags: 0
