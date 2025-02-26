@@ -24,5 +24,20 @@ public class MD_AnimManager : MonoBehaviour
     {
         _mountainDragonManager.AdjustHeightLand();
     }
+
+    public void RightClawStart()
+    {
+        _skillManager.ClawRightCombo();
+    }
+
+    public void LeftClawStart()
+    {
+        _skillManager.ClawLeftCombo();
+    }
+
+    public void GroundFireBall()
+    {
+        _skillManager.FireBall();
+    }
    
 }
