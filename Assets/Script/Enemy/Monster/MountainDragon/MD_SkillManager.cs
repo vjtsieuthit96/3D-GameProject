@@ -22,10 +22,8 @@ public class MD_SkillManager : MonoBehaviour
 
 
     [SerializeField] private float fireBallCD = 10f;
-
     [SerializeField] private GameObject fireBallPrefab;
-    [SerializeField] private Transform fireBallSpawnPoint;
-    [SerializeField] private float fireBallBurnDuration = 10f;
+    [SerializeField] private Transform fireBallSpawnPoint;    
     [SerializeField] private float fireBallSpeed = 5f;
     private bool _canCastFireBall = true;
     public void TryCastFireBall()
@@ -54,12 +52,7 @@ public class MD_SkillManager : MonoBehaviour
         GameObject fireball = Instantiate(fireBallPrefab, fireBallSpawnPoint.position, Quaternion.identity);
         fireball.GetComponent<Rigidbody>().linearVelocity = (target.position - fireBallSpawnPoint.position).normalized * fireBallSpeed;
     }
-    public void FireBall() => _FireBall();
-    private void _ApplyFireBallBurn()
-    {
-        _negativeEffectManager.ApplyBurnEffect(fireBallBurnDuration);
-    }
-    public void ApplyFireBallBurn()=>_ApplyFireBallBurn();
+    public void FireBall() => _FireBall();    
     #endregion
 
     #region ClawCombo
@@ -109,8 +102,7 @@ public class MD_SkillManager : MonoBehaviour
     #endregion
     #region SpreadFire
     [SerializeField] private GameObject _spreadFire;
-    [SerializeField] private Transform _spreadFireSpawnLocation;
-    [SerializeField] private float _spreadFireBurnDuration = 10f;
+    [SerializeField] private Transform _spreadFireSpawnLocation;    
     [SerializeField] private float _spreadFireCD = 15f;
     private bool _canCastSpreadFire = true;
     public void TryCastSpreadFire()
@@ -131,13 +123,6 @@ public class MD_SkillManager : MonoBehaviour
     {
         Instantiate(_spreadFire,_spreadFireSpawnLocation.position,Quaternion.identity, _spreadFireSpawnLocation);
     }
-    public void SpreadFire()=>_SpreadFire();
-    private void _ApplySpreadFireBurn()
-    {
-        _negativeEffectManager.ApplyBurnEffect(_spreadFireBurnDuration);
-    }
-    public void ApplySpreadFireBurn() => _ApplySpreadFireBurn();
-
-
+    public void SpreadFire()=>_SpreadFire();  
     #endregion
 }
