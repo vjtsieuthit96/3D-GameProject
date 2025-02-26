@@ -18,7 +18,7 @@ public class FireBallManager : MonoBehaviour
     {
         AudioSourceManager.SetUpAudioSource(_audioSource);
         Invoke("DestroyFireBall", 7f);
-        _shakeManager = GameObject.Find("SoulEater").GetComponent<CameraShakeManager>();
+        _shakeManager = GameObject.Find("DragonBoss").GetComponent<CameraShakeManager>();
         _audioSource.PlayOneShot(_fireBallSound);
 
     }

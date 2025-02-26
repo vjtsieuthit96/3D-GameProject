@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 4548408401415332742}
   - component: {fileID: 2899660526504653193}
   - component: {fileID: 745301851672622049}
+  - component: {fileID: 3114950340964919659}
   m_Layer: 0
   m_Name: DragonBoss
   m_TagString: Untagged
@@ -659,26 +660,20 @@ MonoBehaviour:
   _negativeEffectManager: {fileID: 0}
   _mdManager: {fileID: 104256139517825019}
   fireBallCD: 45
-  fireBallPrefab: {fileID: 0}
+  fireBallPrefab: {fileID: 8429575460300667406, guid: d2c0936d0eef40d469f1b2174a70b3db, type: 3}
   fireBallSpawnPoint: {fileID: 2331644706183907654}
-  fireBallBurnDuration: 10
-  fireBallSpeed: 5
-  _clawCombo: {fileID: 0}
+  fireBallSpeed: 15
+  _clawCombo: {fileID: 5883952715213044244, guid: 9448df48aa64c81448b8b92265e9533c, type: 3}
   _clawComboRightSpawnLocation:
-  - {fileID: 2331644706183907662}
-  - {fileID: 2331644706183907658}
-  - {fileID: 2331644706183907670}
   - {fileID: 2331644706183907666}
+  - {fileID: 2331644706183907658}
   _clawComboLeftSpawnLocation:
-  - {fileID: 2331644706183907594}
-  - {fileID: 2331644706183907606}
-  - {fileID: 2331644706183907602}
   - {fileID: 2331644706183907614}
+  - {fileID: 2331644706183907606}
   _clawComboBurnDuration: 3
   _clawComboCD: 30
   _spreadFire: {fileID: 3509331702256189530, guid: 4bfb2acb18063944892809ae7df491fa, type: 3}
   _spreadFireSpawnLocation: {fileID: 2331644706183907654}
-  _spreadFireBurnDuration: 10
   _spreadFireCD: 60
 --- !u!114 &2899660526504653193
 MonoBehaviour:
@@ -710,6 +705,22 @@ MonoBehaviour:
   healthSlider: {fileID: 2811268842933507661}
   monsterHealth: {fileID: 2899660526504653193}
   _cinemachineFollow: {fileID: 0}
+--- !u!114 &3114950340964919659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449007892803640929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f107835e75725bd4ab4dc2c35438235f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraPerlin: {fileID: 0}
+  _shakeSource: {fileID: 3463061296923111932}
+  _camera: {fileID: 0}
+  _maxDistance: 60
 --- !u!1 &6950504670935543928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,16 +1322,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3778034857689852082, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
   m_PrefabInstance: {fileID: 1456329737359499696}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2331644706183907594 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3778034857689852090, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
-  m_PrefabInstance: {fileID: 1456329737359499696}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2331644706183907602 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3778034857689852066, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
-  m_PrefabInstance: {fileID: 1456329737359499696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2331644706183907606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3778034857689852070, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
@@ -1361,19 +1362,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3778034857689852154, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
   m_PrefabInstance: {fileID: 1456329737359499696}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2331644706183907662 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3778034857689852158, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
-  m_PrefabInstance: {fileID: 1456329737359499696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2331644706183907666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3778034857689852130, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
-  m_PrefabInstance: {fileID: 1456329737359499696}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2331644706183907670 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3778034857689852134, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
   m_PrefabInstance: {fileID: 1456329737359499696}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2331644706183907678 stripped

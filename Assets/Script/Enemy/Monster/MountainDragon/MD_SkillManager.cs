@@ -81,7 +81,7 @@ public class MD_SkillManager : MonoBehaviour
     {
         for (int i = 0; i < _clawComboLeftSpawnLocation.Length; i++)
         {
-            Instantiate(_clawCombo, _clawComboLeftSpawnLocation[i].position, Quaternion.identity, _clawComboLeftSpawnLocation[i]);
+            Instantiate(_clawCombo, _clawComboLeftSpawnLocation[i].position, transform.rotation, _clawComboLeftSpawnLocation[i]);
         }
     }
     public void ClawLeftCombo() => _ClawLeftCombo();
@@ -89,7 +89,7 @@ public class MD_SkillManager : MonoBehaviour
     {
         for (int i = 0; i < _clawComboRightSpawnLocation.Length; i++)
         {
-            Instantiate(_clawCombo, _clawComboRightSpawnLocation[i].position, Quaternion.identity, _clawComboRightSpawnLocation[i]);
+            Instantiate(_clawCombo, _clawComboRightSpawnLocation[i].position, transform.rotation, _clawComboRightSpawnLocation[i]);
         }
     }
     public void ClawRightCombo() => _ClawRightCombo();
@@ -121,7 +121,7 @@ public class MD_SkillManager : MonoBehaviour
     }
     private void _SpreadFire()
     {
-        Instantiate(_spreadFire,_spreadFireSpawnLocation.position,Quaternion.identity, _spreadFireSpawnLocation);
+        Instantiate(_spreadFire,_spreadFireSpawnLocation.position,transform.rotation, _spreadFireSpawnLocation);
     }
     public void SpreadFire()=>_SpreadFire();  
     #endregion
