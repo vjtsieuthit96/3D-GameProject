@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class FireBallManager : MonoBehaviour
 {
-    [SerializeField] private int damage;
+    [SerializeField] private float _damageMultiply = 2f;
     [SerializeField] private GameObject explosionEffect;
     private CameraShakeManager _shakeManager;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _fireBallSound;
     [SerializeField] private GameObject _burnAOE;
+    [SerializeField] private EnemyDamageManager _enemyDamageManager;
     
 
     private void Start()
@@ -20,7 +21,7 @@ public class FireBallManager : MonoBehaviour
         Invoke("DestroyFireBall", 7f);
         _shakeManager = GameObject.Find("DragonBoss").GetComponent<CameraShakeManager>();
         _audioSource.PlayOneShot(_fireBallSound);
-
+        _enemyDamageManager = GameObject.Find("DragonBoss").GetComponent<EnemyDamageManager>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -33,7 +34,7 @@ public class FireBallManager : MonoBehaviour
             {
                 _shakeManager.StartShake(1f, 25, 10);
                 playerManager.SetIsHit();
-                playerHealth.TakeDamage(damage);
+                playerHealth.TakeDamage(_enemyDamageManager.NormalDamage()*_damageMultiply);
                 SpawnExplosionEffect();            
             }           
         }

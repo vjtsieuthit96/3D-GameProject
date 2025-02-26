@@ -1,9 +1,13 @@
 using UnityEngine;
 
 public class Firebreath : MonoBehaviour
-{
-    [SerializeField] private float _damage;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+{    
+    [SerializeField] private SpreadFire _spreadFire;
+
+    private void Start()
+    {
+        _spreadFire = GetComponentInParent<SpreadFire>();
+    }
     private void OnParticleCollision(GameObject other)
     {
         if(other.CompareTag(Constans.PLAYER_TAG))
@@ -11,7 +15,7 @@ public class Firebreath : MonoBehaviour
             Health playerHealth = other.GetComponent<Health>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(_damage);
+                playerHealth.TakeDamage(_spreadFire.Damage());
             }
         }
     }

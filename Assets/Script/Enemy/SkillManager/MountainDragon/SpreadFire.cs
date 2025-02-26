@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class SpreadFire : MonoBehaviour
 {
+    [SerializeField] private float _damage = 1f;
+    [SerializeField] private float _lifeTime = 3f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, _lifeTime);
     }
 
     // Update is called once per frame
@@ -13,4 +15,5 @@ public class SpreadFire : MonoBehaviour
     {
         
     }
+    public float Damage() => _damage;
 }

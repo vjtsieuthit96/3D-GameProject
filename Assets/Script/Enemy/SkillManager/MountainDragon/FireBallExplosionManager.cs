@@ -6,9 +6,10 @@ public class FireBallExplosionManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _explosionClip;
-    [SerializeField] private float _damage;
+    [SerializeField] private float _damageMultiply = 1.5f;
     [SerializeField] private float _burnDuration;
-    [SerializeField] private SphereCollider _collider;    
+    [SerializeField] private SphereCollider _collider;
+    [SerializeField] private EnemyDamageManager _enemyDamageManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +18,7 @@ public class FireBallExplosionManager : MonoBehaviour
         _audioSource.PlayOneShot(_explosionClip);  
         _collider.enabled = true;
         StartCoroutine(turnoffCollider());
+        _enemyDamageManager = GameObject.Find("DragonBoss").GetComponent<EnemyDamageManager>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class FireBallExplosionManager : MonoBehaviour
             if (playerManager != null && playerHealth != null)
             {
                 playerManager.SetIsHit();
-                playerHealth.TakeDamage(_damage);
+                playerHealth.TakeDamage(_enemyDamageManager.NormalDamage()*_damageMultiply);
                 var rate = Random.Range(0f, 100f);
                 {
                     if (rate < 25f)
