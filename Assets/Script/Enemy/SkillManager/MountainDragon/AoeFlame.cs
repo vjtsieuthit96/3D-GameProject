@@ -4,6 +4,7 @@ using UnityEngine;
 public class AoeFlame : MonoBehaviour
 {
     [SerializeField] private float _burnDuration;
+    [SerializeField] private float _burnTime = 15f;
     //[SerializeField] private AudioSource _audioSource;
     //[SerializeField] private AudioClip _burningFireClip;
     
@@ -11,7 +12,7 @@ public class AoeFlame : MonoBehaviour
     void Start()
     {
         //AudioSourceManager.SetUpAudioSource(_audioSource); 
-        Destroy(this.gameObject, 10.0f);
+        Destroy(this.gameObject, _burnTime);
         //_audioSource.clip = _burningFireClip;        
         //_audioSource.Play();
     }

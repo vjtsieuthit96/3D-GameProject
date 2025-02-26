@@ -188,6 +188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clawAtkEffect: {fileID: 6854243160868685629, guid: 67c7d3b2a11514b4dbf2b805dbc5b8dd, type: 3}
+  _enemyDamageManager: {fileID: 0}
+  _damageMultiply: 1.5
+  _burnDuration: 5
 --- !u!1 &4977834941868223528
 GameObject:
   m_ObjectHideFlags: 0

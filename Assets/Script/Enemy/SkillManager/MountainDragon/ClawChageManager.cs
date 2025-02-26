@@ -3,7 +3,9 @@ using UnityEngine;
 public class ClawChageManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _tailChargeClip;  
+    [SerializeField] private AudioClip _tailChargeClip;
+    [SerializeField] private float _burnDuration = 5f;
+    [SerializeField] private float _damamgeMultiply = 1.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +19,8 @@ public class ClawChageManager : MonoBehaviour
     {
         
     }
-  
+
+    public float burnDuration()=>_burnDuration;
+    public float DamageMultiply() => _damamgeMultiply;
     
 }

@@ -48210,9 +48210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: -4180548950219604657}
   _explosionClip: {fileID: 8300000, guid: 21d48dbe37114e5449435bca9a5fe6b0, type: 3}
-  _damage: 40
+  _damageMultiply: 1.5
   _burnDuration: 5
   _collider: {fileID: 8610874100127328321}
+  _enemyDamageManager: {fileID: 0}
 --- !u!82 &-4180548950219604657
 AudioSource:
   m_ObjectHideFlags: 0
