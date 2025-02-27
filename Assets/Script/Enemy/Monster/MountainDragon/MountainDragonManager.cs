@@ -4,19 +4,16 @@ public class MountainDragonManager : MonsterManager
 {
     [SerializeField] private MD_SkillManager _SkillManager;
     private int _attackHash;
-    private Vector3 backPosition;
-    private bool isMovingBack=false;
     
     protected override void Start()
     {
         base.Start();
         _attackHash = Animator.StringToHash("attack");
-    }
-   
+    }   
     protected override void Update()
     {
         base.Update();
-        if(distanceAtk<=attackRange*0.8f )
+        if(distanceAtk <= attackRange*0.8f )
         {
             if (!monsterAnimator.GetBool("isFlying"))
             {
@@ -31,15 +28,7 @@ public class MountainDragonManager : MonsterManager
             _SkillManager.TryCastSpreadFire();
             monsterAnimator.SetTrigger(_attackHash);
 
-        }
-        if(isMovingBack)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, backPosition, Time.deltaTime * 4f);
-            if(Vector3.Distance(transform.position,backPosition)<0.5f)
-            {
-                isMovingBack = false;
-            }
-        }
+        }      
     }
 
     protected override void LateUpdate()

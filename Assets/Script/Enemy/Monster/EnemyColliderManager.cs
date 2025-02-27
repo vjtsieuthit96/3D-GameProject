@@ -1,102 +1,65 @@
-﻿using System.Collections;
-using System.Runtime.CompilerServices;
-using Unity.Cinemachine;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 
 public class EnemyColliderManager : MonoBehaviour
 {
     [SerializeField] protected BodyType _bodyType;
-    [SerializeField] protected MonsterManager _monsterManager;
-    [SerializeField] protected Animator _monsterAnimator;    
-    protected int _getHitHashType1;
-    protected int _getHitHashType2;
-    protected int _getHitHashFlying;
-    protected int _immuneToGetHitHash;
-    protected int _isDeadHash;  
-    private int _getHitCount;
-
-    private bool _isHit;
+    [SerializeField] protected MonsterManager _monsterManager;   
+    private bool _isTriggerHandled = false; 
     public enum BodyType
     {
         Front,
         Back
-    }
-
-    protected virtual void Start()
-    {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
-        _getHitHashType1 = Animator.StringToHash("getHitType1");
-        _getHitHashType2 = Animator.StringToHash("getHitType2");
-        _getHitHashFlying = Animator.StringToHash("getHitFlying");
-        _isDeadHash = Animator.StringToHash("isDead");
-    }
-
-    protected virtual void Update()
-    {
-        _isHit = false;
-    }
-   
+    }  
 
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constans.WEAPON_TAG))
         {
-            Debug.Log("Enemy Is Hit");
-            if (!_monsterAnimator.GetBool(_isDeadHash))
-            {                
+            if (_isTriggerHandled)
+            {
+                return;
+            }
+            
+            if (!_monsterManager.GetBoolDeadHash())
+            {
+                Debug.Log("Enemy Is Hit");
                 getHit();
                 _monsterManager.ShowFloatingDamage(Random.Range(15, 55));
+                _monsterManager.countGetHit();
                 if (_monsterManager.IsDead())
                 {
-                    Die();
+                    _monsterManager.Die();
                 }
+                _isTriggerHandled=true;
             }
         }
     }
 
-    protected virtual void getHit()
+    protected virtual void OnTriggerExit (Collider other)
     {
-        if (!_isHit)
-        {            
-            if (!_monsterAnimator.GetBool(_immuneToGetHitHash))
+        _isTriggerHandled = false;       
+    }
+
+    protected virtual void getHit()
+    {        
+        if (!_monsterManager.GetBoolImmuneToGetHit())
+        {
+            if (!_monsterManager.IsFlying())
             {
-                if (!_monsterManager.IsFlying())
+                if (_bodyType == BodyType.Front)
                 {
-                    if (_bodyType == BodyType.Front)
-                    {
-                        _monsterAnimator.SetTrigger(_getHitHashType1);
-                    }
-                    else
-                    {
-                        _monsterAnimator.SetTrigger(_getHitHashType2);
-                    }
+                    _monsterManager.SetGetHit(_monsterManager.getHitHashType1());                  
                 }
                 else
                 {
-                    _monsterAnimator.SetTrigger(_getHitHashFlying);
-                }
-                _getHitCount++;
-                if (_getHitCount >= 30f)
-                {
-                    _monsterAnimator.SetBool(_immuneToGetHitHash, true);
-                    StartCoroutine(RemoveImmunityAfterCD());
+                    _monsterManager.SetGetHit(_monsterManager.getHitHashType2());                    
                 }
             }
-            _isHit = true;
+            else
+            {
+                _monsterManager.SetGetHit(_monsterManager.getHitHashFlying());                
+            }
+            _monsterManager.SetGetHitCount(0);
         }
-    }
-    protected IEnumerator RemoveImmunityAfterCD()
-    {
-        yield return new WaitForSeconds(Constans.immuneDuration);
-        _monsterAnimator.SetBool(_immuneToGetHitHash, false);
-        _getHitCount = 0;
-    }
-   
-    protected void Die()
-    {
-        _monsterAnimator.SetBool(_isDeadHash, true);       
-    }
+    }      
 }
