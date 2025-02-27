@@ -100,6 +100,7 @@ public class MD_SkillManager : MonoBehaviour
     }
     public void ApplyClawComboBurn()=>_ApplyClawComboBurn();
     #endregion
+
     #region SpreadFire
     [SerializeField] private GameObject _spreadFire;
     [SerializeField] private Transform _spreadFireSpawnLocation;    
@@ -108,8 +109,7 @@ public class MD_SkillManager : MonoBehaviour
     public void TryCastSpreadFire()
     {
         if(_canCastSpreadFire)
-        {
-            StartCoroutine(Spreading());
+        {           
             StartCoroutine(CastSpreadFire());
         }
     }
@@ -119,14 +119,7 @@ public class MD_SkillManager : MonoBehaviour
         _mdAnimator.SetTrigger(_spreadFireSkillHash);
         yield return new WaitForSeconds(_spreadFireCD);
         _canCastSpreadFire = true;
-    }
-
-    private IEnumerator Spreading()
-    {
-        _mdManager.stopMovement();
-        yield return new WaitForSeconds(2.5f);
-        _mdManager.resumeMovement();
-    }
+    }   
    
     private void _SpreadFire()
     {

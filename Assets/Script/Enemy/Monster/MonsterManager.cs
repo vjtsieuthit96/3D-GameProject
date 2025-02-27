@@ -28,7 +28,7 @@ public class MonsterManager : MonoBehaviour
     private bool _playerInRange;   
     private int _roarHash;    
     private int _speedHash;
-    private int _isFlyingHash;
+    protected int _isFlyingHash;
     private int _noDangerHash;
     private int _posXHash;
     private int _posYHash;
@@ -81,8 +81,11 @@ public class MonsterManager : MonoBehaviour
             _attackTime += Time.deltaTime;
             if (!_playerInRange)
             {
-                LookAtTarget();
-                monsterAnimator.SetTrigger(_roarHash);
+                if (!_isFlying)
+                {
+                    LookAtTarget();
+                    monsterAnimator.SetTrigger(_roarHash);
+                }
                 _playerInRange = true;
             }
             _isReturningToInitPosition = false;
@@ -183,7 +186,7 @@ public class MonsterManager : MonoBehaviour
     {
         Vector3 direction = navMeshAgent.velocity.normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation,Time.deltaTime*navMeshAgent.angularSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation,Time.deltaTime* 2f);
     }
     protected IEnumerator Wander()
     {
@@ -210,7 +213,7 @@ public class MonsterManager : MonoBehaviour
             }
         }
     }
-    protected IEnumerator Flying()
+    protected virtual IEnumerator Flying()
     {
         _isFlyingCoroutineRunning = true;
         monsterAnimator.SetBool(_isFlyingHash, true);
@@ -276,4 +279,13 @@ public class MonsterManager : MonoBehaviour
         monsterAnimator.SetTrigger(type);
     }
     public void SetGetHit (int type) => _SetGetHit(type);
+    protected virtual void _StopMovement()
+    {
+        navMeshAgent.isStopped = true;
+    }   
+    protected virtual void _ResumeMovement()
+    {
+        navMeshAgent.isStopped = false;
+    }
+    
 }
