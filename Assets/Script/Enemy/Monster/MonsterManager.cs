@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using static EnemyColliderManager;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -35,7 +36,17 @@ public class MonsterManager : MonoBehaviour
     protected float distanceAtk;
     private bool _isDead;
     public bool IsDead() => _isDead;
-    //giá trị hiển thị khi chọn type;
+    protected int _getHitHashType1;
+    public int getHitHashType1() => _getHitHashType1;
+    protected int _getHitHashType2;
+    public int getHitHashType2() => _getHitHashType2;
+    protected int _getHitHashFlying;
+    public int getHitHashFlying() => _getHitHashFlying;
+    protected int _immuneToGetHitHash;
+    protected int _getHitCount;
+    public int GetHitCountValue()=>_getHitCount;
+    protected int _isDeadHash;
+       //giá trị hiển thị khi chọn type;
     public enum MonsterType
     {
         Flying,
@@ -56,6 +67,11 @@ public class MonsterManager : MonoBehaviour
         _noDangerHash = Animator.StringToHash("noDanger");
         _posXHash = Animator.StringToHash("pos_X");
         _posYHash = Animator.StringToHash("pos_Y");
+        _immuneToGetHitHash = Animator.StringToHash("immuneToGetHit");
+        _getHitHashType1 = Animator.StringToHash("getHitType1");
+        _getHitHashType2 = Animator.StringToHash("getHitType2");
+        _getHitHashFlying = Animator.StringToHash("getHitFlying");
+        _isDeadHash = Animator.StringToHash("isDead");
     }
     protected virtual void Update()
     {
@@ -134,11 +150,18 @@ public class MonsterManager : MonoBehaviour
                 }
             }
         }             
-        monsterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude); 
-        if(monsterHealth.GetCurrentHealth() <=0)
+        monsterAnimator.SetFloat(_speedHash, navMeshAgent.velocity.magnitude);
+        if (monsterHealth.GetCurrentHealth() <= 0)
         {
-            _isDead = true;
-            Die();
+            Destroy(gameObject,Constans.dispawnTime);
+        }
+        if(_getHitCount >=5f)
+        {
+            monsterAnimator.SetBool(_immuneToGetHitHash, false);
+        }
+        else
+        {
+            monsterAnimator.SetBool(_immuneToGetHitHash, true);
         }
     }
 
@@ -213,11 +236,39 @@ public class MonsterManager : MonoBehaviour
         damageText.GetComponent<FloatingDamage>().SetCamera(_cinemachineFollow);
         monsterHealth.TakeDamage(damage);
     }
-    public void ShowFloatingDamage(float damage) => _ShowFloatingDame(damage);
+    public void ShowFloatingDamage(float damage) => _ShowFloatingDame(damage);  
+    private bool _GetBoolImmuneToGetHit()
+    {
+        return monsterAnimator.GetBool(_immuneToGetHitHash);
+    }
+    public bool GetBoolImmuneToGetHit() => _GetBoolImmuneToGetHit();   
+    
+    private void _SetGetHitCount (int value)
+    {
+       _getHitCount = value;
+    }
 
-    protected void Die()
+    public void SetGetHitCount(int value) => _SetGetHitCount(value);
+    private void _countGetHit()
+    {
+        _getHitCount++;
+    }
+    public void countGetHit()=>_countGetHit();        
+  
+    protected void _Die()
     {        
-        navMeshAgent.isStopped = true;
-        Destroy(gameObject,Constans.dispawnTime);
-    }       
+        navMeshAgent.isStopped = true;      
+        monsterAnimator.SetBool(_isDeadHash, true);
+    } 
+    public void Die() => _Die();
+    private bool _GetDeadHash()
+    {
+        return monsterAnimator.GetBool(_isDeadHash);
+    }
+    public bool GetBoolDeadHash()=>_GetDeadHash();
+    private void _SetGetHit (int type)
+    {
+        monsterAnimator.SetTrigger(type);
+    }
+    public void SetGetHit (int type) => _SetGetHit(type);
 }
