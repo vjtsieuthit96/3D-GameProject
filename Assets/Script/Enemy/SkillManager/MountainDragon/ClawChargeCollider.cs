@@ -4,12 +4,12 @@ public class ClawChargeCollider : MonoBehaviour
 {
     [SerializeField] private GameObject _clawAtkEffect;
     [SerializeField] private EnemyDamageManager _enemyDamageManager;
-    [SerializeField] private ClawChageManager _clawChageManager;
+    [SerializeField] private ClawChargeManager _clawChageManager;
 
     private void Start()
     {
         _enemyDamageManager = GameObject.Find("DragonBoss").GetComponent<EnemyDamageManager>();
-        _clawChageManager.GetComponentInParent<ClawChageManager>();
+        _clawChageManager = GetComponentInParent<ClawChargeManager>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnTriggerEnter(Collider other)

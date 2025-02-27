@@ -13,9 +13,13 @@ public class Firebreath : MonoBehaviour
         if(other.CompareTag(Constans.PLAYER_TAG))
         {
             Health playerHealth = other.GetComponent<Health>();
+            PlayerManager playerManager = other.GetComponentInParent<PlayerManager>();
+            PlayerNegativeEffectManager playerNegativeEffectManager = other.GetComponent<PlayerNegativeEffectManager>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(_spreadFire.Damage());
+                playerManager.SetIsHit();
+                playerNegativeEffectManager.ApplyBurnEffect(_spreadFire.BurnDuration());
             }
         }
     }
