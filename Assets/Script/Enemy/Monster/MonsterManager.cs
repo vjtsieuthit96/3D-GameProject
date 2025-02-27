@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using static EnemyColliderManager;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -118,6 +116,7 @@ public class MonsterManager : MonoBehaviour
         }
         else
         {
+            BackToNormalLook();
             monsterAnimator.SetBool(_noDangerHash, true);
             if (_attackTime > 0)
             {
@@ -180,6 +179,12 @@ public class MonsterManager : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, direction.y, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 2f);
     }
+    protected void BackToNormalLook()
+    {
+        Vector3 direction = navMeshAgent.velocity.normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation,Time.deltaTime*navMeshAgent.angularSpeed);
+    }
     protected IEnumerator Wander()
     {
         while (true)
@@ -229,7 +234,7 @@ public class MonsterManager : MonoBehaviour
     }
     #endregion;  
     protected void _ShowFloatingDame(float damage)
-    {        
+    {
         var damageText = Instantiate(damageTextPrefab, floatingDamageSpawnPoint.position
             + new Vector3(0, 0.5f, 0), Quaternion.identity, hpCanvas.transform);
         damageText.GetComponent<FloatingDamage>().SetText(damage);
