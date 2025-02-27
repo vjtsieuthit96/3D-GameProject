@@ -42,9 +42,11 @@ public class MD_SkillManager : MonoBehaviour
     private IEnumerator CastFireBall()
     {
         _canCastFireBall = false; ;
+        _mdManager.LookTarget();
         _mdAnimator.SetTrigger(_fireballSkillHash);
+        _mdManager.NormalLook();
         yield return new WaitForSeconds(fireBallCD);
-        _canCastFireBall = true;
+        _canCastFireBall = true;        
     }
 
     private void _FireBall()
@@ -72,10 +74,13 @@ public class MD_SkillManager : MonoBehaviour
     }
     private IEnumerator CastClawCombo()
     {
+        _mdManager.LookTarget();
         _canCastClawCombo = false; 
         _mdAnimator.SetTrigger(_clawComboHash);
+        _mdManager.NormalLook();
         yield return new WaitForSeconds(_clawComboCD);
         _canCastClawCombo = true;
+       
     }
     private void _ClawLeftCombo()
     {
@@ -116,9 +121,11 @@ public class MD_SkillManager : MonoBehaviour
     private IEnumerator CastSpreadFire()
     {
         _canCastSpreadFire = false;
+        _mdManager.LookTarget();
         _mdAnimator.SetTrigger(_spreadFireSkillHash);
+        _mdManager.NormalLook();
         yield return new WaitForSeconds(_spreadFireCD);
-        _canCastSpreadFire = true;
+        _canCastSpreadFire = true;        
     }   
    
     private void _SpreadFire()

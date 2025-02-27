@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class MountainDragonManager : MonsterManager
@@ -20,29 +21,23 @@ public class MountainDragonManager : MonsterManager
             if (distanceAtk <= attackRange * 0.6f)
             {
                 if (!monsterAnimator.GetBool(_isFlyingHash))
-                {
-                    LookAtTarget();
-                    _SkillManager.TryCastFireBall();
-                    BackToNormalLook();
+                {               
+                    _SkillManager.TryCastFireBall();                
                 }
             }
             if (distanceAtk <= attackRange * 0.75f && distanceAtk >= navMeshAgent.stoppingDistance * 1.25f)
-            {
-                LookAtTarget();
-                _SkillManager.TryCastSpreadFire();
-                BackToNormalLook();
+            {         
+                _SkillManager.TryCastSpreadFire();         
             }
             if (distanceAtk < navMeshAgent.stoppingDistance)
-            {
-                LookAtTarget();
+            {              
                 _SkillManager.TryCastClawCombo();
                 monsterAnimator.SetTrigger(_attackHash);
             }
         }
         else
         {
-            _SkillManager.TryCastFireBall();
-            BackToNormalLook();
+            _SkillManager.TryCastFireBall();            
         }
 
     }
@@ -50,6 +45,19 @@ public class MountainDragonManager : MonsterManager
     {
         base.LateUpdate();
     }
+
+    protected override void LookAtTarget()
+    {
+        base.LookAtTarget();
+    }
+
+    public void LookTarget() => LookAtTarget();
+    protected override void BackToNormalLook()
+    {
+        base.BackToNormalLook();
+    }
+
+    public void NormalLook() => BackToNormalLook();
 
     protected override IEnumerator Flying()
     {

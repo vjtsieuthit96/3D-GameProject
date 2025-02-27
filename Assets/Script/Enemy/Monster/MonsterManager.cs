@@ -82,8 +82,7 @@ public class MonsterManager : MonoBehaviour
             if (!_playerInRange)
             {
                 if (!_isFlying)
-                {
-                    LookAtTarget();
+                {                    
                     monsterAnimator.SetTrigger(_roarHash);
                 }
                 _playerInRange = true;
@@ -118,8 +117,7 @@ public class MonsterManager : MonoBehaviour
             }           
         }
         else
-        {
-            BackToNormalLook();
+        {           
             monsterAnimator.SetBool(_noDangerHash, true);
             if (_attackTime > 0)
             {
@@ -176,13 +174,13 @@ public class MonsterManager : MonoBehaviour
     
     //Monster Behavior
     #region Monster Behavior
-    protected void LookAtTarget()
+    protected virtual void LookAtTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, direction.y, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 2f);
     }
-    protected void BackToNormalLook()
+    protected virtual void BackToNormalLook()
     {
         Vector3 direction = navMeshAgent.velocity.normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
