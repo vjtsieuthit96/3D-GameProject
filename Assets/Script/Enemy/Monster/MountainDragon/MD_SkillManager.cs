@@ -104,11 +104,12 @@ public class MD_SkillManager : MonoBehaviour
     [SerializeField] private GameObject _spreadFire;
     [SerializeField] private Transform _spreadFireSpawnLocation;    
     [SerializeField] private float _spreadFireCD = 15f;
-    private bool _canCastSpreadFire = true;
+    private bool _canCastSpreadFire = true;      
     public void TryCastSpreadFire()
     {
         if(_canCastSpreadFire)
         {
+            StartCoroutine(Spreading());
             StartCoroutine(CastSpreadFire());
         }
     }
@@ -119,6 +120,14 @@ public class MD_SkillManager : MonoBehaviour
         yield return new WaitForSeconds(_spreadFireCD);
         _canCastSpreadFire = true;
     }
+
+    private IEnumerator Spreading()
+    {
+        _mdManager.stopMovement();
+        yield return new WaitForSeconds(2.5f);
+        _mdManager.resumeMovement();
+    }
+   
     private void _SpreadFire()
     {
         Instantiate(_spreadFire,_spreadFireSpawnLocation.position,transform.rotation, _spreadFireSpawnLocation);
