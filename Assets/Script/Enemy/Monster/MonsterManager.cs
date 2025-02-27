@@ -17,7 +17,8 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] protected GameObject damageTextPrefab;
     [SerializeField] protected Transform floatingDamageSpawnPoint;
     [SerializeField] protected CinemachineFollow _cinemachineFollow;
-    [SerializeField] protected GameObject hpCanvas;    
+    [SerializeField] protected GameObject hpCanvas;
+    [SerializeField] protected float _flyHeight;
     private Vector3 _initPosition; 
     private bool _isReturningToInitPosition;      
     private Coroutine _wanderCoroutine;
@@ -43,16 +44,15 @@ public class MonsterManager : MonoBehaviour
     protected int _immuneToGetHitHash;
     protected int _getHitCount;
     public int GetHitCountValue()=>_getHitCount;
-    protected int _isDeadHash;
-       //giá trị hiển thị khi chọn type;
+    protected int _isDeadHash;    
+    //giá trị hiển thị khi chọn type;
     public enum MonsterType
     {
         Flying,
         Ground
     }   
     [SerializeField] protected MonsterType monsterType;
-    [SerializeField, EnumCondition("monsterType", (int)MonsterType.Flying)]
-    protected float _flyHeight;
+      
     //
     #endregion
 
