@@ -100,6 +100,7 @@ public class MD_SkillManager : MonoBehaviour
     }
     public void ApplyClawComboBurn()=>_ApplyClawComboBurn();
     #endregion
+
     #region SpreadFire
     [SerializeField] private GameObject _spreadFire;
     [SerializeField] private Transform _spreadFireSpawnLocation;    

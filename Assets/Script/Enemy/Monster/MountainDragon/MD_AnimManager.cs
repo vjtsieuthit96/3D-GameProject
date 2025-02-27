@@ -5,39 +5,121 @@ public class MD_AnimManager : MonoBehaviour
     [SerializeField] private MD_SkillManager _skillManager;
     [SerializeField] private MountainDragonManager _mountainDragonManager;
 
-    public void FireBreath ()
+    //FireBreath Skill
+    #region FireBreath
+    private void FireBreathStart()
+    {
+        _mountainDragonManager.StopMovement();        
+    }
+
+    private void FireBreath()
     {
         _skillManager.SpreadFire();
     }
 
-    public void Fly()
+    private void FireBreathEnd()
+    {
+        _mountainDragonManager.ResumeMovement();
+    }
+    #endregion
+
+    //Fly & Land
+    #region Fly&Land
+    private void Fly()
     {
         _mountainDragonManager.AdjustHeightFly();
     }
 
-    public void StationaryLand()
+    private void StationaryLand()
     {
         _mountainDragonManager.AdjustHeightLand();
     }
 
-    public void GlideLand()
+    private void GlideLand()
     {
         _mountainDragonManager.AdjustHeightLand();
     }
+    #endregion
 
-    public void RightClawStart()
+    //ClawCombo
+    #region ClawCombo
+    private void ClawComboStart()
+    {
+        _mountainDragonManager.StopMovement();
+    }
+
+    private void RightClawStart()
     {
         _skillManager.ClawRightCombo();
     }
 
-    public void LeftClawStart()
+    private void LeftClawStart()
     {
         _skillManager.ClawLeftCombo();
     }
 
-    public void GroundFireBall()
+    private void ClawComboEnd()
     {
+        _mountainDragonManager.ResumeMovement();
+    }
+    #endregion
+
+    //FireBall
+    #region FireBall
+    private void GroundFireBallStart()
+    {
+        _mountainDragonManager.StopMovement();
         _skillManager.FireBall();
     }
-   
+
+    private void GroundFireBallEnd()
+    {
+        _mountainDragonManager.ResumeMovement();
+    }
+    #endregion
+
+    //Roar
+    #region Roar
+    private void RoarStart()
+    {
+        _mountainDragonManager.StopMovement();
+    }
+
+    private void RoarEnd()
+    {
+        _mountainDragonManager.ResumeMovement();
+    }
+    #endregion
+
+    //FlySpreadFire
+    #region FlySpreadFire   
+    private void FlySpreadFireStart()
+    {
+        _mountainDragonManager.StopMovement();
+    }
+
+    private void FlySpreadFire()
+    {
+        Debug.Log("FlySpreadFire");
+    }
+
+    private void FlySpreadFireEnd()
+    {
+        _mountainDragonManager.ResumeMovement();
+    }
+    #endregion
+
+    //FlyFireBall
+    #region FlyFireBall
+    private void FlyFireBallStart()
+    {
+        _mountainDragonManager.StopMovement();
+        _skillManager.FireBall();
+    }
+
+    private void FlyFireBallEnd()
+    {
+        _mountainDragonManager.ResumeMovement();
+    }
+    #endregion
 }

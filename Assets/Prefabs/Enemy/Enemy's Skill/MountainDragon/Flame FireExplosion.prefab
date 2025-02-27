@@ -58,7 +58,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 4.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6817600256151657474
 MonoBehaviour:
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _burnDuration: 10
+  _burnTime: 15
 --- !u!82 &4818809619538592741
 AudioSource:
   m_ObjectHideFlags: 0

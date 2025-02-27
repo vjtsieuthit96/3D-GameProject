@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MountainDragonManager : MonsterManager
@@ -14,42 +15,61 @@ public class MountainDragonManager : MonsterManager
     {
 
         base.Update();
-
-        if (distanceAtk <= attackRange * 0.8f)
+        if (!_isFlying)
         {
-            if (!monsterAnimator.GetBool("isFlying"))
+            if (distanceAtk <= attackRange * 0.6f)
+            {
+                if (!monsterAnimator.GetBool(_isFlyingHash))
+                {
+                    LookAtTarget();
+                    _SkillManager.TryCastFireBall();
+                    BackToNormalLook();
+                }
+            }
+            if (distanceAtk <= attackRange * 0.75f && distanceAtk >= navMeshAgent.stoppingDistance * 1.25f)
             {
                 LookAtTarget();
-                _SkillManager.TryCastFireBall();
+                _SkillManager.TryCastSpreadFire();
+                BackToNormalLook();
+            }
+            if (distanceAtk < navMeshAgent.stoppingDistance)
+            {
+                LookAtTarget();
+                _SkillManager.TryCastClawCombo();
+                monsterAnimator.SetTrigger(_attackHash);
             }
         }
-        if (distanceAtk <= attackRange * 0.75f && distanceAtk >= navMeshAgent.stoppingDistance * 1.25f)
+        else
         {
-            LookAtTarget();
-            _SkillManager.TryCastSpreadFire();
-        }
-        if (distanceAtk < navMeshAgent.stoppingDistance)
-        {
-            LookAtTarget();
-            _SkillManager.TryCastClawCombo();
-            monsterAnimator.SetTrigger(_attackHash);
+            _SkillManager.TryCastFireBall();
+            BackToNormalLook();
         }
 
     }
-
     protected override void LateUpdate()
     {
         base.LateUpdate();
-    }    
-       
+    }
+
+    protected override IEnumerator Flying()
+    {
+        navMeshAgent.speed += 4;
+        navMeshAgent.height = _flyHeight;
+        _SkillManager.SetFireBallCD(-50);
+        yield return base.Flying();
+        _SkillManager.SetFireBallCD(50);
+        navMeshAgent.speed -= 4;
+        navMeshAgent.height = 4;
+    }   
+
     private void _AdjustHeightFly()
     {
-        StartCoroutine(AdjustHeightOverTime(_flyHeight, 1f));
+        StartCoroutine(AdjustHeightOverTime(_flyHeight, 2.5f));
     }
     public void AdjustHeightFly()=>_AdjustHeightFly();
     private void _AdjustHeightLand()
     {
-       StartCoroutine(AdjustHeightOverTime(0f, 1f));
+       StartCoroutine(AdjustHeightOverTime(0f, 2.5f));
     }
     public void AdjustHeightLand()=>_AdjustHeightLand();
 

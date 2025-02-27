@@ -32,6 +32,17 @@ public class AoeFlame : MonoBehaviour
                 playerNegativeEffectManager.ApplyBurnEffect(_burnDuration);
             }
         }
-
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag(Constans.PLAYER_TAG))
+        {
+            PlayerNegativeEffectManager playerNegativeEffectManager = other.GetComponent<PlayerNegativeEffectManager>();
+            {
+                playerNegativeEffectManager.ApplyBurnEffect(_burnDuration);
+            }
+        }
+    }
+
 }
