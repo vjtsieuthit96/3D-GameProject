@@ -52,17 +52,17 @@ public class MountainDragonManager : MonsterManager
        StartCoroutine(AdjustHeightOverTime(0f, 1f));
     }
     public void AdjustHeightLand()=>_AdjustHeightLand();
-   
-    private void _StopMovement()
+
+    protected override void _StopMovement()
     {
-        navMeshAgent.isStopped = true;
-    }
-    public void stopMovement() => _StopMovement();
-    private void _ResumeMovement()
+        base._StopMovement();
+    }   
+    public void StopMovement() => _StopMovement();
+    override protected void _ResumeMovement()
     {
-        navMeshAgent.isStopped=false;
+        base._ResumeMovement();
     }
-    public void resumeMovement() => _ResumeMovement();  
+    public void ResumeMovement() => _ResumeMovement();  
 }
 
 

@@ -276,4 +276,13 @@ public class MonsterManager : MonoBehaviour
         monsterAnimator.SetTrigger(type);
     }
     public void SetGetHit (int type) => _SetGetHit(type);
+    protected virtual void _StopMovement()
+    {
+        navMeshAgent.isStopped = true;
+    }   
+    protected virtual void _ResumeMovement()
+    {
+        navMeshAgent.isStopped = false;
+    }
+    
 }
