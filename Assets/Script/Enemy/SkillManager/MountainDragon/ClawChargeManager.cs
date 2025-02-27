@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ClawChageManager : MonoBehaviour
+public class ClawChargeManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _tailChargeClip;
