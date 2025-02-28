@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private GameObject prefabs;
     
     // index cua animation
     private int _attackHash;
@@ -22,6 +23,10 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             playerAnimator.SetTrigger(_attackHash);            
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Instantiate(prefabs,transform.position, Quaternion.identity);
         }
     }
 

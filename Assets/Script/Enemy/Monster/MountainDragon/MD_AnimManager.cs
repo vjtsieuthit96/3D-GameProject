@@ -82,11 +82,13 @@ public class MD_AnimManager : MonoBehaviour
     #region Roar
     private void RoarStart()
     {
+        _mountainDragonManager.LookTarget();
         _mountainDragonManager.StopMovement();
     }
 
     private void RoarEnd()
     {
+        _mountainDragonManager.NormalLook();
         _mountainDragonManager.ResumeMovement();
     }
     #endregion
@@ -100,12 +102,14 @@ public class MD_AnimManager : MonoBehaviour
 
     private void FlySpreadFire()
     {
-        Debug.Log("FlySpreadFire");
+        _skillManager.FlySpreadFire();
+        StartCoroutine(_skillManager.FireTornado(3));
     }
 
     private void FlySpreadFireEnd()
     {
         _mountainDragonManager.ResumeMovement();
+        StopCoroutine(_skillManager.FireTornado(3));
     }
     #endregion
 

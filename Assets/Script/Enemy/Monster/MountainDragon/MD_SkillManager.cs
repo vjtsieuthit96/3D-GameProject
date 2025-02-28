@@ -10,6 +10,7 @@ public class MD_SkillManager : MonoBehaviour
     private int _fireballSkillHash;
     private int _clawComboHash;
     private int _spreadFireSkillHash;
+    private int _flySpreadFireHash;
 
 
     private void Start()
@@ -17,6 +18,8 @@ public class MD_SkillManager : MonoBehaviour
         _fireballSkillHash = Animator.StringToHash("fireballSkill");
         _clawComboHash = Animator.StringToHash("clawCombo");
         _spreadFireSkillHash = Animator.StringToHash("spreadFireSkill");
+        _flySpreadFireHash = Animator.StringToHash("flySpreadFire");
+
     }
     #region FireBallSkill
 
@@ -42,9 +45,11 @@ public class MD_SkillManager : MonoBehaviour
     private IEnumerator CastFireBall()
     {
         _canCastFireBall = false; ;
+        _mdManager.LookTarget();
         _mdAnimator.SetTrigger(_fireballSkillHash);
+        _mdManager.NormalLook();
         yield return new WaitForSeconds(fireBallCD);
-        _canCastFireBall = true;
+        _canCastFireBall = true;        
     }
 
     private void _FireBall()
@@ -72,10 +77,13 @@ public class MD_SkillManager : MonoBehaviour
     }
     private IEnumerator CastClawCombo()
     {
+        _mdManager.LookTarget();
         _canCastClawCombo = false; 
         _mdAnimator.SetTrigger(_clawComboHash);
+        _mdManager.NormalLook();
         yield return new WaitForSeconds(_clawComboCD);
         _canCastClawCombo = true;
+       
     }
     private void _ClawLeftCombo()
     {
@@ -116,15 +124,63 @@ public class MD_SkillManager : MonoBehaviour
     private IEnumerator CastSpreadFire()
     {
         _canCastSpreadFire = false;
+        _mdManager.LookTarget();
         _mdAnimator.SetTrigger(_spreadFireSkillHash);
+        _mdManager.NormalLook();
         yield return new WaitForSeconds(_spreadFireCD);
-        _canCastSpreadFire = true;
+        _canCastSpreadFire = true;        
     }   
    
     private void _SpreadFire()
     {
         Instantiate(_spreadFire,_spreadFireSpawnLocation.position,transform.rotation, _spreadFireSpawnLocation);
     }
-    public void SpreadFire()=>_SpreadFire();  
+    public void SpreadFire()=>_SpreadFire();
+    #endregion
+
+    #region FireTornado
+    [SerializeField] private GameObject _flySpreadFire;
+    [SerializeField] private GameObject _fireTornado;
+    [SerializeField] private float _fireTornadoCD = 45f;
+    private bool _canCastFireTornado = true;
+    public void TryCastFireTornado()
+    {
+        if (_canCastFireTornado)
+        {
+            StartCoroutine(CastFireTornado());
+        }
+    }
+    private IEnumerator CastFireTornado()
+    {
+        _canCastFireTornado = false;
+        _mdManager.LookTarget();
+        _mdAnimator.SetTrigger(_flySpreadFireHash);
+        _mdManager.NormalLook();
+        yield return new WaitForSeconds(_fireTornadoCD);
+        _canCastFireTornado = true;
+    }
+
+    private void _FlySpreadFire()
+    {
+        Instantiate(_flySpreadFire, _spreadFireSpawnLocation.position,transform.rotation, _spreadFireSpawnLocation);
+    }
+    public void FlySpreadFire() => _FlySpreadFire();
+
+    private IEnumerator _FireTornado(int duration)
+    {
+        for (int i=0;i<duration;i++)
+        {
+            Vector3 spawnLocation = GetRandomPositionAroundTarget();
+            Instantiate(_fireTornado, spawnLocation, Quaternion.identity);
+            yield return new WaitForSeconds(2f);
+        }
+    }
+    public IEnumerator FireTornado(int duration) => _FireTornado(duration);
+
+    private Vector3 GetRandomPositionAroundTarget()
+    {
+        Vector3 randomOffset = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+        return target.position + randomOffset;
+    }
     #endregion
 }

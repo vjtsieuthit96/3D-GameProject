@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.Processors;
@@ -60,6 +61,7 @@ public class PlayerManager : MonoBehaviour
         playerAnimator.SetTrigger(_isHit);
     }    
     public void SetIsHit() => setIsHit();
+   
     private void _setKnockback()
     {
         playerAnimator.SetTrigger(_KnockDownHash);

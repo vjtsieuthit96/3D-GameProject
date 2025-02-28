@@ -4,10 +4,10 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
-    [SerializeField] private float healingRate; 
+    [SerializeField] private float healingRate;
     public float _currentHealth;
     private bool _isHit;
-    
+
     void Start()
     {
         _currentHealth = maxHealth;
@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
     public float GetCurrentHealth() => _currentHealth;
     public float GetMaxtHealth() => maxHealth;
     public void SetHealingRate(float rate) => healingRate = rate;
-    public void TakeDamage (float damage)
+    public void TakeDamage(float damage)
     {
         if (!_isHit)
         {
@@ -30,8 +30,8 @@ public class Health : MonoBehaviour
         }
     }
 
-   // hàm hồi máu dùng IEnumerator 
-   IEnumerator Healing()
+    // hàm hồi máu dùng IEnumerator 
+    IEnumerator Healing()
     {
         while (true)
         {
@@ -42,3 +42,4 @@ public class Health : MonoBehaviour
         }
     }
 }
+    
