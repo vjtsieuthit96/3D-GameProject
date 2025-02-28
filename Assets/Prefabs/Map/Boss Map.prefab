@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1924932925637450491}
   m_Layer: 0
   m_Name: Structures
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5729788191394503994}
   m_Layer: 0
   m_Name: Logs
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 210437948601628567}
   m_Layer: 0
   m_Name: Steps
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -112,6 +112,112 @@ Transform:
   - {fileID: 2152677695043042772}
   m_Father: {fileID: 1924932925637450491}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3437985501881790748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3459956636587462356}
+  - component: {fileID: 2938923564654899453}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3459956636587462356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3437985501881790748}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -5.237976, y: 6.0999985, z: 54.397583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6270617974889868989}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &2938923564654899453
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3437985501881790748}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 110, y: 20, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4091572519345011240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3136887211748725030}
+  - component: {fileID: 7922430021277960653}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3136887211748725030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091572519345011240}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.032833215, z: -0, w: 0.9994609}
+  m_LocalPosition: {x: 49.64203, y: 2.4300003, z: 95.68762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6270617974889868989}
+  m_LocalEulerAnglesHint: {x: 0, y: -3.763, z: 0}
+--- !u!65 &7922430021277960653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091572519345011240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 110, y: 15, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4623421406331921949
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +229,7 @@ GameObject:
   - component: {fileID: 6830602804563433506}
   m_Layer: 0
   m_Name: Rocks
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -168,6 +274,59 @@ Transform:
   - {fileID: 7052523502444739490}
   m_Father: {fileID: 574959795975127739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4646554358906191642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6064836971353308670}
+  - component: {fileID: 3299841486167020373}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6064836971353308670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646554358906191642}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 98.14203, y: 6.0999985, z: 54.397583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6270617974889868989}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &3299841486167020373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646554358906191642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 110, y: 20, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5221776870182203803
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +338,7 @@ GameObject:
   - component: {fileID: 5485773475664219781}
   m_Layer: 0
   m_Name: Planks
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -223,7 +382,7 @@ GameObject:
   - component: {fileID: 2113984429717769893}
   m_Layer: 0
   m_Name: Buildings
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +405,94 @@ Transform:
   - {fileID: 3039765276598785886}
   m_Father: {fileID: 574959795975127739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5750540982559948328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2962861336113887671}
+  - component: {fileID: 5659665144148124273}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2962861336113887671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750540982559948328}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 49.64203, y: 2.4300003, z: 0.84765625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6270617974889868989}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5659665144148124273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750540982559948328}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 110, y: 15, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6486530903869629539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6270617974889868989}
+  m_Layer: 0
+  m_Name: InvisibleWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6270617974889868989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6486530903869629539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2962861336113887671}
+  - {fileID: 3136887211748725030}
+  - {fileID: 6064836971353308670}
+  - {fileID: 3459956636587462356}
+  m_Father: {fileID: 574959795975127739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6538438284575050019
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +504,7 @@ GameObject:
   - component: {fileID: 2721779458099469531}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -292,7 +539,7 @@ GameObject:
   - component: {fileID: 7542317200924358226}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -323,7 +570,7 @@ GameObject:
   - component: {fileID: 3635532344863325969}
   m_Layer: 0
   m_Name: Props
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -378,6 +625,7 @@ Transform:
   - {fileID: 3635532344863325969}
   - {fileID: 2721779458099469531}
   - {fileID: 2113984429717769893}
+  - {fileID: 6270617974889868989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &28161127596423869
@@ -441,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_Name
       value: Rock01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4054905212831962, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_RootOrder
@@ -520,6 +772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MountainPeak
       objectReference: {fileID: 0}
+    - target: {fileID: 1817984856475372, guid: d67f80ef03622474590012283002c04c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -538,35 +794,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 203.6
+      value: 156
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6
+      value: -2.5999985
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 205.6
+      value: 200.5
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.46787986
+      value: 0.42182398
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4678798
+      value: -0.42182392
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5301778
+      value: -0.5675073
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5301778
+      value: -0.5675073
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -96.948006
+      value: -106.754
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -589,6 +849,10 @@ PrefabInstance:
     - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_Name
       value: Rock02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
@@ -820,6 +1084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock03
       objectReference: {fileID: 0}
+    - target: {fileID: 1371344051937120, guid: 81da08b95e3b14085830105043d902c5, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4842384912133322, guid: 81da08b95e3b14085830105043d902c5, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -894,6 +1162,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2721779458099469531}
     m_Modifications:
+    - target: {fileID: 1817984856475372, guid: d67f80ef03622474590012283002c04c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -912,7 +1184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -920,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 229
+      value: 215.8
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1119,6 +1391,10 @@ PrefabInstance:
     - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
@@ -1352,6 +1628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock01
       objectReference: {fileID: 0}
+    - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4054905212831962, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1495,6 +1775,10 @@ PrefabInstance:
     - target: {fileID: 100014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
       propertyPath: m_Name
       value: pf_build_small_house_tall_roof_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
       propertyPath: m_RootOrder
@@ -1652,6 +1936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock02
       objectReference: {fileID: 0}
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1717,6 +2005,10 @@ PrefabInstance:
     - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_Name
       value: Rock04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
@@ -1912,6 +2204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock04
       objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -1989,6 +2285,10 @@ PrefabInstance:
     - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_Name
       value: Rock02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
@@ -2344,6 +2644,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4054905212831962, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2409,6 +2713,10 @@ PrefabInstance:
     - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_Name
       value: Rock04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
@@ -2487,6 +2795,10 @@ PrefabInstance:
     - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_Name
       value: Rock01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4054905212831962, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_RootOrder
@@ -2628,6 +2940,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2721779458099469531}
     m_Modifications:
+    - target: {fileID: 1817984856475372, guid: d67f80ef03622474590012283002c04c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2646,7 +2962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 112.7
+      value: 127.9
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2654,7 +2970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -141.1
+      value: -139
       objectReference: {fileID: 0}
     - target: {fileID: 4807175021356842, guid: d67f80ef03622474590012283002c04c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2701,6 +3017,10 @@ PrefabInstance:
     - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_Name
       value: Rock02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
@@ -2904,6 +3224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6830602804563433506}
     m_Modifications:
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2969,6 +3293,10 @@ PrefabInstance:
     - target: {fileID: 1371344051937120, guid: 81da08b95e3b14085830105043d902c5, type: 3}
       propertyPath: m_Name
       value: Rock03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371344051937120, guid: 81da08b95e3b14085830105043d902c5, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4842384912133322, guid: 81da08b95e3b14085830105043d902c5, type: 3}
       propertyPath: m_RootOrder
@@ -3048,6 +3376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock04
       objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -3126,6 +3458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock04
       objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -3203,6 +3539,10 @@ PrefabInstance:
     - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_Name
       value: Rock02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
@@ -3351,6 +3691,10 @@ PrefabInstance:
     - target: {fileID: 1871929584077188, guid: 3de469e7c2e411040bcd13970453015c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871929584077188, guid: 3de469e7c2e411040bcd13970453015c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4251033401467856, guid: 3de469e7c2e411040bcd13970453015c, type: 3}
       propertyPath: m_RootOrder
@@ -3648,6 +3992,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4054905212831962, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3804,6 +4152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock04
       objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -3878,6 +4230,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6830602804563433506}
     m_Modifications:
+    - target: {fileID: 1371344051937120, guid: 81da08b95e3b14085830105043d902c5, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 4842384912133322, guid: 81da08b95e3b14085830105043d902c5, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -3947,6 +4303,10 @@ PrefabInstance:
     - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927271369171956, guid: ae03e68b53c614a4080e42668e450279, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4167503510757136, guid: ae03e68b53c614a4080e42668e450279, type: 3}
       propertyPath: m_RootOrder
@@ -4025,6 +4385,10 @@ PrefabInstance:
     - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_Name
       value: Rock04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
@@ -4173,6 +4537,10 @@ PrefabInstance:
     - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_Name
       value: Rock04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302638363897570, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4137834514126976, guid: a6a695730e99647f0a10f8c570272e83, type: 3}
       propertyPath: m_RootOrder
@@ -4392,6 +4760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_build_small_house_tall_roof_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4457,6 +4829,10 @@ PrefabInstance:
     - target: {fileID: 100014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
       propertyPath: m_Name
       value: pf_build_small_house_tall_roof_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: ad3f867a742ace24b9e09aa4c6cfe7f0, type: 3}
       propertyPath: m_RootOrder
@@ -4612,6 +4988,10 @@ PrefabInstance:
     - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_Name
       value: Rock01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786741181905542, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 4054905212831962, guid: 9d8419fbee1c04fabacc60744828dc7a, type: 3}
       propertyPath: m_RootOrder
