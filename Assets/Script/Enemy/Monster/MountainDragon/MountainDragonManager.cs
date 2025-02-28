@@ -30,6 +30,10 @@ public class MountainDragonManager : MonsterManager
             {         
                 _SkillManager.TryCastSpreadFire();         
             }
+            if (distanceAtk > navMeshAgent.stoppingDistance && distanceAtk <= navMeshAgent.stoppingDistance + 2)
+            {
+                _SkillManager.TryCastJumpSkill();
+            }
             if (distanceAtk < navMeshAgent.stoppingDistance)
             {              
                 _SkillManager.TryCastClawCombo();
