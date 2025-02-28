@@ -8,11 +8,46 @@ public class MD_AnimManager : MonoBehaviour
     [SerializeField] private SphereCollider _rHandCollider;
     [SerializeField] private SphereCollider _toothCollider;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource walkAudioSource;
+    [SerializeField] private AudioClip getHitClip;
+    [SerializeField] private AudioClip roarClip;
+    [SerializeField] private AudioClip spreadFire;
+    [SerializeField] private AudioClip flyingClip;
+    [SerializeField] private AudioClip takeoffClip;
+    [SerializeField] private AudioClip landClip;
+    [SerializeField] private AudioClip glideClip;
+    [SerializeField] private AudioClip flyStationClip;
+    [SerializeField] private AudioClip jumpBiteClip;
+    [SerializeField] private AudioClip walkClip;
+    [SerializeField] private AudioClip runClip;
+    [SerializeField] private AudioClip clawClip;
+
     private void Start()
     {
         _lHandCollider.enabled = false;
         _rHandCollider.enabled = false;
         _toothCollider.enabled = false;
+        AudioSourceManager.SetUpAudioSource(audioSource);  
+        AudioSourceManager.SetUpAudioSource(walkAudioSource);
+        walkAudioSource.clip = walkClip;
+    }
+    private void WalkStart()
+    {
+        walkAudioSource.Play();
+    }
+    private void WalkEnd()
+    {
+        walkAudioSource.Stop();
+    }
+
+    private void RunStart()
+    {
+        audioSource.PlayOneShot(runClip);
+    }
+    private void RunEnd()
+    {
+        //
     }
 
     //FireBreath Skill
@@ -25,6 +60,7 @@ public class MD_AnimManager : MonoBehaviour
     private void FireBreath()
     {
         _skillManager.SpreadFire();
+        audioSource.PlayOneShot(spreadFire); 
     }
 
     private void FireBreathEnd()
@@ -35,19 +71,46 @@ public class MD_AnimManager : MonoBehaviour
 
     //Fly & Land
     #region Fly&Land
+    private void FlyStationStart()
+    {
+        audioSource.PlayOneShot(flyStationClip);
+    }
+    private void FlyStationEnd()
+    {
+        //
+    }
+    private void GlideStart()
+    {
+        audioSource.PlayOneShot(glideClip);
+    }
+    private void GlideEnd()
+    {
+       //
+    }
+    private void Flying()
+    {
+        audioSource.PlayOneShot(flyingClip);
+    }
+    private void FlyingEnd()
+    {
+        //
+    }
     private void Fly()
     {
+        audioSource.PlayOneShot(takeoffClip);
         _mountainDragonManager.AdjustHeightFly();
     }
 
     private void StationaryLand()
     {
         _mountainDragonManager.AdjustHeightLand();
+        audioSource.PlayOneShot(landClip);
     }
 
     private void GlideLand()
     {
         _mountainDragonManager.AdjustHeightLand();
+        audioSource.PlayOneShot(landClip);
     }
     #endregion
 
@@ -94,6 +157,7 @@ public class MD_AnimManager : MonoBehaviour
     {
         _mountainDragonManager.LookTarget();
         _mountainDragonManager.StopMovement();
+        audioSource.PlayOneShot(roarClip);
     }
 
     private void RoarEnd()
@@ -114,6 +178,7 @@ public class MD_AnimManager : MonoBehaviour
     {
         _skillManager.FlySpreadFire();
         StartCoroutine(_skillManager.FireTornado(3));
+        audioSource.PlayOneShot(spreadFire);
     }
 
     private void FlySpreadFireEnd()
@@ -141,6 +206,7 @@ public class MD_AnimManager : MonoBehaviour
     #region NormalAttack
     private void ClawsLeftAttackStart()
     {
+        audioSource.PlayOneShot(clawClip);
         _lHandCollider.enabled = true;
     }
     private void ClawsLeftAttackEnd() 
@@ -149,6 +215,7 @@ public class MD_AnimManager : MonoBehaviour
     }
     private void ClawsRightAttackStart()
     {
+        audioSource.PlayOneShot(clawClip);
         _rHandCollider.enabled = true;
     }
     private void ClawsRightAttackEnd()
@@ -157,6 +224,7 @@ public class MD_AnimManager : MonoBehaviour
     }
     private void ClawsAttackLeftForwardStart()
     {
+        audioSource.PlayOneShot(clawClip);
         _lHandCollider.enabled = true;
     }
     private void ClawsAttackLeftForwardEnd()
@@ -165,6 +233,7 @@ public class MD_AnimManager : MonoBehaviour
     }
     private void ClawsAttackRightForwardStart()
     {
+        audioSource.PlayOneShot(clawClip);
         _rHandCollider.enabled = true;
     }
     private void ClawsAttackRightForwardEnd()
@@ -173,6 +242,7 @@ public class MD_AnimManager : MonoBehaviour
     }
     private void JumpBiteStart()
     {
+        audioSource.PlayOneShot(jumpBiteClip);
         _toothCollider.enabled = true;
     }
     private void JumpBiteEnd()
@@ -181,4 +251,21 @@ public class MD_AnimManager : MonoBehaviour
     }
 
     #endregion
+
+    private void GetHitFrontStart()
+    {
+        audioSource.PlayOneShot(getHitClip);
+    }
+    private void GetHitBackStart()
+    {
+        audioSource.PlayOneShot(getHitClip);
+    }
+    private void FlyGetHitStart()
+    {
+        audioSource.PlayOneShot(getHitClip);
+    }
+    private void GlideGetHitStart()
+    {
+        audioSource.PlayOneShot(getHitClip);
+    }
 }
