@@ -11,7 +11,7 @@ public class MD_SkillManager : MonoBehaviour
     private int _clawComboHash;
     private int _spreadFireSkillHash;
     private int _flySpreadFireHash;
-
+    private int _jumpSkillHash;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class MD_SkillManager : MonoBehaviour
         _clawComboHash = Animator.StringToHash("clawCombo");
         _spreadFireSkillHash = Animator.StringToHash("spreadFireSkill");
         _flySpreadFireHash = Animator.StringToHash("flySpreadFire");
-
+        _jumpSkillHash = Animator.StringToHash("jumpBiteSkill");
     }
     #region FireBallSkill
 
@@ -183,4 +183,25 @@ public class MD_SkillManager : MonoBehaviour
         return target.position + randomOffset;
     }
     #endregion
+    #region JumpBite
+    [SerializeField] private float _jumpSkillCD = 15.0f;    
+    [SerializeField] private float _jumpDistance = 5f;
+    private bool _canCastJumpSkill = true;
+
+    public void TryCastJumpSkill()
+    {
+        if (_canCastJumpSkill)
+        {
+            StartCoroutine(CastJumpSkill());
+        }
+    }
+
+    private IEnumerator CastJumpSkill()
+    {
+        _canCastJumpSkill = false;
+        _mdAnimator.SetTrigger(_jumpSkillHash);
+        yield return new WaitForSeconds(_jumpSkillCD);
+        _canCastJumpSkill = true;
+    } 
+#endregion
 }

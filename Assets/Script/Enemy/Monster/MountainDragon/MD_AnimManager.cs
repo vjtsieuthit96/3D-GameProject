@@ -4,6 +4,16 @@ public class MD_AnimManager : MonoBehaviour
 {
     [SerializeField] private MD_SkillManager _skillManager;
     [SerializeField] private MountainDragonManager _mountainDragonManager;
+    [SerializeField] private SphereCollider _lHandCollider;
+    [SerializeField] private SphereCollider _rHandCollider;
+    [SerializeField] private SphereCollider _toothCollider;
+
+    private void Start()
+    {
+        _lHandCollider.enabled = false;
+        _rHandCollider.enabled = false;
+        _toothCollider.enabled = false;
+    }
 
     //FireBreath Skill
     #region FireBreath
@@ -125,5 +135,50 @@ public class MD_AnimManager : MonoBehaviour
     {
         _mountainDragonManager.ResumeMovement();
     }
+    #endregion
+
+    //NormalAttack
+    #region NormalAttack
+    private void ClawsLeftAttackStart()
+    {
+        _lHandCollider.enabled = true;
+    }
+    private void ClawsLeftAttackEnd() 
+    { 
+        _lHandCollider.enabled = false;
+    }
+    private void ClawsRightAttackStart()
+    {
+        _rHandCollider.enabled = true;
+    }
+    private void ClawsRightAttackEnd()
+    {
+        _rHandCollider.enabled = false;
+    }
+    private void ClawsAttackLeftForwardStart()
+    {
+        _lHandCollider.enabled = true;
+    }
+    private void ClawsAttackLeftForwardEnd()
+    {
+        _lHandCollider.enabled= false;
+    }
+    private void ClawsAttackRightForwardStart()
+    {
+        _rHandCollider.enabled = true;
+    }
+    private void ClawsAttackRightForwardEnd()
+    {
+        _rHandCollider.enabled= false;
+    }
+    private void JumpBiteStart()
+    {
+        _toothCollider.enabled = true;
+    }
+    private void JumpBiteEnd()
+    {
+        _toothCollider.enabled = false;
+    }
+
     #endregion
 }
