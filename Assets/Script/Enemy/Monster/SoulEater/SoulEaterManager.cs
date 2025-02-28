@@ -40,7 +40,7 @@ public class SoulEaterManager : MonoBehaviour
     [SerializeField] private Health dragonHealth;
     [SerializeField] GameObject damageTextPrefab;
     [SerializeField] private Transform floatingDamageSpawnPoint;
-    [SerializeField] private CinemachineFollow _cinemachineFollow;
+    [SerializeField] private CinemachineCamera _cinemachineFollow;
     [SerializeField] private GameObject hpCanvas;    
     #endregion
 

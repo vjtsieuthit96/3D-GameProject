@@ -7,7 +7,7 @@ public class FloatingDamage : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float destroyTime;  
     [SerializeField] private TextMeshProUGUI textMesh;
-    [SerializeField] private CinemachineFollow _cinemachineFollow;
+    [SerializeField] private CinemachineCamera _cinemachineFollow;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +22,7 @@ public class FloatingDamage : MonoBehaviour
             transform.rotation = _cinemachineFollow.transform.rotation;
     }
 
-    public void SetCamera(CinemachineFollow cinemachineFollow)
+    public void SetCamera(CinemachineCamera cinemachineFollow)
     {
         _cinemachineFollow = cinemachineFollow;
     }

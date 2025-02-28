@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FloatingStatus : MonoBehaviour
 {
-    [SerializeField] private CinemachineFollow _cinemachineFollow;
+    [SerializeField] private CinemachineCamera _cinemachineFollow;
     private float _destroyTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +23,7 @@ public class FloatingStatus : MonoBehaviour
         _destroyTime = destroyTime + 0.75f;
     }
 
-    public void SetCamera (CinemachineFollow cinemachineFollow)
+    public void SetCamera (CinemachineCamera cinemachineFollow)
     {
         _cinemachineFollow = cinemachineFollow;
     }
