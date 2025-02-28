@@ -37,29 +37,29 @@ public class PlayerMovement : MonoBehaviour
         }        
         
             // Nhân vật di chuyển
-            var horizontal = Input.GetAxis("Horizontal");
-            var vertical = Input.GetAxis("Vertical");
+            //var horizontal = Input.GetAxis("Horizontal");
+            //var vertical = Input.GetAxis("Vertical");
 
-            var move = transform.right * horizontal + transform.forward * vertical;
+            //var move = transform.right * horizontal + transform.forward * vertical;
 
-            characterController.Move(move * speed * Time.deltaTime);
+            //characterController.Move(move * speed * Time.deltaTime);
 
-            //Chạy annimation
-            playerAnimator.SetFloat("Speed", move.magnitude);
+            ////Chạy annimation
+            //playerAnimator.SetFloat("Speed", move.magnitude);
 
-            //Nhân vật chạm đất
+            ////Nhân vật chạm đất
 
-            if (!characterController.isGrounded)
-            {
-                characterController.Move(Vector3.down * 9.8f * Time.deltaTime);
-            }
+            //if (!characterController.isGrounded)
+            //{
+            //    characterController.Move(Vector3.down * 9.8f * Time.deltaTime);
+            //}
 
-            //Xoay nhân vật theo hướng di chuyển
+            ////Xoay nhân vật theo hướng di chuyển
 
-            if (move != Vector3.zero)
-            {
-                playerPrefab.transform.rotation = Quaternion.LookRotation(move * Time.deltaTime);
-            }       
+            //if (move != Vector3.zero)
+            //{
+            //    playerPrefab.transform.rotation = Quaternion.LookRotation(move * Time.deltaTime);
+            //}       
 
     }
 }
