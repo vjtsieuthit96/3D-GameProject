@@ -6,7 +6,7 @@ public class EnemyHP_UI : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Health monsterHealth;
-    [SerializeField] private CinemachineFollow _cinemachineFollow;
+    [SerializeField] private CinemachineCamera _cinemachineFollow;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

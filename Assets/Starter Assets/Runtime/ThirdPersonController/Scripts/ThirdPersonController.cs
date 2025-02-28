@@ -97,6 +97,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDAttack;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -159,6 +160,11 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            if (_input.attack && _hasAnimator)
+            {
+                _animator.SetTrigger(_animIDAttack);
+                _input.attack = false;
+            }
         }
 
         private void LateUpdate()
@@ -173,6 +179,7 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDAttack = Animator.StringToHash("Attack");
         }
 
         private void GroundedCheck()
@@ -388,5 +395,6 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+        
     }
 }

@@ -16,7 +16,7 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] protected Health monsterHealth;
     [SerializeField] protected GameObject damageTextPrefab;
     [SerializeField] protected Transform floatingDamageSpawnPoint;
-    [SerializeField] protected CinemachineFollow _cinemachineFollow;
+    [SerializeField] protected CinemachineCamera _cinemachineFollow;
     [SerializeField] protected GameObject hpCanvas;
     [SerializeField] protected float _flyHeight;
     private Vector3 _initPosition; 
