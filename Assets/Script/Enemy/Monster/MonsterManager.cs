@@ -216,11 +216,12 @@ public class MonsterManager : MonoBehaviour
         _isFlyingCoroutineRunning = true;
         monsterAnimator.SetBool(_isFlyingHash, true);
         _isFlying = true;
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(SetFlyTime());
         monsterAnimator.SetBool(_isFlyingHash, false);
         _isFlying = false;
         _isFlyingCoroutineRunning = false;
     }
+    protected virtual float SetFlyTime() => 60f;
     protected IEnumerator AdjustHeightOverTime(float targetHeight, float duration)
     {
         float startHeight = navMeshAgent.baseOffset;

@@ -102,12 +102,14 @@ public class MD_AnimManager : MonoBehaviour
 
     private void FlySpreadFire()
     {
-        Debug.Log("FlySpreadFire");
+        _skillManager.FlySpreadFire();
+        StartCoroutine(_skillManager.FireTornado(3));
     }
 
     private void FlySpreadFireEnd()
     {
         _mountainDragonManager.ResumeMovement();
+        StopCoroutine(_skillManager.FireTornado(3));
     }
     #endregion
 

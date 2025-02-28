@@ -6,6 +6,7 @@ public class MountainDragonManager : MonsterManager
 {
     [SerializeField] private MD_SkillManager _SkillManager;
     private int _attackHash;
+    [SerializeField] private float _flyingTime = 120f;
     
     protected override void Start()
     {
@@ -37,6 +38,7 @@ public class MountainDragonManager : MonsterManager
         }
         else
         {
+            _SkillManager.TryCastFireTornado();
             _SkillManager.TryCastFireBall();            
         }
 
@@ -68,7 +70,9 @@ public class MountainDragonManager : MonsterManager
         _SkillManager.SetFireBallCD(50);
         navMeshAgent.speed -= 4;
         navMeshAgent.height = 4;
-    }   
+    }
+
+    protected override float SetFlyTime() => _flyingTime;   
 
     private void _AdjustHeightFly()
     {
