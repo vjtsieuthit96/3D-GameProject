@@ -23,7 +23,14 @@ namespace StarterAssets
 		private bool previousAtkState = false;
 
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Alpha1))
+			{
+				attack = true;
+			}
+        }
+        public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
 		}

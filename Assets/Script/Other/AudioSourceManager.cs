@@ -10,7 +10,7 @@ public class AudioSourceManager
             return;
         }
         audioSource.spatialBlend = 1.0f;
-        audioSource.minDistance = 3.0f;
+        audioSource.minDistance = 25.0f;
         audioSource.maxDistance = 70.0f;
     }
 }

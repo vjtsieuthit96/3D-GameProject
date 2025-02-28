@@ -74,6 +74,7 @@ public class MountainDragonManager : MonsterManager
         _SkillManager.SetFireBallCD(50);
         navMeshAgent.speed -= 4;
         navMeshAgent.height = 4;
+        _attackTime = 0;
     }
 
     protected override float SetFlyTime() => _flyingTime;   
