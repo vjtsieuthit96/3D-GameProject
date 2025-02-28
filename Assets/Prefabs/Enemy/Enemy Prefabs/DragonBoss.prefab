@@ -836,7 +836,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 2673900728511067533}
   target: {fileID: 0}
   monsterAnimator: {fileID: 2331644706176755430}
-  attackRange: 50
+  attackRange: 60
   _attackTime: 0
   monsterHealth: {fileID: 2899660526504653193}
   damageTextPrefab: {fileID: 3662710587411060014, guid: 181dc0e7397677a4ba3adf0456b8641e, type: 3}
@@ -846,6 +846,7 @@ MonoBehaviour:
   _flyHeight: 15
   monsterType: 0
   _SkillManager: {fileID: 4548408401415332742}
+  _flyingTime: 120
 --- !u!114 &4548408401415332742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,7 +866,7 @@ MonoBehaviour:
   fireBallCD: 45
   fireBallPrefab: {fileID: 8429575460300667406, guid: d2c0936d0eef40d469f1b2174a70b3db, type: 3}
   fireBallSpawnPoint: {fileID: 2331644706183907654}
-  fireBallSpeed: 10
+  fireBallSpeed: 15
   _clawCombo: {fileID: 5883952715213044244, guid: 9448df48aa64c81448b8b92265e9533c, type: 3}
   _clawComboRightSpawnLocation:
   - {fileID: 2331644706183907666}
@@ -878,6 +879,9 @@ MonoBehaviour:
   _spreadFire: {fileID: 3509331702256189530, guid: 4bfb2acb18063944892809ae7df491fa, type: 3}
   _spreadFireSpawnLocation: {fileID: 2331644706183907654}
   _spreadFireCD: 60
+  _flySpreadFire: {fileID: 6976141881431748943, guid: 8e24334bc6edbce49a47f2a595b95cc6, type: 3}
+  _fireTornado: {fileID: 432567048961887582, guid: f3e821b12567bb54c8a8525599edecc0, type: 3}
+  _fireTornadoCD: 45
 --- !u!114 &2899660526504653193
 MonoBehaviour:
   m_ObjectHideFlags: 0
