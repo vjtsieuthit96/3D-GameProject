@@ -23,6 +23,8 @@ public class MD_AnimManager : MonoBehaviour
     [SerializeField] private AudioClip runClip;
     [SerializeField] private AudioClip clawClip;
 
+    private Coroutine _meteorRainCoroutine;
+
     private void Start()
     {
         _lHandCollider.enabled = false;
@@ -177,14 +179,14 @@ public class MD_AnimManager : MonoBehaviour
     private void FlySpreadFire()
     {
         _skillManager.FlySpreadFire();
-        StartCoroutine(_skillManager.FireTornado(3));
+       _meteorRainCoroutine = StartCoroutine(_skillManager.MeteorRain(3));
         audioSource.PlayOneShot(spreadFire);
     }
 
     private void FlySpreadFireEnd()
     {
         _mountainDragonManager.ResumeMovement();
-        StopCoroutine(_skillManager.FireTornado(3));
+        StopCoroutine(_meteorRainCoroutine);
     }
     #endregion
 
