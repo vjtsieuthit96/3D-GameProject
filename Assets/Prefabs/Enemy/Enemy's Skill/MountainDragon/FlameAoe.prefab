@@ -169,7 +169,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _burnDuration: 10
-  _burnTime: 15
+  _burnTime: 17
+  _particleSystems:
+  - {fileID: 8201378991593081523}
+  - {fileID: 3703671836838127650}
+  - {fileID: 6510515658618541791}
+  - {fileID: 6252722227545636020}
 --- !u!1001 &1578688449705419361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7908289091583906884, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
       propertyPath: m_Name
-      value: FlameAoe (2)
+      value: Flame 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -230,6 +235,11 @@ PrefabInstance:
 --- !u!4 &3792936482292894373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2399177688112965828, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
+  m_PrefabInstance: {fileID: 1578688449705419361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6510515658618541791 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5742476246154458302, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
   m_PrefabInstance: {fileID: 1578688449705419361}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1835073930351364106
@@ -282,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7908289091583906884, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
       propertyPath: m_Name
-      value: FlameAoe (3)
+      value: Flame 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -292,6 +302,11 @@ PrefabInstance:
 --- !u!4 &4052370367651012814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2399177688112965828, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
+  m_PrefabInstance: {fileID: 1835073930351364106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6252722227545636020 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5742476246154458302, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
   m_PrefabInstance: {fileID: 1835073930351364106}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4494725494681796109
@@ -344,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7908289091583906884, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
       propertyPath: m_Name
-      value: FlameAoe
+      value: Flame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -354,6 +369,11 @@ PrefabInstance:
 --- !u!4 &2246150938016503497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2399177688112965828, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
+  m_PrefabInstance: {fileID: 4494725494681796109}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8201378991593081523 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5742476246154458302, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
   m_PrefabInstance: {fileID: 4494725494681796109}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8995740493127965852
@@ -406,13 +426,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7908289091583906884, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
       propertyPath: m_Name
-      value: FlameAoe (1)
+      value: Flame 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
+--- !u!198 &3703671836838127650 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5742476246154458302, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}
+  m_PrefabInstance: {fileID: 8995740493127965852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6745509559273092184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2399177688112965828, guid: 3b9644c2430d6aa43aab96f2e482ef6d, type: 3}

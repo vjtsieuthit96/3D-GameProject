@@ -22,7 +22,11 @@ public class ParticleCollisionInstance : MonoBehaviour
         part = GetComponent<ParticleSystem>();
     }
     void OnParticleCollision(GameObject other)
-    {      
+    {
+        if (other.CompareTag(Constans.DRAGON_TAG))
+        {
+            return;
+        }
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);     
         for (int i = 0; i < numCollisionEvents; i++)
         {

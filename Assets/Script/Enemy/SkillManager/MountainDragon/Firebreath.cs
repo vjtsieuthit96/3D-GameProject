@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class Firebreath : MonoBehaviour
 {    
-    [SerializeField] private SpreadFire _spreadFire;
-    [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private SpreadFire _spreadFire;  
 
     private void Start()
     {
-        _spreadFire = GetComponentInParent<SpreadFire>();
-        StartCoroutine(StopAfterDelay(_spreadFire.lifeTime - 1.5f));
+        _spreadFire = GetComponentInParent<SpreadFire>();  
     }
     private void OnParticleCollision(GameObject other)
     {
@@ -27,9 +25,5 @@ public class Firebreath : MonoBehaviour
         }
     }
 
-    private IEnumerator StopAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        _particleSystem.Stop(true,ParticleSystemStopBehavior.StopEmitting);
-    }
+    
 }
