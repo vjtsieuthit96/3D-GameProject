@@ -170,7 +170,7 @@ public class MD_SkillManager : MonoBehaviour
     {
         for (int i=0;i<duration;i++)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             Vector3 spawnLocation = GetRandomPositionAroundTarget();
             Instantiate(_meteorRain, spawnLocation, Quaternion.identity);            
         }

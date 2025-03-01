@@ -14558,6 +14558,7 @@ GameObject:
   - component: {fileID: 6551897893384226966}
   - component: {fileID: 8480702459742433234}
   - component: {fileID: 7261552137866648452}
+  - component: {fileID: -7372626412794801820}
   m_Layer: 0
   m_Name: MeteorRain
   m_TagString: Untagged
@@ -19510,7 +19511,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8281402520345850689}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.45882353, b: 0.09803922, a: 1}
@@ -19591,3 +19592,16 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &-7372626412794801820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8281402520345850689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7461aba30a69ef4da7a5acb00343688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 20
