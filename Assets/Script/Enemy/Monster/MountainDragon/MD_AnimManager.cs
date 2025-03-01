@@ -11,8 +11,7 @@ public class MD_AnimManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource walkAudioSource;
     [SerializeField] private AudioClip getHitClip;
-    [SerializeField] private AudioClip roarClip;
-    [SerializeField] private AudioClip spreadFire;
+    [SerializeField] private AudioClip roarClip;  
     [SerializeField] private AudioClip flyingClip;
     [SerializeField] private AudioClip takeoffClip;
     [SerializeField] private AudioClip landClip;
@@ -61,8 +60,7 @@ public class MD_AnimManager : MonoBehaviour
 
     private void FireBreath()
     {
-        _skillManager.SpreadFire();
-        audioSource.PlayOneShot(spreadFire); 
+        _skillManager.SpreadFire();        
     }
 
     private void FireBreathEnd()
@@ -179,8 +177,7 @@ public class MD_AnimManager : MonoBehaviour
     private void FlySpreadFire()
     {
         _skillManager.FlySpreadFire();
-       _meteorRainCoroutine = StartCoroutine(_skillManager.MeteorRain(3));
-        audioSource.PlayOneShot(spreadFire);
+       _meteorRainCoroutine = StartCoroutine(_skillManager.MeteorRain(3));     
     }
 
     private void FlySpreadFireEnd()
