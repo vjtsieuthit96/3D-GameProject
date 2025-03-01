@@ -138,26 +138,26 @@ public class MD_SkillManager : MonoBehaviour
     public void SpreadFire()=>_SpreadFire();
     #endregion
 
-    #region FireTornado
+    #region MeteorRain
     [SerializeField] private GameObject _flySpreadFire;
-    [SerializeField] private GameObject _fireTornado;
-    [SerializeField] private float _fireTornadoCD = 45f;
-    private bool _canCastFireTornado = true;
-    public void TryCastFireTornado()
+    [SerializeField] private GameObject _meteorRain;
+    [SerializeField] private float _meteorRainCD = 45f;
+    private bool _canCastMeteorRain = true;
+    public void TryCastMeteorRain()
     {
-        if (_canCastFireTornado)
+        if (_canCastMeteorRain)
         {
-            StartCoroutine(CastFireTornado());
+            StartCoroutine(CastMeteorRain());
         }
     }
-    private IEnumerator CastFireTornado()
+    private IEnumerator CastMeteorRain()
     {
-        _canCastFireTornado = false;
+        _canCastMeteorRain = false;
         _mdManager.LookTarget();
         _mdAnimator.SetTrigger(_flySpreadFireHash);
         _mdManager.NormalLook();
-        yield return new WaitForSeconds(_fireTornadoCD);
-        _canCastFireTornado = true;
+        yield return new WaitForSeconds(_meteorRainCD);
+        _canCastMeteorRain = true;
     }
 
     private void _FlySpreadFire()
@@ -166,20 +166,20 @@ public class MD_SkillManager : MonoBehaviour
     }
     public void FlySpreadFire() => _FlySpreadFire();
 
-    private IEnumerator _FireTornado(int duration)
+    private IEnumerator _MeteorRain(int duration)
     {
         for (int i=0;i<duration;i++)
         {
+            yield return new WaitForSeconds(1.5f);
             Vector3 spawnLocation = GetRandomPositionAroundTarget();
-            Instantiate(_fireTornado, spawnLocation, Quaternion.identity);
-            yield return new WaitForSeconds(2f);
+            Instantiate(_meteorRain, spawnLocation, Quaternion.identity);            
         }
     }
-    public IEnumerator FireTornado(int duration) => _FireTornado(duration);
+    public IEnumerator MeteorRain(int duration) => _MeteorRain(duration);
 
     private Vector3 GetRandomPositionAroundTarget()
     {
-        Vector3 randomOffset = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+        Vector3 randomOffset = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
         return target.position + randomOffset;
     }
     #endregion

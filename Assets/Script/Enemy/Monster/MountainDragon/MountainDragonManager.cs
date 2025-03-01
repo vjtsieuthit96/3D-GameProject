@@ -42,7 +42,7 @@ public class MountainDragonManager : MonsterManager
         }
         else
         {
-            _SkillManager.TryCastFireTornado();
+            _SkillManager.TryCastMeteorRain();
             _SkillManager.TryCastFireBall();            
         }
 
