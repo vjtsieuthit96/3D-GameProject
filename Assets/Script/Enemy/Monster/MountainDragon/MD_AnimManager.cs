@@ -103,14 +103,25 @@ public class MD_AnimManager : MonoBehaviour
 
     private void StationaryLand()
     {
-        _mountainDragonManager.AdjustHeightLand();
+        _mountainDragonManager.AdjustHeightLand(2.5f);
         audioSource.PlayOneShot(landClip);
     }
 
     private void GlideLand()
     {
-        _mountainDragonManager.AdjustHeightLand();
+        _mountainDragonManager.AdjustHeightLand(2.5f);
         audioSource.PlayOneShot(landClip);
+    }
+
+    private void FallingStart()
+    {
+        _mountainDragonManager.AdjustHeightLand(1f);
+        _mountainDragonManager.StopMovement();
+    }
+
+    private void HitTheGroundEnd()
+    {
+        _mountainDragonManager.ResumeMovement();
     }
     #endregion
 
