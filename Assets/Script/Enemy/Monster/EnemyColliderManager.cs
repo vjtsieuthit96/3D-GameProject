@@ -66,7 +66,8 @@ public class EnemyColliderManager : MonoBehaviour
             }
             else
             {
-                _monsterManager.SetGetHit(_monsterManager.getHitHashFlying());                
+                _monsterManager.SetGetHit(_monsterManager.getHitHashFlying());
+                _monsterManager.CountToFall();
             }
             _monsterManager.SetGetHitCount(0);
         }

@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 5029258092342499781}
   m_Layer: 0
   m_Name: BodyCollider
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 1092475308948997722}
   m_Layer: 0
   m_Name: LArmCollider
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,7 +982,7 @@ GameObject:
   - component: {fileID: 7314329608679810225}
   m_Layer: 0
   m_Name: DragonBoss
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   floatingDamageSpawnPoint: {fileID: 1974492561671936503}
   _cinemachineFollow: {fileID: 0}
   hpCanvas: {fileID: 6960529120596933062}
-  _flyHeight: 15
+  _flyHeight: 20
   monsterType: 0
   _SkillManager: {fileID: 4548408401415332742}
   _flyingTime: 120
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 6256535547304431558}
   m_Layer: 0
   m_Name: HP Canvas
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 4812747313776917491}
   m_Layer: 0
   m_Name: RArmCollider
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1460,7 +1460,7 @@ GameObject:
   - component: {fileID: 5712586500226832387}
   m_Layer: 0
   m_Name: NeckCollider
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1654,7 +1654,7 @@ GameObject:
   - component: {fileID: 2597309379938550059}
   m_Layer: 0
   m_Name: LLegCollider
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1752,7 +1752,7 @@ GameObject:
   - component: {fileID: 4699119023260156046}
   m_Layer: 0
   m_Name: RLegCollider
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,6 +1851,10 @@ PrefabInstance:
     - target: {fileID: 3778034857689625960, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
       propertyPath: m_Name
       value: MountainDragon_PBR
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778034857689625960, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
+      propertyPath: m_TagString
+      value: Dragon
       objectReference: {fileID: 0}
     - target: {fileID: 3778034857689852086, guid: c68c3760a7f483e4a8a945fca9ee9b5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2105,7 +2109,6 @@ MonoBehaviour:
   walkAudioSource: {fileID: 8681296582510756530}
   getHitClip: {fileID: 8300000, guid: 74f898992c043d6468a940385551f889, type: 3}
   roarClip: {fileID: 8300000, guid: 57927ae4e1a929d4abd136e15f4e116a, type: 3}
-  spreadFire: {fileID: 8300000, guid: 94a2447ea41e8154f96b91f0e5478a81, type: 3}
   flyingClip: {fileID: 8300000, guid: 619679d9cf4577f4f942ed3ba748ab94, type: 3}
   takeoffClip: {fileID: 8300000, guid: 61cdbe03062dffe458dc89a254ebd1a2, type: 3}
   landClip: {fileID: 8300000, guid: 24f074eabc6867b4cbfb90c3f487681d, type: 3}

@@ -29,6 +29,7 @@ public class MonsterManager : MonoBehaviour
     private int _roarHash;    
     private int _speedHash;
     protected int _isFlyingHash;
+    protected int _isFallingHash;
     private int _noDangerHash;
     private int _posXHash;
     private int _posYHash;
@@ -43,6 +44,7 @@ public class MonsterManager : MonoBehaviour
     public int getHitHashFlying() => _getHitHashFlying;
     protected int _immuneToGetHitHash;
     protected int _getHitCount;
+    protected int _countToFall;   
     public int GetHitCountValue()=>_getHitCount;
     protected int _isDeadHash;    
     //giá trị hiển thị khi chọn type;
@@ -70,6 +72,7 @@ public class MonsterManager : MonoBehaviour
         _getHitHashType2 = Animator.StringToHash("getHitType2");
         _getHitHashFlying = Animator.StringToHash("getHitFlying");
         _isDeadHash = Animator.StringToHash("isDead");
+        _isFallingHash = Animator.StringToHash("isFalling");
     }
     protected virtual void Update()
     {
@@ -154,6 +157,7 @@ public class MonsterManager : MonoBehaviour
         if (monsterHealth.GetCurrentHealth() <= 0)
         {
             Destroy(gameObject,Constans.dispawnTime);
+            _isDead = true;
         }
         if(_getHitCount >=5f)
         {
@@ -162,6 +166,13 @@ public class MonsterManager : MonoBehaviour
         else
         {
             monsterAnimator.SetBool(_immuneToGetHitHash, true);
+        }
+        if (_countToFall >=2)
+        {
+            monsterAnimator.SetBool(_isFallingHash, true);
+            monsterAnimator.SetBool(_isFlyingHash, false);
+            _isFlying = false;
+            _countToFall = 0;
         }
     }
 
@@ -254,14 +265,24 @@ public class MonsterManager : MonoBehaviour
     {
        _getHitCount = value;
     }
+    public void SetGetHitCount (int value) =>_SetGetHitCount(value);
+    private void _SetCountToFall(int value)
+    {
+        _countToFall = value;
+    }
 
-    public void SetGetHitCount(int value) => _SetGetHitCount(value);
+    public void SetCountToFall(int value) => _SetCountToFall(value);
     private void _countGetHit()
     {
         _getHitCount++;
     }
-    public void countGetHit()=>_countGetHit();        
-  
+    public void countGetHit()=>_countGetHit();
+    private void _CountToFall()
+    {
+        _countToFall++;
+    }
+    public void CountToFall() => _CountToFall();
+
     protected void _Die()
     {        
         navMeshAgent.isStopped = true;      
@@ -286,5 +307,6 @@ public class MonsterManager : MonoBehaviour
     {
         navMeshAgent.isStopped = false;
     }
+  
     
 }
