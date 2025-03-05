@@ -1,10 +1,20 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MainPlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;
+    // Player
+    [SerializeField] private float sprintspeed = 5.0f;
+    [SerializeField] private float moveSpeed;
+
     [SerializeField] private CharacterController characterController;
     [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Animator playerAnim;
+    [SerializeField] private PlayerInput playerInput;
+
+    //index animaton
+    private int _speed;
+    private 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,16 +24,11 @@ public class MainPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        Move();
+    }
 
-        var move = transform.right * horizontal + transform.forward * vertical;
-
-        characterController.Move(move * speed * Time.deltaTime);
-
-        if(move != Vector3.zero)
-        {
-            playerPrefab.transform.rotation = Quaternion.LookRotation(move * Time.deltaTime);
-        }
+    private void Move()
+    {
+        //float targetSpeed = playerInput.sprint ? sprintspeed : moveSpeed;
     }
 }

@@ -1,18 +1,11 @@
 fileFormatVersion: 2
-guid: 12e52e465ed793a4d801955e9f964a82
-AssetOrigin:
-  serializedVersion: 1
-  productId: 267961
-  packageName: 'Starter Assets: Character Controllers | URP'
-  packageVersion: 2.0.2
-  assetPath: Assets/Starter Assets/Runtime/ThirdPersonController/Character/Animations/Stand--Idle.anim.fbx
-  uploadId: 721456
+guid: c0b068fe5d4586542840eff901032bbe
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
   - first:
-      74: -3100369314251171874
-    second: Idle
+      74: 3062299877480904481
+    second: Walk_N_Land
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -32,7 +25,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.05
     animationPositionError: 0.05
     animationScaleError: 0.25
@@ -41,18 +34,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
-      takeName: Idle
+      name: Walk_N_Land
+      takeName: Walk_N_Land
       internalID: 0
-      firstFrame: 1
-      lastFrame: 149
+      firstFrame: 0
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
@@ -65,7 +58,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
+      - time: 0.1691976
         functionName: OnLand
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -75,8 +68,8 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
-    isReadable: 0
+      additiveReferencePoseFrame: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
