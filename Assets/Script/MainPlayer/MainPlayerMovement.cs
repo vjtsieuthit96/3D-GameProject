@@ -1,5 +1,6 @@
 using StarterAssets;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -76,7 +77,6 @@ public class MainPlayerMovement : MonoBehaviour
     private int _animIDJump;
     private int _animIDFreeFall;
     private int _animIDMotionSpeed;
-    private int _animIDAttack;
 
     private void Awake()
     {
@@ -106,6 +106,7 @@ public class MainPlayerMovement : MonoBehaviour
 
     private void Move()
     {
+       
         // set target speed based on move speed, sprint speed and if sprint is pressed
         float targetSpeed = playerInput.sprint ? sprintSpeed : moveSpeed;
 
@@ -129,7 +130,8 @@ public class MainPlayerMovement : MonoBehaviour
         {
             // creates curved result rather than a linear one giving a more organic speed change
             // note T in Lerp is clamped, so we don't need to clamp our speed
-            moveSpeed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * speedChangeRate);
+            _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+                Time.deltaTime * speedChangeRate);
 
             _speed = Mathf.Round(_speed * 1000f) / 1000f;
         }else
@@ -160,14 +162,19 @@ public class MainPlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
 
-        Vector3 targerDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+        Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-        characterController.Move(targerDirection.normalized * (moveSpeed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+       
+        characterController.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
+                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+
 
         //update animator if using character
 
         playerAnim.SetFloat(_animIDSpeed, _animationBlend);
-          //  playerAnim.SetFloat(_animIDMotionSpeed, inputMagnitude);
+        playerAnim.SetFloat(_animIDMotionSpeed, inputMagnitude);
+   
     }
 
     private void JumpAndGravity()
@@ -224,7 +231,7 @@ public class MainPlayerMovement : MonoBehaviour
             _verticalVelocity += Gravity * Time.deltaTime;
         }
     }
-    private void GroundedCheck()
+     private void GroundedCheck()
     {
         // set sphere position, with offset
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
@@ -232,17 +239,32 @@ public class MainPlayerMovement : MonoBehaviour
         Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
             QueryTriggerInteraction.Ignore);
 
-        // update animator if using character      
+        // update animator if using character
+        
             playerAnim.SetBool(_animIDGrounded, Grounded);
+        
     }
 
     private void AssignAnimationIDs()
     {
-        _animIDSpeed = Animator.StringToHash("Speed");
-        _animIDGrounded = Animator.StringToHash("Grounded");
-        _animIDJump = Animator.StringToHash("Jump");
-        _animIDFreeFall = Animator.StringToHash("FreeFall");
-        _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
-        _animIDAttack = Animator.StringToHash("Attack");
+        _animIDSpeed = Animator.StringToHash(Constans.SPEED);
+        _animIDGrounded = Animator.StringToHash(Constans.GROUNDED);
+        _animIDJump = Animator.StringToHash(Constans.JUMP);
+        _animIDFreeFall = Animator.StringToHash(Constans.FREE_FALL);
+        _animIDMotionSpeed = Animator.StringToHash(Constans.MOTION_SPEED);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
+        Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
+
+        if (Grounded) Gizmos.color = transparentGreen;
+        else Gizmos.color = transparentRed;
+
+        // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
+        Gizmos.DrawSphere(
+            new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
+            GroundedRadius);
     }
 }

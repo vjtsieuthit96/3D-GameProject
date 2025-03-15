@@ -1,15 +1,22 @@
 ﻿public class Constans 
 {
+
+    // Animation index;
+    public const string SPEED = "Speed";
+    public const string ATTACK = "Attack";
+    public const string IS_ALIVE = "IsAlive";
+    public const string GROUNDED = "Grounded";
+    public const string JUMP = "Jump";
+    public const string FREE_FALL = "FreeFall";
+    public const string MOTION_SPEED = "MotionSpeed";
+
     //Item
     public const string ITEM_TAG = "Item";
     //Camera
     public const string CameraFollow_1 = "CinemachineCamera Follow 1";
     //Terrain
     public const string TERRAIN_Tag = "Terrain";
-    // anim dragon
-    public const string SPEED = "Speed";
-    public const string ATTACK = "Attack";
-    public const string IS_ALIVE = "IsAlive";
+    
     // tag of player
     public const string WEAPON_TAG = "Weapon";
     public const string PLAYER_TAG = "Player";
