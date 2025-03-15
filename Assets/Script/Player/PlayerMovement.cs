@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
 
-    [SerializeField] private float speed = 10.0f;
-
     [SerializeField] private GameObject playerPrefab;
 
     [SerializeField] private Animator playerAnimator;

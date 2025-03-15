@@ -4,11 +4,15 @@
     // Animation index;
     public const string SPEED = "Speed";
     public const string ATTACK = "Attack";
+    public const string COMBO_ATTACK1 = "ComboAtk1";
+    public const string COMBO_ATTACK2 = "ComboAtk2";
     public const string IS_ALIVE = "IsAlive";
     public const string GROUNDED = "Grounded";
     public const string JUMP = "Jump";
     public const string FREE_FALL = "FreeFall";
     public const string MOTION_SPEED = "MotionSpeed";
+
+    
 
     //Item
     public const string ITEM_TAG = "Item";
