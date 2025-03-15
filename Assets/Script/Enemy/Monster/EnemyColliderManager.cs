@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EnemyColliderManager : MonoBehaviour
 {
     [SerializeField] protected BodyType _bodyType;
     [SerializeField] protected MonsterManager _monsterManager;   
-    private bool _isTriggerHandled = false; 
+    private bool _isTriggerHandled = false;
+    private static bool _isAnyColliderHandle = false;
     public enum BodyType
     {
         Front,
@@ -15,7 +17,7 @@ public class EnemyColliderManager : MonoBehaviour
     {
         if (other.CompareTag(Constans.WEAPON_TAG))
         {
-            if (_isTriggerHandled)
+            if (_isTriggerHandled || _isAnyColliderHandle)
             {
                 return;
             }
@@ -31,13 +33,20 @@ public class EnemyColliderManager : MonoBehaviour
                     _monsterManager.Die();
                 }
                 _isTriggerHandled=true;
+                _isAnyColliderHandle=true;
             }
         }
     }
 
     protected virtual void OnTriggerExit (Collider other)
     {
-        _isTriggerHandled = false;       
+        StartCoroutine(ResetTriggerHandleState());     
+    }
+    private IEnumerator ResetTriggerHandleState()
+    {
+        yield return new WaitForSeconds(1f);
+        _isTriggerHandled = false;
+        _isAnyColliderHandle = false;
     }
 
     protected virtual void getHit()
@@ -57,7 +66,8 @@ public class EnemyColliderManager : MonoBehaviour
             }
             else
             {
-                _monsterManager.SetGetHit(_monsterManager.getHitHashFlying());                
+                _monsterManager.SetGetHit(_monsterManager.getHitHashFlying());
+                _monsterManager.CountToFall();
             }
             _monsterManager.SetGetHitCount(0);
         }

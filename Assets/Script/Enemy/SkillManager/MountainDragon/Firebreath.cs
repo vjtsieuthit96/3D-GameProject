@@ -1,12 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class Firebreath : MonoBehaviour
 {    
-    [SerializeField] private SpreadFire _spreadFire;
+    [SerializeField] private SpreadFire _spreadFire;  
 
     private void Start()
     {
-        _spreadFire = GetComponentInParent<SpreadFire>();
+        _spreadFire = GetComponentInParent<SpreadFire>();  
     }
     private void OnParticleCollision(GameObject other)
     {
@@ -23,4 +24,6 @@ public class Firebreath : MonoBehaviour
             }
         }
     }
+
+    
 }

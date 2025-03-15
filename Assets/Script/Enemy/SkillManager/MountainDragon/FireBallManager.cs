@@ -32,7 +32,7 @@ public class FireBallManager : MonoBehaviour
 
             if (playerManager != null && playerHealth != null)
             {
-                _shakeManager.StartShake(1f, 25, 10);
+                _shakeManager.StartShake(1f, 15, 3);
                 playerManager.SetIsHit();
                 playerHealth.TakeDamage(_enemyDamageManager.NormalDamage()*_damageMultiply);
                 SpawnExplosionEffect();            
@@ -40,7 +40,7 @@ public class FireBallManager : MonoBehaviour
         }
         if (other.CompareTag(Constans.TERRAIN_Tag))
         {
-            _shakeManager.StartShake(1f, 25, 10);
+            _shakeManager.StartShake(1f, 15, 3);
             SpawnExplosionEffect();
             SpawnFlameAOE();
             DestroyFireBall();

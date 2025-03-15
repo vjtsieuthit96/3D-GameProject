@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MountainDragonManager : MonsterManager
 {
+    [SerializeField] private CapsuleCollider _capsuleCollider;
     [SerializeField] private MD_SkillManager _SkillManager;
     private int _attackHash;
     [SerializeField] private float _flyingTime = 120f;
@@ -19,6 +20,7 @@ public class MountainDragonManager : MonsterManager
         base.Update();
         if (!_isFlying)
         {
+            _capsuleCollider.enabled = true;
             if (distanceAtk <= attackRange * 0.6f)
             {
                 if (!monsterAnimator.GetBool(_isFlyingHash))
@@ -42,7 +44,8 @@ public class MountainDragonManager : MonsterManager
         }
         else
         {
-            _SkillManager.TryCastFireTornado();
+            _capsuleCollider.enabled = false;
+            _SkillManager.TryCastMeteorRain();
             _SkillManager.TryCastFireBall();            
         }
 
@@ -74,6 +77,7 @@ public class MountainDragonManager : MonsterManager
         _SkillManager.SetFireBallCD(50);
         navMeshAgent.speed -= 4;
         navMeshAgent.height = 4;
+        _attackTime = 0;
     }
 
     protected override float SetFlyTime() => _flyingTime;   
@@ -83,22 +87,15 @@ public class MountainDragonManager : MonsterManager
         StartCoroutine(AdjustHeightOverTime(_flyHeight, 2.5f));
     }
     public void AdjustHeightFly()=>_AdjustHeightFly();
-    private void _AdjustHeightLand()
+    private void _AdjustHeightLand(float duration)
     {
-       StartCoroutine(AdjustHeightOverTime(0f, 2.5f));
+       StartCoroutine(AdjustHeightOverTime(0f, duration));
     }
-    public void AdjustHeightLand()=>_AdjustHeightLand();
-
-    protected override void _StopMovement()
-    {
-        base._StopMovement();
-    }   
-    public void StopMovement() => _StopMovement();
-    override protected void _ResumeMovement()
-    {
-        base._ResumeMovement();
-    }
-    public void ResumeMovement() => _ResumeMovement();  
+    public void AdjustHeightLand(float duration)=>_AdjustHeightLand(duration);
+    
+    public void StopMovement() => base._StopMovement();    
+    public void ResumeMovement() => base._ResumeMovement();   
+  
 }
 
 
