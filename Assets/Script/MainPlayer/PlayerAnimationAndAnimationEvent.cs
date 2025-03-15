@@ -19,13 +19,13 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
     public void OnAttackStart()
     {
         weaponCollider.enabled = true;
-        GameObject normalHitParticle = Instantiate(normalHitEffect, normalHitEffectSpawnPoint.position, Quaternion.identity);
+        //GameObject normalHitParticle = Instantiate(normalHitEffect, normalHitEffectSpawnPoint.position, Quaternion.identity);
     }
 
     public void OnAttackEnd()
     {
         weaponCollider.enabled = false;
-        GameObject normalHitParticle = Instantiate(normalHitEffect, normalHitEffectSpawnPoint.position, Quaternion.identity);
+        //GameObject normalHitParticle = Instantiate(normalHitEffect, normalHitEffectSpawnPoint.position, Quaternion.identity);
     }
     public void KnockDown()
     {
@@ -38,6 +38,26 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
     public void GetUp()
     {
         _isStaying = false;
+    }
+
+    private void OnFootstep(AnimationEvent animationEvent)
+    {
+        //if (animationEvent.animatorClipInfo.weight > 0.5f)
+        //{
+        //    if (FootstepAudioClips.Length > 0)
+        //    {
+        //        var index = Random.Range(0, FootstepAudioClips.Length);
+        //        AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+        //    }
+        //}
+    }
+
+    private void OnLand(AnimationEvent animationEvent)
+    {
+        //if (animationEvent.animatorClipInfo.weight > 0.5f)
+        //{
+        //    AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+        //}
     }
 
 }
