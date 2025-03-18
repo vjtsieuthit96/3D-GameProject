@@ -6,6 +6,7 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
     [SerializeField] private BoxCollider weaponCollider;
     [SerializeField] private GameObject normalHitEffect;
     [SerializeField] private Transform normalHitEffectSpawnPoint;
+    [SerializeField] private Transform TopOfBlade;
 
     //Skill
     [SerializeField] private GameObject skill1Effect;
@@ -69,17 +70,17 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
     }
     private void OnSkill1Effect()
     {
-        GameObject skill1Particle = Instantiate(skill1Effect, normalHitEffectSpawnPoint.position, normalHitEffectSpawnPoint.transform.rotation);
+        GameObject skill1Particle = Instantiate(skill1Effect, TopOfBlade.position, TopOfBlade.rotation);
        
         MoveParticle(skill1Particle);
-        Destroy(skill1Particle, 1.5f);
+        Destroy(skill1Particle, 2.5f);
     }
     IEnumerator MoveParticle(GameObject particle)
     {
         float elapsedTime = 0f;
         float duration = 1f;
         Vector3 startPosition = particle.transform.position;
-        Vector3 targetPosition = startPosition + Vector3.forward * 2f;
+        Vector3 targetPosition = startPosition + Vector3.forward * 5f;
 
         while (elapsedTime < duration)
         {

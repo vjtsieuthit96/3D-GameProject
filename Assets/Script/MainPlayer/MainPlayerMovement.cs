@@ -101,7 +101,7 @@ public class MainPlayerMovement : MonoBehaviour
     {
         Move();
         GroundedCheck();
-        JumpAndGravity();
+        JumpAndGravity();        
     }
 
     private void Move()
