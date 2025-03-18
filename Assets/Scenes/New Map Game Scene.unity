@@ -1716,26 +1716,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2616460349997147318, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3932607360470150404, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5319256479331365751, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
-      propertyPath: moveSpeed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6017188826214279307, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 1890303201}
-    - target: {fileID: 9186337326001745264, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
+    - target: {fileID: 6706763494223983838, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
+      propertyPath: skill1Effect
+      value: 
+      objectReference: {fileID: 3198697228424100709, guid: 770d49fb292c1b049bebf1ffd5da62b3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
