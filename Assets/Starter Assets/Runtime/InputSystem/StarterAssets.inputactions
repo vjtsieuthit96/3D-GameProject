@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Skill1",
+                    "name": "SkillOne",
                     "type": "Button",
                     "id": "42fa5492-2e72-4473-b824-53cc6c5d251c",
                     "expectedControlType": "",
@@ -264,7 +264,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
-                    "action": "Skill1",
+                    "action": "SkillOne",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

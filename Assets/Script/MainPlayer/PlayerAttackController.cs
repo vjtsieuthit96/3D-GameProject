@@ -21,7 +21,7 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] float SkillOneCountDownTime = 5f;
 
     private float _waitTimeAttack;
-    private float _SkillOneCountDown;
+    private float _SkillOneCountDown = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,10 +69,10 @@ public class PlayerAttackController : MonoBehaviour
             }
           
         }else
-        if(playerInput.useSkillOne && Time.time > _SkillOneCountDown)
+        if(playerInput.skillOne && Time.time > _SkillOneCountDown)
         {
             playerAnim.SetTrigger(_swordSkill1Index);
-            playerInput.useSkillOne = false;
+            playerInput.skillOne = false;
             _SkillOneCountDown = Time.time + SkillOneCountDownTime;
         }
         
