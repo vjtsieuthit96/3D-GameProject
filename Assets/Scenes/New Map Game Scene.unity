@@ -1069,7 +1069,7 @@ PrefabInstance:
     - target: {fileID: 4548408401415332742, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: _negativeEffectManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1557520753}
     - target: {fileID: 6449007892803640929, guid: a92c831dd0cd1aa43930e9e2702b6608, type: 3}
       propertyPath: m_Name
       value: DragonBoss
@@ -1716,19 +1716,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2616460349997147318, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3932607360470150404, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5808705108594868102, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
+    - target: {fileID: 5319256479331365751, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6017188826214279307, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 1890303201}
+    - target: {fileID: 9186337326001745264, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
+--- !u!114 &1557520753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6017188826214279307, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
+  m_PrefabInstance: {fileID: 1557520747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbeca613c10d144cb6bed9910a2252b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1590726937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2072,7 +2095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871a2f1e72081a84cb5be457a932442f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.1
+  rotationSpeed: 10
   sunLight: {fileID: 1767167744}
   dayIntensity: 2
   nightIntensity: 0.1

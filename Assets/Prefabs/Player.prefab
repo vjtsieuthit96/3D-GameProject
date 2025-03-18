@@ -63,6 +63,37 @@ Transform:
   - {fileID: 8000808701341680998}
   m_Father: {fileID: 6966609705504703473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3495993510627700345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9155496855154366951}
+  m_Layer: 3
+  m_Name: StatusSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9155496855154366951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3495993510627700345}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.322, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2319625493064876644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3932607360470150404
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +109,9 @@ GameObject:
   - component: {fileID: 2467528387845425791}
   - component: {fileID: 5319256479331365751}
   - component: {fileID: 2599103191555236892}
+  - component: {fileID: 6017188826214279307}
+  - component: {fileID: 991806376443344183}
+  - component: {fileID: 6398981574117028788}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -141,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CinemachineCameraTarget: {fileID: 892041272024683200}
   TopClamp: 70
-  BottomClamp: -10
+  BottomClamp: -50
   CameraAngleOverride: 0
   LockCameraPosition: 0
   input: {fileID: 2467528387845425791}
@@ -262,6 +296,7 @@ MonoBehaviour:
   crouch: 0
   attack: 0
   roll: 0
+  useSkillOne: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -286,7 +321,7 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
-  moveSpeed: 3
+  moveSpeed: 4
   sprintSpeed: 5.335
   rotationSmoothTime: 0.12
   speedChangeRate: 10
@@ -309,6 +344,90 @@ MonoBehaviour:
   playerAnim: {fileID: 8191460438900681206}
   playerInput: {fileID: 2467528387845425791}
   delayAttack: 1.5
+  SkillOneCountDownTime: 5
+--- !u!114 &6017188826214279307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932607360470150404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbeca613c10d144cb6bed9910a2252b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 3812285932868583054}
+  playerManager: {fileID: 6398981574117028788}
+  playerAnimManager: {fileID: 6706763494223983838}
+  cameraFollow: {fileID: 0}
+  playerHealth: {fileID: 991806376443344183}
+  statusSpawnLocation: {fileID: 9155496855154366951}
+  stunStatus: {fileID: 6606978891239218250, guid: e498b09a3aea97e4081592c4b0738f23, type: 3}
+  _fireSpawnLocation: {fileID: 6271997340939081470}
+  _fireStatus: {fileID: 1466760634654475564, guid: e20af3de67088964c969c101e0f5fa92, type: 3}
+  _burnPrefab: {fileID: 8522006845726608964, guid: 9a0d354300102f1499376293b33c84bf, type: 3}
+--- !u!114 &991806376443344183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932607360470150404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b65f1d021fe94f4a82d231d7af1ea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1000
+  healingRate: 0
+  _currentHealth: 0
+--- !u!114 &6398981574117028788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932607360470150404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadc53f185041a240ad5d9aea516536c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 3812285932868583054}
+  playerHealth: {fileID: 991806376443344183}
+  playerAnimator: {fileID: 8191460438900681206}
+--- !u!1 &6027156169600177585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6271997340939081470}
+  m_Layer: 3
+  m_Name: FireSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6271997340939081470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027156169600177585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.47, y: -0.089, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2319625493064876644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8229777689288356133
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +878,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3589568896793260725, guid: d795ecf62053eb745964b087aeb03184, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6194900234783404374}
+    - targetCorrespondingSourceObject: {fileID: 8164494381321040672, guid: d795ecf62053eb745964b087aeb03184, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9155496855154366951}
+    - targetCorrespondingSourceObject: {fileID: 8164494381321040672, guid: d795ecf62053eb745964b087aeb03184, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6271997340939081470}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7094620311760461776, guid: d795ecf62053eb745964b087aeb03184, type: 3}
       insertIndex: -1
@@ -1012,6 +1137,7 @@ MonoBehaviour:
   weaponCollider: {fileID: 2616460349997147318}
   normalHitEffect: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
   normalHitEffectSpawnPoint: {fileID: 6820341171786824606}
+  skill1Effect: {fileID: 0}
 --- !u!4 &3859264385829771876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7273374951610100512, guid: d795ecf62053eb745964b087aeb03184, type: 3}
@@ -1255,6 +1381,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 29.881
       objectReference: {fileID: 0}
+    - target: {fileID: -7494480974972923907, guid: 611904278e9af754c912024cf80cd551, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 611904278e9af754c912024cf80cd551, type: 3}
       propertyPath: m_Name
       value: Xena Sword (1)
@@ -1296,7 +1426,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
