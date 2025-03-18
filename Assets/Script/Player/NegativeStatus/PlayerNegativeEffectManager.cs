@@ -8,7 +8,7 @@ public class PlayerNegativeEffectManager : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
     [SerializeField] private PlayerManager playerManager;
-    [SerializeField] private PlayerAnimManager playerAnimManager;
+    [SerializeField] private PlayerAnimationAndAnimationEvent playerAnimManager;
     [SerializeField] private CinemachineCamera cameraFollow;
     [SerializeField] private Health playerHealth;
     [SerializeField] private Transform statusSpawnLocation;
