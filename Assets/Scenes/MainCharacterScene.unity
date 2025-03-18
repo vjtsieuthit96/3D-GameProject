@@ -800,22 +800,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6706763494223983838, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
-      propertyPath: skill1Effect
-      value: 
-      objectReference: {fileID: 3198697228424100709, guid: 770d49fb292c1b049bebf1ffd5da62b3, type: 3}
-    - target: {fileID: 6820341171786824606, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6820341171786824606, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6820341171786824606, guid: d87ff9baae086a54baf4044a3532cad4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.871
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
