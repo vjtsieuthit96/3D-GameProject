@@ -6,6 +6,15 @@
             "id": "f62a4b92-ef5e-4175-8f4c-c9075429d32c",
             "actions": [
                 {
+                    "name": "Roll",
+                    "type": "Button",
+                    "id": "1a3e4cdb-6f84-4fb4-bb3e-cbd3a295b370",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "MultiTap(tapCount=1)",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Move",
                     "type": "Value",
                     "id": "6bc1aaf4-b110-4ff7-891e-5b9fe6f32c4d",
@@ -45,6 +54,15 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "bc615798-1330-4713-b04b-117e24cf305d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill1",
+                    "type": "Button",
+                    "id": "42fa5492-2e72-4473-b824-53cc6c5d251c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -232,10 +250,32 @@
                     "name": "",
                     "id": "67c330cd-8fed-490a-89f4-dae5f19c4cfa",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c82d43dc-b467-4c68-9298-da21304ccf9c",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "Skill1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7af5eb5b-de8d-4084-bdc4-a0f18c40f15d",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "Roll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

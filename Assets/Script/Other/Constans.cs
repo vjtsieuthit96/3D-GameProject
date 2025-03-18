@@ -6,6 +6,7 @@
     public const string ATTACK = "Attack";
     public const string COMBO_ATTACK1 = "ComboAtk1";
     public const string COMBO_ATTACK2 = "ComboAtk2";
+    public const string SWORD_SKILL1 = "SwordSkill1";
     public const string IS_ALIVE = "IsAlive";
     public const string GROUNDED = "Grounded";
     public const string JUMP = "Jump";

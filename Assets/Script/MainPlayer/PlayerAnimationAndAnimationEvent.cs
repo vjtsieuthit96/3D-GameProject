@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAnimationAndAnimationEvent : MonoBehaviour
@@ -5,6 +6,9 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
     [SerializeField] private BoxCollider weaponCollider;
     [SerializeField] private GameObject normalHitEffect;
     [SerializeField] private Transform normalHitEffectSpawnPoint;
+
+    //Skill
+    [SerializeField] private GameObject skill1Effect;
     //[SerializeField] private PlayerManager playerManager;
 
     private bool _isStaying;
@@ -19,7 +23,7 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
     public void OnAttackStart()
     {
         weaponCollider.enabled = true;
-        //GameObject normalHitParticle = Instantiate(normalHitEffect, normalHitEffectSpawnPoint.position, Quaternion.identity);
+        //
     }
 
     public void OnAttackEnd()
@@ -33,7 +37,7 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
     }
     public void NeedGetUp()
     {
-       // playerManager.SetGetUp();
+        // playerManager.SetGetUp();
     }
     public void GetUp()
     {
@@ -59,5 +63,31 @@ public class PlayerAnimationAndAnimationEvent : MonoBehaviour
         //    AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
         //}
     }
+    private void OnNormalHit()
+    {
+        GameObject normalHitParticle = Instantiate(normalHitEffect, normalHitEffectSpawnPoint.position, Quaternion.identity);
+    }
+    private void OnSkill1Effect()
+    {
+        GameObject skill1Particle = Instantiate(skill1Effect, normalHitEffectSpawnPoint.position, normalHitEffectSpawnPoint.transform.rotation);
+       
+        MoveParticle(skill1Particle);
+        Destroy(skill1Particle, 1.5f);
+    }
+    IEnumerator MoveParticle(GameObject particle)
+    {
+        float elapsedTime = 0f;
+        float duration = 1f;
+        Vector3 startPosition = particle.transform.position;
+        Vector3 targetPosition = startPosition + Vector3.forward * 2f;
 
+        while (elapsedTime < duration)
+        {
+            particle.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        particle.transform.position = targetPosition;
+    }
 }
