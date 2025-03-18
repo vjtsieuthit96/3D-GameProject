@@ -106,7 +106,10 @@ public class MainPlayerMovement : MonoBehaviour
 
     private void Move()
     {
-       
+       if(playerInput.roll)
+        {
+            Debug.Log("player is rolling");
+        }
         // set target speed based on move speed, sprint speed and if sprint is pressed
         float targetSpeed = playerInput.sprint ? sprintSpeed : moveSpeed;
 

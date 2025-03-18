@@ -14,7 +14,8 @@ namespace StarterAssets
 		public bool sprint;
 		public bool crouch;
 		public bool attack;
-
+		public bool roll;
+		public bool useSkillOne;
         [Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -55,6 +56,16 @@ namespace StarterAssets
         {
             attack = value.isPressed;
         }
+
+		public void OnUseSkillOne(InputValue value)
+        {
+            useSkillOne = value.isPressed;
+        }
+
+        public void OnRoll(InputValue value)
+		{
+			roll = value.isPressed;
+		}
 #endif
 
 
@@ -83,11 +94,19 @@ namespace StarterAssets
             attack = newAttackState;
         }
 
-		private void Crouch(bool newCrouchState)
+		public void UseSkillOneInput(bool newUseSkillOneState)
+        {
+            useSkillOne = newUseSkillOneState;
+        }
+        private void CrouchInput(bool newCrouchState)
         {
             crouch = newCrouchState;
         }
 
+		private void RollInput(bool newRollState)
+		{
+			roll = newRollState;
+		}
         private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
