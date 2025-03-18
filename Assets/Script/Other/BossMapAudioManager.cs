@@ -19,6 +19,7 @@ public class BossMapAudioManager : MonoBehaviour
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(Constans.PLAYER_TAG))
